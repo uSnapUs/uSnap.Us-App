@@ -1,0 +1,452 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5A7A1EC01489B9C3005976FD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7A1EBF1489B9C3005976FD /* UIKit.framework */; };
+		5A7A1EC21489B9C3005976FD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7A1EC11489B9C3005976FD /* Foundation.framework */; };
+		5A7A1EC41489B9C3005976FD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7A1EC31489B9C3005976FD /* CoreGraphics.framework */; };
+		5A7A1EC61489B9C3005976FD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7A1EC51489B9C3005976FD /* CoreData.framework */; };
+		5A7A1ECC1489B9C3005976FD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A7A1ECA1489B9C3005976FD /* InfoPlist.strings */; };
+		5A7A1ECE1489B9C3005976FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7A1ECD1489B9C3005976FD /* main.m */; };
+		5A7A1ED21489B9C3005976FD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7A1ED11489B9C3005976FD /* AppDelegate.m */; };
+		5A7A1ED51489B9C3005976FD /* uSnapUs_Native.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5A7A1ED31489B9C3005976FD /* uSnapUs_Native.xcdatamodeld */; };
+		5A7A1EDD1489B9C3005976FD /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7A1EDC1489B9C3005976FD /* SenTestingKit.framework */; };
+		5A7A1EDE1489B9C3005976FD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7A1EBF1489B9C3005976FD /* UIKit.framework */; };
+		5A7A1EDF1489B9C3005976FD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7A1EC11489B9C3005976FD /* Foundation.framework */; };
+		5A7A1EE01489B9C3005976FD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7A1EC51489B9C3005976FD /* CoreData.framework */; };
+		5A7A1EE81489B9C3005976FD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A7A1EE61489B9C3005976FD /* InfoPlist.strings */; };
+		5A7A1EEB1489B9C3005976FD /* uSnapUs_NativeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7A1EEA1489B9C3005976FD /* uSnapUs_NativeTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5A7A1EE11489B9C3005976FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A7A1EB21489B9C3005976FD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5A7A1EBA1489B9C3005976FD;
+			remoteInfo = "uSnapUs-Native";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5A7A1EBB1489B9C3005976FD /* uSnapUs-Native.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "uSnapUs-Native.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A7A1EBF1489B9C3005976FD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5A7A1EC11489B9C3005976FD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5A7A1EC31489B9C3005976FD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5A7A1EC51489B9C3005976FD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		5A7A1EC91489B9C3005976FD /* uSnapUs-Native-Info.plist */ = {isa = PBXFileReference; path = "uSnapUs-Native-Info.plist"; sourceTree = "<group>"; };
+		5A7A1ECB1489B9C3005976FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5A7A1ECD1489B9C3005976FD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5A7A1ECF1489B9C3005976FD /* uSnapUs-Native-Prefix.pch */ = {isa = PBXFileReference; path = "uSnapUs-Native-Prefix.pch"; sourceTree = "<group>"; };
+		5A7A1ED01489B9C3005976FD /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		5A7A1ED11489B9C3005976FD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5A7A1ED41489B9C3005976FD /* uSnapUs_Native.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = uSnapUs_Native.xcdatamodel; sourceTree = "<group>"; };
+		5A7A1EDB1489B9C3005976FD /* uSnapUs-NativeTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "uSnapUs-NativeTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A7A1EDC1489B9C3005976FD /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		5A7A1EE51489B9C3005976FD /* uSnapUs-NativeTests-Info.plist */ = {isa = PBXFileReference; path = "uSnapUs-NativeTests-Info.plist"; sourceTree = "<group>"; };
+		5A7A1EE71489B9C3005976FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5A7A1EE91489B9C3005976FD /* uSnapUs_NativeTests.h */ = {isa = PBXFileReference; path = uSnapUs_NativeTests.h; sourceTree = "<group>"; };
+		5A7A1EEA1489B9C3005976FD /* uSnapUs_NativeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = uSnapUs_NativeTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5A7A1EB81489B9C3005976FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A7A1EC01489B9C3005976FD /* UIKit.framework in Frameworks */,
+				5A7A1EC21489B9C3005976FD /* Foundation.framework in Frameworks */,
+				5A7A1EC41489B9C3005976FD /* CoreGraphics.framework in Frameworks */,
+				5A7A1EC61489B9C3005976FD /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A7A1ED71489B9C3005976FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A7A1EDD1489B9C3005976FD /* SenTestingKit.framework in Frameworks */,
+				5A7A1EDE1489B9C3005976FD /* UIKit.framework in Frameworks */,
+				5A7A1EDF1489B9C3005976FD /* Foundation.framework in Frameworks */,
+				5A7A1EE01489B9C3005976FD /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5A7A1EB01489B9C3005976FD = {
+			isa = PBXGroup;
+			children = (
+				5A7A1EC71489B9C3005976FD /* uSnapUs-Native */,
+				5A7A1EE31489B9C3005976FD /* uSnapUs-NativeTests */,
+				5A7A1EBE1489B9C3005976FD /* Frameworks */,
+				5A7A1EBC1489B9C3005976FD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5A7A1EBC1489B9C3005976FD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5A7A1EBB1489B9C3005976FD /* uSnapUs-Native.app */,
+				5A7A1EDB1489B9C3005976FD /* uSnapUs-NativeTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5A7A1EBE1489B9C3005976FD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5A7A1EBF1489B9C3005976FD /* UIKit.framework */,
+				5A7A1EC11489B9C3005976FD /* Foundation.framework */,
+				5A7A1EC31489B9C3005976FD /* CoreGraphics.framework */,
+				5A7A1EC51489B9C3005976FD /* CoreData.framework */,
+				5A7A1EDC1489B9C3005976FD /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5A7A1EC71489B9C3005976FD /* uSnapUs-Native */ = {
+			isa = PBXGroup;
+			children = (
+				5A7A1ED01489B9C3005976FD /* AppDelegate.h */,
+				5A7A1ED11489B9C3005976FD /* AppDelegate.m */,
+				5A7A1ED31489B9C3005976FD /* uSnapUs_Native.xcdatamodeld */,
+				5A7A1EC81489B9C3005976FD /* Supporting Files */,
+			);
+			path = "uSnapUs-Native";
+			sourceTree = "<group>";
+		};
+		5A7A1EC81489B9C3005976FD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5A7A1EC91489B9C3005976FD /* uSnapUs-Native-Info.plist */,
+				5A7A1ECA1489B9C3005976FD /* InfoPlist.strings */,
+				5A7A1ECD1489B9C3005976FD /* main.m */,
+				5A7A1ECF1489B9C3005976FD /* uSnapUs-Native-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5A7A1EE31489B9C3005976FD /* uSnapUs-NativeTests */ = {
+			isa = PBXGroup;
+			children = (
+				5A7A1EE91489B9C3005976FD /* uSnapUs_NativeTests.h */,
+				5A7A1EEA1489B9C3005976FD /* uSnapUs_NativeTests.m */,
+				5A7A1EE41489B9C3005976FD /* Supporting Files */,
+			);
+			path = "uSnapUs-NativeTests";
+			sourceTree = "<group>";
+		};
+		5A7A1EE41489B9C3005976FD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5A7A1EE51489B9C3005976FD /* uSnapUs-NativeTests-Info.plist */,
+				5A7A1EE61489B9C3005976FD /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5A7A1EBA1489B9C3005976FD /* uSnapUs-Native */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A7A1EEE1489B9C3005976FD /* Build configuration list for PBXNativeTarget "uSnapUs-Native" */;
+			buildPhases = (
+				5A7A1EB71489B9C3005976FD /* Sources */,
+				5A7A1EB81489B9C3005976FD /* Frameworks */,
+				5A7A1EB91489B9C3005976FD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "uSnapUs-Native";
+			productName = "uSnapUs-Native";
+			productReference = 5A7A1EBB1489B9C3005976FD /* uSnapUs-Native.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5A7A1EDA1489B9C3005976FD /* uSnapUs-NativeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A7A1EF11489B9C3005976FD /* Build configuration list for PBXNativeTarget "uSnapUs-NativeTests" */;
+			buildPhases = (
+				5A7A1ED61489B9C3005976FD /* Sources */,
+				5A7A1ED71489B9C3005976FD /* Frameworks */,
+				5A7A1ED81489B9C3005976FD /* Resources */,
+				5A7A1ED91489B9C3005976FD /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5A7A1EE21489B9C3005976FD /* PBXTargetDependency */,
+			);
+			name = "uSnapUs-NativeTests";
+			productName = "uSnapUs-NativeTests";
+			productReference = 5A7A1EDB1489B9C3005976FD /* uSnapUs-NativeTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5A7A1EB21489B9C3005976FD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = Xero;
+			};
+			buildConfigurationList = 5A7A1EB51489B9C3005976FD /* Build configuration list for PBXProject "uSnapUs-Native" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5A7A1EB01489B9C3005976FD;
+			productRefGroup = 5A7A1EBC1489B9C3005976FD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5A7A1EBA1489B9C3005976FD /* uSnapUs-Native */,
+				5A7A1EDA1489B9C3005976FD /* uSnapUs-NativeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5A7A1EB91489B9C3005976FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A7A1ECC1489B9C3005976FD /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A7A1ED81489B9C3005976FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A7A1EE81489B9C3005976FD /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5A7A1ED91489B9C3005976FD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5A7A1EB71489B9C3005976FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A7A1ECE1489B9C3005976FD /* main.m in Sources */,
+				5A7A1ED21489B9C3005976FD /* AppDelegate.m in Sources */,
+				5A7A1ED51489B9C3005976FD /* uSnapUs_Native.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A7A1ED61489B9C3005976FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A7A1EEB1489B9C3005976FD /* uSnapUs_NativeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5A7A1EE21489B9C3005976FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5A7A1EBA1489B9C3005976FD /* uSnapUs-Native */;
+			targetProxy = 5A7A1EE11489B9C3005976FD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5A7A1ECA1489B9C3005976FD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5A7A1ECB1489B9C3005976FD /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		5A7A1EE61489B9C3005976FD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5A7A1EE71489B9C3005976FD /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5A7A1EEC1489B9C3005976FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5A7A1EED1489B9C3005976FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5A7A1EEF1489B9C3005976FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "uSnapUs-Native/uSnapUs-Native-Prefix.pch";
+				INFOPLIST_FILE = "uSnapUs-Native/uSnapUs-Native-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		5A7A1EF01489B9C3005976FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "uSnapUs-Native/uSnapUs-Native-Prefix.pch";
+				INFOPLIST_FILE = "uSnapUs-Native/uSnapUs-Native-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		5A7A1EF21489B9C3005976FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/uSnapUs-Native.app/uSnapUs-Native";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "uSnapUs-Native/uSnapUs-Native-Prefix.pch";
+				INFOPLIST_FILE = "uSnapUs-NativeTests/uSnapUs-NativeTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		5A7A1EF31489B9C3005976FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/uSnapUs-Native.app/uSnapUs-Native";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "uSnapUs-Native/uSnapUs-Native-Prefix.pch";
+				INFOPLIST_FILE = "uSnapUs-NativeTests/uSnapUs-NativeTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5A7A1EB51489B9C3005976FD /* Build configuration list for PBXProject "uSnapUs-Native" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A7A1EEC1489B9C3005976FD /* Debug */,
+				5A7A1EED1489B9C3005976FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5A7A1EEE1489B9C3005976FD /* Build configuration list for PBXNativeTarget "uSnapUs-Native" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A7A1EEF1489B9C3005976FD /* Debug */,
+				5A7A1EF01489B9C3005976FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5A7A1EF11489B9C3005976FD /* Build configuration list for PBXNativeTarget "uSnapUs-NativeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A7A1EF21489B9C3005976FD /* Debug */,
+				5A7A1EF31489B9C3005976FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5A7A1ED31489B9C3005976FD /* uSnapUs_Native.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5A7A1ED41489B9C3005976FD /* uSnapUs_Native.xcdatamodel */,
+			);
+			currentVersion = 5A7A1ED41489B9C3005976FD /* uSnapUs_Native.xcdatamodel */;
+			path = uSnapUs_Native.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 5A7A1EB21489B9C3005976FD /* Project object */;
+}
