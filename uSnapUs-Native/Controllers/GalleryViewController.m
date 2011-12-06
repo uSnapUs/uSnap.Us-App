@@ -8,6 +8,7 @@
 
 #import "GalleryViewController.h"
 #import "EventBoundController.h"
+#import "AppDelegate.h"
 @implementation GalleryViewController
 @synthesize currentEvent;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -36,13 +37,16 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    AppDelegate* appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    currentEvent = appDelegate.currentEvent;
+    NSLog(@"current event %@",[currentEvent eventKey]);
 }
-*/
+
 
 - (void)viewDidUnload
 {

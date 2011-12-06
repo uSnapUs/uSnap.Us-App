@@ -7,7 +7,10 @@
 //
 
 #import "CameraViewController.h"
-
+#import "AppDelegate.h"
+@interface CameraViewController (PrivateMethods)
+-(void) initCameraView;
+@end
 @implementation CameraViewController
 @synthesize currentEvent;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -36,13 +39,16 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    AppDelegate* appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    currentEvent = appDelegate.currentEvent;
+    [self initCameraView];
 }
-*/
+
 
 - (void)viewDidUnload
 {
@@ -55,6 +61,11 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+
+-(void) initCameraView{
+    
 }
 
 @end

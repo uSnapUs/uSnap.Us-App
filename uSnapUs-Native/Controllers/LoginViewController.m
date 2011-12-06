@@ -91,18 +91,10 @@ Event *currentEvent;
         event = (Event*)[results objectAtIndex:0];
     }
     currentEvent = event;
+    AppDelegate* appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    appDelegate.currentEvent = currentEvent;
     [self performSegueWithIdentifier:@"InitialSegue" sender:self];
     
 
-}
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([[segue identifier] isEqualToString:@"InitialSegue"]){
-        UITabBarController *tabBarController = (UITabBarController *)[segue destinationViewController];
-        NSArray *viewControllers = [tabBarController viewControllers];
-        for(id<EventBoundController> eventController in viewControllers){
-            [eventController setCurrentEvent:currentEvent];
-        }
-    }
-    [super prepareForSegue:segue sender:sender];
 }
 @end

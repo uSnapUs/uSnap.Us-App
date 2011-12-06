@@ -8,8 +8,10 @@
 
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "Event.h"
 @implementation AppDelegate
 
+@synthesize currentEvent;
 @synthesize window = _window;
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize managedObjectModel = __managedObjectModel;
