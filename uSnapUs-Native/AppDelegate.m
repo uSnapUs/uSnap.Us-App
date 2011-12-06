@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "LoginViewController.h"
 @implementation AppDelegate
 
 @synthesize window = _window;
@@ -17,10 +17,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+      
+    } else {
+
+    }
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"iPhone_Storyboard"
+                                                             bundle: nil];
+    
+    LoginViewController *controller = (LoginViewController*)[mainStoryboard 
+                                                             instantiateInitialViewController];    
+    controller.managedObjectContext = self.managedObjectContext;
     return YES;
 }
 
@@ -162,7 +170,6 @@
     
     return __persistentStoreCoordinator;
 }
-
 #pragma mark - Application's Documents directory
 
 /**

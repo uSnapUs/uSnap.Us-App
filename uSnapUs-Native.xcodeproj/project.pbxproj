@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A070275148DFDF8005E2215 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A070274148DFDF8005E2215 /* CameraViewController.m */; };
+		5A070279148DFE13005E2215 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A070278148DFE13005E2215 /* GalleryViewController.m */; };
 		5A7A1EC01489B9C3005976FD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7A1EBF1489B9C3005976FD /* UIKit.framework */; };
 		5A7A1EC21489B9C3005976FD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7A1EC11489B9C3005976FD /* Foundation.framework */; };
 		5A7A1EC41489B9C3005976FD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7A1EC31489B9C3005976FD /* CoreGraphics.framework */; };
@@ -20,7 +22,12 @@
 		5A7A1EDF1489B9C3005976FD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7A1EC11489B9C3005976FD /* Foundation.framework */; };
 		5A7A1EE01489B9C3005976FD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7A1EC51489B9C3005976FD /* CoreData.framework */; };
 		5A7A1EE81489B9C3005976FD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A7A1EE61489B9C3005976FD /* InfoPlist.strings */; };
-		5A7A1EEB1489B9C3005976FD /* uSnapUs_NativeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7A1EEA1489B9C3005976FD /* uSnapUs_NativeTests.m */; };
+		5A7A1EF61489BA61005976FD /* iphone_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A7A1EF51489BA61005976FD /* iphone_Storyboard.storyboard */; };
+		5A7A1EFC1489C5E1005976FD /* PictureSpecificaitons.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7A1EFB1489C5E1005976FD /* PictureSpecificaitons.m */; };
+		5A9C135C148CC3470078463F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9C135B148CC3470078463F /* LoginViewController.m */; };
+		5A9C1454148CCCBA0078463F /* EventSpecifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9C1453148CCCBA0078463F /* EventSpecifications.m */; };
+		5AB93741148CA323001A0FB2 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB93740148CA323001A0FB2 /* Event.m */; };
+		5AB93744148CA324001A0FB2 /* Picture.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB93743148CA324001A0FB2 /* Picture.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,24 +41,37 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A070273148DFDF8005E2215 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraViewController.h; path = Controllers/CameraViewController.h; sourceTree = "<group>"; };
+		5A070274148DFDF8005E2215 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CameraViewController.m; path = Controllers/CameraViewController.m; sourceTree = "<group>"; };
+		5A070277148DFE13005E2215 /* GalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GalleryViewController.h; path = Controllers/GalleryViewController.h; sourceTree = "<group>"; };
+		5A070278148DFE13005E2215 /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GalleryViewController.m; path = Controllers/GalleryViewController.m; sourceTree = "<group>"; };
 		5A7A1EBB1489B9C3005976FD /* uSnapUs-Native.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "uSnapUs-Native.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A7A1EBF1489B9C3005976FD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5A7A1EC11489B9C3005976FD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5A7A1EC31489B9C3005976FD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		5A7A1EC51489B9C3005976FD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		5A7A1EC91489B9C3005976FD /* uSnapUs-Native-Info.plist */ = {isa = PBXFileReference; path = "uSnapUs-Native-Info.plist"; sourceTree = "<group>"; };
+		5A7A1EC91489B9C3005976FD /* uSnapUs-Native-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "uSnapUs-Native-Info.plist"; sourceTree = "<group>"; };
 		5A7A1ECB1489B9C3005976FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5A7A1ECD1489B9C3005976FD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		5A7A1ECF1489B9C3005976FD /* uSnapUs-Native-Prefix.pch */ = {isa = PBXFileReference; path = "uSnapUs-Native-Prefix.pch"; sourceTree = "<group>"; };
-		5A7A1ED01489B9C3005976FD /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		5A7A1ECF1489B9C3005976FD /* uSnapUs-Native-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "uSnapUs-Native-Prefix.pch"; sourceTree = "<group>"; };
+		5A7A1ED01489B9C3005976FD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5A7A1ED11489B9C3005976FD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5A7A1ED41489B9C3005976FD /* uSnapUs_Native.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = uSnapUs_Native.xcdatamodel; sourceTree = "<group>"; };
 		5A7A1EDB1489B9C3005976FD /* uSnapUs-NativeTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "uSnapUs-NativeTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A7A1EDC1489B9C3005976FD /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		5A7A1EE51489B9C3005976FD /* uSnapUs-NativeTests-Info.plist */ = {isa = PBXFileReference; path = "uSnapUs-NativeTests-Info.plist"; sourceTree = "<group>"; };
+		5A7A1EE51489B9C3005976FD /* uSnapUs-NativeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "uSnapUs-NativeTests-Info.plist"; sourceTree = "<group>"; };
 		5A7A1EE71489B9C3005976FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		5A7A1EE91489B9C3005976FD /* uSnapUs_NativeTests.h */ = {isa = PBXFileReference; path = uSnapUs_NativeTests.h; sourceTree = "<group>"; };
-		5A7A1EEA1489B9C3005976FD /* uSnapUs_NativeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = uSnapUs_NativeTests.m; sourceTree = "<group>"; };
+		5A7A1EF51489BA61005976FD /* iphone_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iphone_Storyboard.storyboard; sourceTree = "<group>"; };
+		5A7A1EFA1489C5E1005976FD /* PictureSpecificaitons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PictureSpecificaitons.h; path = ModelTests/PictureSpecificaitons.h; sourceTree = "<group>"; };
+		5A7A1EFB1489C5E1005976FD /* PictureSpecificaitons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PictureSpecificaitons.m; path = ModelTests/PictureSpecificaitons.m; sourceTree = "<group>"; };
+		5A9C135A148CC3470078463F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Controllers/LoginViewController.h; sourceTree = "<group>"; };
+		5A9C135B148CC3470078463F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Controllers/LoginViewController.m; sourceTree = "<group>"; };
+		5A9C1452148CCCBA0078463F /* EventSpecifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventSpecifications.h; sourceTree = "<group>"; };
+		5A9C1453148CCCBA0078463F /* EventSpecifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventSpecifications.m; sourceTree = "<group>"; };
+		5AB9373F148CA323001A0FB2 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		5AB93740148CA323001A0FB2 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		5AB93742148CA324001A0FB2 /* Picture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Picture.h; sourceTree = "<group>"; };
+		5AB93743148CA324001A0FB2 /* Picture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Picture.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,9 +134,11 @@
 		5A7A1EC71489B9C3005976FD /* uSnapUs-Native */ = {
 			isa = PBXGroup;
 			children = (
+				5A9C135F148CC37B0078463F /* Model */,
+				5A9C135E148CC3540078463F /* Controllers */,
+				5A7A1EF41489BA43005976FD /* Storyboards */,
 				5A7A1ED01489B9C3005976FD /* AppDelegate.h */,
 				5A7A1ED11489B9C3005976FD /* AppDelegate.m */,
-				5A7A1ED31489B9C3005976FD /* uSnapUs_Native.xcdatamodeld */,
 				5A7A1EC81489B9C3005976FD /* Supporting Files */,
 			);
 			path = "uSnapUs-Native";
@@ -136,8 +158,7 @@
 		5A7A1EE31489B9C3005976FD /* uSnapUs-NativeTests */ = {
 			isa = PBXGroup;
 			children = (
-				5A7A1EE91489B9C3005976FD /* uSnapUs_NativeTests.h */,
-				5A7A1EEA1489B9C3005976FD /* uSnapUs_NativeTests.m */,
+				5A7A1EF71489C554005976FD /* ModelTests */,
 				5A7A1EE41489B9C3005976FD /* Supporting Files */,
 			);
 			path = "uSnapUs-NativeTests";
@@ -150,6 +171,50 @@
 				5A7A1EE61489B9C3005976FD /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5A7A1EF41489BA43005976FD /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				5A7A1EF51489BA61005976FD /* iphone_Storyboard.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		5A7A1EF71489C554005976FD /* ModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				5A7A1EFA1489C5E1005976FD /* PictureSpecificaitons.h */,
+				5A7A1EFB1489C5E1005976FD /* PictureSpecificaitons.m */,
+				5A9C1452148CCCBA0078463F /* EventSpecifications.h */,
+				5A9C1453148CCCBA0078463F /* EventSpecifications.m */,
+			);
+			name = ModelTests;
+			sourceTree = "<group>";
+		};
+		5A9C135E148CC3540078463F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5A9C135A148CC3470078463F /* LoginViewController.h */,
+				5A9C135B148CC3470078463F /* LoginViewController.m */,
+				5A070273148DFDF8005E2215 /* CameraViewController.h */,
+				5A070274148DFDF8005E2215 /* CameraViewController.m */,
+				5A070277148DFE13005E2215 /* GalleryViewController.h */,
+				5A070278148DFE13005E2215 /* GalleryViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		5A9C135F148CC37B0078463F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5A7A1ED31489B9C3005976FD /* uSnapUs_Native.xcdatamodeld */,
+				5AB93742148CA324001A0FB2 /* Picture.h */,
+				5AB93743148CA324001A0FB2 /* Picture.m */,
+				5AB9373F148CA323001A0FB2 /* Event.h */,
+				5AB93740148CA323001A0FB2 /* Event.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A7A1ECC1489B9C3005976FD /* InfoPlist.strings in Resources */,
+				5A7A1EF61489BA61005976FD /* iphone_Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +327,11 @@
 				5A7A1ECE1489B9C3005976FD /* main.m in Sources */,
 				5A7A1ED21489B9C3005976FD /* AppDelegate.m in Sources */,
 				5A7A1ED51489B9C3005976FD /* uSnapUs_Native.xcdatamodeld in Sources */,
+				5AB93741148CA323001A0FB2 /* Event.m in Sources */,
+				5AB93744148CA324001A0FB2 /* Picture.m in Sources */,
+				5A9C135C148CC3470078463F /* LoginViewController.m in Sources */,
+				5A070275148DFDF8005E2215 /* CameraViewController.m in Sources */,
+				5A070279148DFE13005E2215 /* GalleryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +339,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A7A1EEB1489B9C3005976FD /* uSnapUs_NativeTests.m in Sources */,
+				5A7A1EFC1489C5E1005976FD /* PictureSpecificaitons.m in Sources */,
+				5A9C1454148CCCBA0078463F /* EventSpecifications.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +496,7 @@
 				5A7A1EF01489B9C3005976FD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5A7A1EF11489B9C3005976FD /* Build configuration list for PBXNativeTarget "uSnapUs-NativeTests" */ = {
 			isa = XCConfigurationList;
@@ -432,6 +505,7 @@
 				5A7A1EF31489B9C3005976FD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
