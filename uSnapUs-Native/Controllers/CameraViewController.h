@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "EventBoundController.h"
 @interface CameraViewController : UIViewController<EventBoundController>
+@property (weak, nonatomic) IBOutlet UIView *PreviewView;
 
 @end

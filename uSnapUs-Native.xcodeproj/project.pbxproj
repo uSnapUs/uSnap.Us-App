@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5A070275148DFDF8005E2215 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A070274148DFDF8005E2215 /* CameraViewController.m */; };
 		5A070279148DFE13005E2215 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A070278148DFE13005E2215 /* GalleryViewController.m */; };
+		5A07027C148E0B33005E2215 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A07027B148E0B33005E2215 /* AVFoundation.framework */; };
+		5A070284148E1A20005E2215 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A070283148E1A20005E2215 /* camera.png */; };
 		5A7A1EC01489B9C3005976FD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7A1EBF1489B9C3005976FD /* UIKit.framework */; };
 		5A7A1EC21489B9C3005976FD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7A1EC11489B9C3005976FD /* Foundation.framework */; };
 		5A7A1EC41489B9C3005976FD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7A1EC31489B9C3005976FD /* CoreGraphics.framework */; };
@@ -46,6 +48,8 @@
 		5A070277148DFE13005E2215 /* GalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GalleryViewController.h; path = Controllers/GalleryViewController.h; sourceTree = "<group>"; };
 		5A070278148DFE13005E2215 /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GalleryViewController.m; path = Controllers/GalleryViewController.m; sourceTree = "<group>"; };
 		5A07027A148DFFE4005E2215 /* EventBoundController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventBoundController.h; path = Controllers/EventBoundController.h; sourceTree = "<group>"; };
+		5A07027B148E0B33005E2215 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		5A070283148E1A20005E2215 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = camera.png; path = Icons/camera.png; sourceTree = "<group>"; };
 		5A7A1EBB1489B9C3005976FD /* uSnapUs-Native.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "uSnapUs-Native.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A7A1EBF1489B9C3005976FD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5A7A1EC11489B9C3005976FD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -80,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A07027C148E0B33005E2215 /* AVFoundation.framework in Frameworks */,
 				5A7A1EC01489B9C3005976FD /* UIKit.framework in Frameworks */,
 				5A7A1EC21489B9C3005976FD /* Foundation.framework in Frameworks */,
 				5A7A1EC41489B9C3005976FD /* CoreGraphics.framework in Frameworks */,
@@ -101,6 +106,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A070281148E17B5005E2215 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				5A070283148E1A20005E2215 /* camera.png */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
 		5A7A1EB01489B9C3005976FD = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +136,7 @@
 		5A7A1EBE1489B9C3005976FD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5A07027B148E0B33005E2215 /* AVFoundation.framework */,
 				5A7A1EBF1489B9C3005976FD /* UIKit.framework */,
 				5A7A1EC11489B9C3005976FD /* Foundation.framework */,
 				5A7A1EC31489B9C3005976FD /* CoreGraphics.framework */,
@@ -135,6 +149,7 @@
 		5A7A1EC71489B9C3005976FD /* uSnapUs-Native */ = {
 			isa = PBXGroup;
 			children = (
+				5A070281148E17B5005E2215 /* Icons */,
 				5A9C135F148CC37B0078463F /* Model */,
 				5A9C135E148CC3540078463F /* Controllers */,
 				5A7A1EF41489BA43005976FD /* Storyboards */,
@@ -292,6 +307,7 @@
 			files = (
 				5A7A1ECC1489B9C3005976FD /* InfoPlist.strings in Resources */,
 				5A7A1EF61489BA61005976FD /* iphone_Storyboard.storyboard in Resources */,
+				5A070284148E1A20005E2215 /* camera.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

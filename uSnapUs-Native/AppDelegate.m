@@ -19,13 +19,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [application setStatusBarHidden:YES];
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
       
     } else {
 
     }
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"iPhone_Storyboard"
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"iphone_Storyboard"
                                                              bundle: nil];
     
     LoginViewController *controller = (LoginViewController*)[mainStoryboard 
