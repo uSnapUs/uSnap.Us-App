@@ -9,11 +9,12 @@
 #import "LoginViewController.h"
 #import "AppDelegate.h"
 #import "Event.h"
-
+#import "EventBoundController.h"
 
 @implementation LoginViewController
 @synthesize fetchedResultsController;
 @synthesize managedObjectContext;
+Event *currentEvent;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -89,14 +90,18 @@
     else{
         event = (Event*)[results objectAtIndex:0];
     }
-
+    currentEvent = event;
     [self performSegueWithIdentifier:@"InitialSegue" sender:self];
     
 
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([[segue identifier] isEqualToString:@"InitialSegue"]){
-        NSLog(@"%@",[segue destinationViewController]);
+        UITabBarController *tabBarController = (UITabBarController *)[segue destinationViewController];
+        NSArray *viewControllers = [tabBarController viewControllers];
+        for(id<EventBoundController> eventController in viewControllers){
+            [eventController setCurrentEvent:currentEvent];
+        }
     }
     [super prepareForSegue:segue sender:sender];
 }

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface CameraViewController : UIViewController
+#import "EventBoundController.h"
+@interface CameraViewController : UIViewController<EventBoundController>
 
 @end

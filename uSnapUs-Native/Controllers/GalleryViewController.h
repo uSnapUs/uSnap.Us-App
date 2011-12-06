@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface GalleryViewController : UITableViewController
+#import "EventBoundController.h"
+@interface GalleryViewController : UITableViewController<EventBoundController>
 
 @end

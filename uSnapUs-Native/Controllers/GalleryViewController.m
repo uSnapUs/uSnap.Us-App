@@ -7,9 +7,9 @@
 //
 
 #import "GalleryViewController.h"
-
+#import "EventBoundController.h"
 @implementation GalleryViewController
-
+@synthesize currentEvent;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

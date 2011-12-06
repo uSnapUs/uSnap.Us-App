@@ -45,6 +45,7 @@
 		5A070274148DFDF8005E2215 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CameraViewController.m; path = Controllers/CameraViewController.m; sourceTree = "<group>"; };
 		5A070277148DFE13005E2215 /* GalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GalleryViewController.h; path = Controllers/GalleryViewController.h; sourceTree = "<group>"; };
 		5A070278148DFE13005E2215 /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GalleryViewController.m; path = Controllers/GalleryViewController.m; sourceTree = "<group>"; };
+		5A07027A148DFFE4005E2215 /* EventBoundController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventBoundController.h; path = Controllers/EventBoundController.h; sourceTree = "<group>"; };
 		5A7A1EBB1489B9C3005976FD /* uSnapUs-Native.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "uSnapUs-Native.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A7A1EBF1489B9C3005976FD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5A7A1EC11489B9C3005976FD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -201,6 +202,7 @@
 				5A070274148DFDF8005E2215 /* CameraViewController.m */,
 				5A070277148DFE13005E2215 /* GalleryViewController.h */,
 				5A070278148DFE13005E2215 /* GalleryViewController.m */,
+				5A07027A148DFFE4005E2215 /* EventBoundController.h */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";

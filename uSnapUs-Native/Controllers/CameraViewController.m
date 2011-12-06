@@ -9,7 +9,7 @@
 #import "CameraViewController.h"
 
 @implementation CameraViewController
-
+@synthesize currentEvent;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
