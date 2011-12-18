@@ -11,7 +11,7 @@
                 <navigationController definesPresentationContext="YES" id="Tpr-8V-vEZ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="history" id="Ajv-py-hX8"/>
                     <nil key="simulatedStatusBarMetrics"/>
-                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="iU7-4W-LQg">
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.50000000000000011" contentMode="scaleToFill" barStyle="blackOpaque" id="iU7-4W-LQg">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -25,26 +25,6 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dSW-XY-NOb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController title="Photos" id="8gx-7J-3dv" customClass="GalleryViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Ovg-GB-5DC">
-                        <rect key="frame" x="0.0" y="44" width="320" height="387"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PictureCell" id="nPs-hp-ZZl">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="8gx-7J-3dv" id="FlH-qm-P4R"/>
-                            <outlet property="delegate" destination="8gx-7J-3dv" id="7ay-Ry-2rO"/>
-                        </connections>
-                    </tableView>
                     <navigationItem key="navigationItem" id="j07-bg-6SC"/>
                     <connections>
                         <segue destination="v2j-gL-ucV" kind="push" identifier="ImageDetails" id="fEI-pa-yrf"/>
@@ -57,12 +37,27 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jpl-Bs-1sR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="v2j-gL-ucV" customClass="ImageDetailsController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="qaB-Hb-2CY">
+                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="LJw-qs-D3l">
                         <rect key="frame" x="0.0" y="44" width="320" height="387"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="22C-Be-rJV">
+                                <rect key="frame" x="10" y="4" width="300" height="380"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.79999999999999982" height="0.79999999999999982"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" id="CeG-oa-p8u">
+                                <rect key="frame" x="0.0" y="385" width="320" height="304"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.25882354378700256" blue="0.011764707043766975" alpha="1" colorSpace="deviceRGB"/>
+                    </scrollView>
                     <navigationItem key="navigationItem" id="2do-bM-kfc"/>
+                    <connections>
+                        <outlet property="ImageView" destination="22C-Be-rJV" id="WWb-iC-Zdz"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1180" y="293"/>
@@ -92,6 +87,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="CaptureImage:" destination="KdA-hh-kCb" eventType="touchUpInside" id="Xc8-Ik-VD0"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -163,14 +161,24 @@
         <image name="camera.png" width="30" height="20"/>
     </resources>
     <classes>
+        <class className="AQGridViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AQGridViewController.h"/>
+        </class>
         <class className="CameraViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CameraViewController.h"/>
             <relationships>
+                <relationship kind="action" name="CaptureImage:"/>
                 <relationship kind="outlet" name="PreviewView" candidateClass="UIView"/>
             </relationships>
         </class>
-        <class className="GalleryViewController" superclassName="UITableViewController">
+        <class className="GalleryViewController" superclassName="AQGridViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GalleryViewController.h"/>
+        </class>
+        <class className="ImageDetailsController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ImageDetailsController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="ImageView" candidateClass="UIImageView"/>
+            </relationships>
         </class>
         <class className="LoginViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
@@ -180,7 +188,7 @@
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
+        <nil key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>

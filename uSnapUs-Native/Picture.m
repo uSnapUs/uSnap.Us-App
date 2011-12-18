@@ -2,7 +2,7 @@
 //  Picture.m
 //  uSnapUs-Native
 //
-//  Created by Owen Evans on 5/12/11.
+//  Created by Owen Evans on 7/12/11.
 //  Copyright (c) 2011 Xero. All rights reserved.
 //
 
@@ -15,6 +15,7 @@
 @dynamic resourceLocation;
 @dynamic serverId;
 @dynamic uploaded;
+@dynamic dateTaken;
 @dynamic event;
 
 @end

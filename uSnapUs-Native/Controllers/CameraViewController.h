@@ -10,5 +10,7 @@
 #import "EventBoundController.h"
 @interface CameraViewController : UIViewController<EventBoundController>
 @property (weak, nonatomic) IBOutlet UIView *PreviewView;
-
+- (IBAction)CaptureImage:(id)sender;
+@property (assign) NSManagedObjectContext *managedObjectContext;
+@property (assign) NSManagedObjectModel *managedObjectModel;
 @end

@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "EventBoundController.h"
-@interface GalleryViewController : UITableViewController<EventBoundController>
+#import "AQGridViewController.h"
+#import "Picture.h"
+@interface GalleryViewController : AQGridViewController<EventBoundController>
 
+{
+    Picture *currentPicture;
+}
+@property (assign) NSManagedObjectContext *managedObjectContext;
+@property (assign) NSManagedObjectModel *managedObjectModel;
+- (void)handleDataModelChange:(NSNotification *)note;
 @end
