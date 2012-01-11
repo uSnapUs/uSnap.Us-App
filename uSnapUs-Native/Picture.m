@@ -9,8 +9,11 @@
 #import "Picture.h"
 #import "Event.h"
 #import "ASIFormDataRequest.h"
+#import "SBJson.h"
+#import <AssetsLibrary/AssetsLibrary.h>
+
 @interface Picture (PrivateMethods)
--(NSData *) getPictureData;
+-(void) getPictureData:(void (^)(NSData *pictureData))block;
 @end
 @implementation Picture
 
@@ -19,36 +22,52 @@
 @dynamic uploaded;
 @dynamic dateTaken;
 @dynamic event;
-
+NSData* data=nil;
 
 -(void)beginUpload{
-    NSURL *postUrl = [NSURL URLWithString:@"http://192.168.88.104:3000/photo"];
-    ASIFormDataRequest *formRequest = [ASIFormDataRequest requestWithURL:postUrl];
-    [formRequest setData:[self getPictureData] forKey:@"photo"];
-    [formRequest setShouldStreamPostDataFromDisk:YES];
-    [formRequest setAllowCompressedResponse:YES];
-    //[formRequest shouldCompressRequestBody:YES];
-    [formRequest setUploadProgressDelegate:self];
-    //[formRequest showAccurateProgress:YES];
-    [formRequest setDelegate:self];
-    [formRequest startAsynchronous];
- 
+    [self getPictureData:^(NSData *pictureData) {
+        NSURL *postUrl = [NSURL URLWithString:@"http://192.168.88.104:3000/photo"];
+        ASIFormDataRequest *formRequest = [ASIFormDataRequest requestWithURL:postUrl];
+        [formRequest setData:pictureData forKey:@"photo"];
+        //[formRequest setShouldStreamPostDataFromDisk:YES];
+        [formRequest setAllowCompressedResponse:YES];
+        //[formRequest shouldCompressRequestBody:YES];
+        [formRequest setUploadProgressDelegate:self];
+        //[formRequest showAccurateProgress:YES];
+        [formRequest setDelegate:self];
+        [formRequest startAsynchronous];
+
+    }];
+       
     
 }
--(NSData *)getPictureData{
-    NSData *data = [[NSData alloc]init];
-    return data;
+-(void)getPictureData:(void (^)(NSData *pictureData))block {
+       ALAssetsLibrary *library = [[ALAssetsLibrary alloc]init];  
+        [library assetForURL:[NSURL URLWithString:[self resourceLocation]] resultBlock:^(ALAsset *asset) {
+            NSLog(@"asset url %@",[[[asset defaultRepresentation]url]absoluteString]);
+        
+            NSData *imageData = UIImageJPEGRepresentation(
+                                                         [UIImage imageWithCGImage:[[asset defaultRepresentation]fullResolutionImage]],.5);    
+            block(imageData);
+        } failureBlock:^(NSError *error) {
+            
+        }];
+
 }
 -(void) request:(ASIHTTPRequest *)request didSendBytes:(long long)bytes{
-    NSLog(@"%@ sent %@ bytes",[request url],bytes);
+    NSLog(@"sent %llu bytes",bytes);
 }
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
-     NSLog(@"%@ finished",[request url]);
+    NSString *response = [request responseString];
+         NSLog(@"%@ finished",response);
+    NSMutableDictionary *responseObj = [response JSONValue];
+
+    NSLog(@"id: %@", [responseObj valueForKey:@"id"]);
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
-     NSLog(@"%@ failed with error %@",[request url],[[request error] localizedDescription]);
+     NSLog(@"%@ failed with error %@",[[request url]absoluteString],[[request error] localizedDescription]);
 }
 @end
