@@ -39,6 +39,7 @@
 @implementation SBJsonTokeniser
 
 @synthesize error = _error;
+@synthesize stream = _stream;
 
 - (id)init {
     self = [super init];
@@ -50,11 +51,6 @@
     return self;
 }
 
-- (void)dealloc {
-    [_error release];
-    [_stream release];
-    [super dealloc];
-}
 
 - (void)appendData:(NSData *)data_ {
     [_stream appendData:data_];
@@ -144,33 +140,28 @@
         unichar ch;
         {
             NSMutableString *string = nil;
-            @try {
-                if (![_stream getRetainedStringFragment:&string])
-                    return sbjson_token_eof;
             
-                if (!string) {
-                    self.error = @"Broken Unicode encoding";
-                    return sbjson_token_error;
-                }
+            if (![_stream getStringFragment:&string])
+                return sbjson_token_eof;
             
-                if (![_stream getUnichar:&ch]) {
-                    return sbjson_token_eof;
-                }
-            
-                if (acc) {
-                    [acc appendString:string];
-
-                } else if (ch == '"') {
-                    *token = [[string copy] autorelease];
-                    [_stream skip];
-                    return sbjson_token_string;
-                
-                } else {
-                    acc = [[string mutableCopy] autorelease];
-                }
+            if (!string) {
+                self.error = @"Broken Unicode encoding";
+                return sbjson_token_error;
             }
-            @finally {
-                [string release];
+            
+            if (![_stream getUnichar:&ch])
+                return sbjson_token_eof;
+            
+            if (acc) {
+                [acc appendString:string];
+                
+            } else if (ch == '"') {
+                *token = [string copy];
+                [_stream skip];
+                return sbjson_token_string;
+                
+            } else {
+                acc = [string mutableCopy];
             }
         }
 
@@ -219,13 +210,12 @@
                             return sbjson_token_error;
                         }
 
-                        unichar pair[2] = {hi, lo};
-                        CFStringAppendCharacters((CFMutableStringRef)acc, pair, 2);
+                        [acc appendFormat:@"%C%C", hi, lo];
                     } else if (SBStringIsIllegalSurrogateHighCharacter(hi)) {
                         self.error = @"Invalid high character in surrogate pair";
                         return sbjson_token_error;
                     } else {
-                        CFStringAppendCharacters((CFMutableStringRef)acc, &hi, 1);
+                        [acc appendFormat:@"%C", hi];
                     }
 
 
@@ -233,7 +223,7 @@
                     unichar decoded;
                     if (![self decodeEscape:ch into:&decoded])
                         return sbjson_token_error;
-                    CFStringAppendCharacters((CFMutableStringRef)acc, &decoded, 1);
+                    [acc appendFormat:@"%C", decoded];
                 }
 
                 break;
