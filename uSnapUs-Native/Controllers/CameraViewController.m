@@ -153,6 +153,7 @@ AVCaptureVideoPreviewLayer *videoPreviewLayer;
              [picture setResourceLocation:[assetURL absoluteString]];
              NSError *saveError = nil;
              [managedObjectContext save:&saveError];
+             [picture beginUpload];
              
          }];
 

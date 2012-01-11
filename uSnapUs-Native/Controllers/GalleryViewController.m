@@ -100,13 +100,14 @@ NSArray *_orderedPictures;
     static NSString *CellIdentifier = @"PhotoCell";
     PhotoCell *gridCell = (PhotoCell *)[gridView dequeueReusableCellWithIdentifier:CellIdentifier];
     if(gridCell == nil){
-        gridCell = [[PhotoCell alloc]initWithFrame:CGRectMake(0.0, 0.0, 100.0, 100.0) reuseIdentifier:CellIdentifier];
+        gridCell = [[PhotoCell alloc]initWithFrame:CGRectMake(0.0, 0.0, 75.0, 75.0) reuseIdentifier:CellIdentifier];
     }
     gridCell.picture = (Picture *)[_orderedPictures objectAtIndex:index];
 	return ( gridCell );
 }
 -(CGSize)portraitGridCellSizeForGridView:(AQGridView *)gridView{
-    return CGSizeMake(100.0, 100.0);
+    
+    return CGSizeMake(75.0, 75.0);
 }
 -(void) gridView:(AQGridView *)gridView didSelectItemAtIndex:(NSUInteger)index{
     [gridView deselectItemAtIndex:index animated:YES];

@@ -9,10 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import "Event.h"
+#import "ASIProgressDelegate.h"
 
 @class Event;
 
-@interface Picture : Event
+@interface Picture : Event <ASIProgressDelegate>
 
 @property (nonatomic, retain) NSString * resourceLocation;
 @property (nonatomic, retain) NSString * serverId;
@@ -20,4 +21,5 @@
 @property (nonatomic, retain) NSDate * dateTaken;
 @property (nonatomic, retain) Event *event;
 
+-(void) beginUpload;
 @end
