@@ -1,0 +1,307 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5A3A727514C6949000ED25DE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A3A727414C6949000ED25DE /* UIKit.framework */; };
+		5A3A727714C6949000ED25DE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A3A727614C6949000ED25DE /* Foundation.framework */; };
+		5A3A727914C6949000ED25DE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A3A727814C6949000ED25DE /* CoreGraphics.framework */; };
+		5A3A727B14C6949000ED25DE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A3A727A14C6949000ED25DE /* CoreData.framework */; };
+		5A3A728114C6949000ED25DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A3A727F14C6949000ED25DE /* InfoPlist.strings */; };
+		5A3A728314C6949000ED25DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A728214C6949000ED25DE /* main.m */; };
+		5A3A728714C6949000ED25DE /* USTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A728614C6949000ED25DE /* USTAppDelegate.m */; };
+		5A3A728A14C6949000ED25DE /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A3A728814C6949000ED25DE /* MainStoryboard.storyboard */; };
+		5A3A728D14C6949000ED25DE /* uSnap.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A728B14C6949000ED25DE /* uSnap.xcdatamodeld */; };
+		5A3A729014C6949000ED25DE /* USTMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A728F14C6949000ED25DE /* USTMasterViewController.m */; };
+		5A3A729314C6949000ED25DE /* USTDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A729214C6949000ED25DE /* USTDetailViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5A3A727014C6949000ED25DE /* uSnap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uSnap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A3A727414C6949000ED25DE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5A3A727614C6949000ED25DE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5A3A727814C6949000ED25DE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5A3A727A14C6949000ED25DE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		5A3A727E14C6949000ED25DE /* uSnap-Info.plist */ = {isa = PBXFileReference; path = "uSnap-Info.plist"; sourceTree = "<group>"; };
+		5A3A728014C6949000ED25DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5A3A728214C6949000ED25DE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5A3A728414C6949000ED25DE /* uSnap-Prefix.pch */ = {isa = PBXFileReference; path = "uSnap-Prefix.pch"; sourceTree = "<group>"; };
+		5A3A728514C6949000ED25DE /* USTAppDelegate.h */ = {isa = PBXFileReference; path = USTAppDelegate.h; sourceTree = "<group>"; };
+		5A3A728614C6949000ED25DE /* USTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = USTAppDelegate.m; sourceTree = "<group>"; };
+		5A3A728914C6949000ED25DE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		5A3A728C14C6949000ED25DE /* uSnap.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = uSnap.xcdatamodel; sourceTree = "<group>"; };
+		5A3A728E14C6949000ED25DE /* USTMasterViewController.h */ = {isa = PBXFileReference; path = USTMasterViewController.h; sourceTree = "<group>"; };
+		5A3A728F14C6949000ED25DE /* USTMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = USTMasterViewController.m; sourceTree = "<group>"; };
+		5A3A729114C6949000ED25DE /* USTDetailViewController.h */ = {isa = PBXFileReference; path = USTDetailViewController.h; sourceTree = "<group>"; };
+		5A3A729214C6949000ED25DE /* USTDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = USTDetailViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5A3A726D14C6949000ED25DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A3A727514C6949000ED25DE /* UIKit.framework in Frameworks */,
+				5A3A727714C6949000ED25DE /* Foundation.framework in Frameworks */,
+				5A3A727914C6949000ED25DE /* CoreGraphics.framework in Frameworks */,
+				5A3A727B14C6949000ED25DE /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5A3A726514C6949000ED25DE = {
+			isa = PBXGroup;
+			children = (
+				5A3A727C14C6949000ED25DE /* uSnap */,
+				5A3A727314C6949000ED25DE /* Frameworks */,
+				5A3A727114C6949000ED25DE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5A3A727114C6949000ED25DE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5A3A727014C6949000ED25DE /* uSnap.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5A3A727314C6949000ED25DE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5A3A727414C6949000ED25DE /* UIKit.framework */,
+				5A3A727614C6949000ED25DE /* Foundation.framework */,
+				5A3A727814C6949000ED25DE /* CoreGraphics.framework */,
+				5A3A727A14C6949000ED25DE /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5A3A727C14C6949000ED25DE /* uSnap */ = {
+			isa = PBXGroup;
+			children = (
+				5A3A728514C6949000ED25DE /* USTAppDelegate.h */,
+				5A3A728614C6949000ED25DE /* USTAppDelegate.m */,
+				5A3A728814C6949000ED25DE /* MainStoryboard.storyboard */,
+				5A3A728E14C6949000ED25DE /* USTMasterViewController.h */,
+				5A3A728F14C6949000ED25DE /* USTMasterViewController.m */,
+				5A3A729114C6949000ED25DE /* USTDetailViewController.h */,
+				5A3A729214C6949000ED25DE /* USTDetailViewController.m */,
+				5A3A728B14C6949000ED25DE /* uSnap.xcdatamodeld */,
+				5A3A727D14C6949000ED25DE /* Supporting Files */,
+			);
+			path = uSnap;
+			sourceTree = "<group>";
+		};
+		5A3A727D14C6949000ED25DE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5A3A727E14C6949000ED25DE /* uSnap-Info.plist */,
+				5A3A727F14C6949000ED25DE /* InfoPlist.strings */,
+				5A3A728214C6949000ED25DE /* main.m */,
+				5A3A728414C6949000ED25DE /* uSnap-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5A3A726F14C6949000ED25DE /* uSnap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A3A729614C6949100ED25DE /* Build configuration list for PBXNativeTarget "uSnap" */;
+			buildPhases = (
+				5A3A726C14C6949000ED25DE /* Sources */,
+				5A3A726D14C6949000ED25DE /* Frameworks */,
+				5A3A726E14C6949000ED25DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = uSnap;
+			productName = uSnap;
+			productReference = 5A3A727014C6949000ED25DE /* uSnap.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5A3A726714C6949000ED25DE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = Xero;
+			};
+			buildConfigurationList = 5A3A726A14C6949000ED25DE /* Build configuration list for PBXProject "uSnap" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5A3A726514C6949000ED25DE;
+			productRefGroup = 5A3A727114C6949000ED25DE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5A3A726F14C6949000ED25DE /* uSnap */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5A3A726E14C6949000ED25DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A3A728114C6949000ED25DE /* InfoPlist.strings in Resources */,
+				5A3A728A14C6949000ED25DE /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5A3A726C14C6949000ED25DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A3A728314C6949000ED25DE /* main.m in Sources */,
+				5A3A728714C6949000ED25DE /* USTAppDelegate.m in Sources */,
+				5A3A728D14C6949000ED25DE /* uSnap.xcdatamodeld in Sources */,
+				5A3A729014C6949000ED25DE /* USTMasterViewController.m in Sources */,
+				5A3A729314C6949000ED25DE /* USTDetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5A3A727F14C6949000ED25DE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5A3A728014C6949000ED25DE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		5A3A728814C6949000ED25DE /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5A3A728914C6949000ED25DE /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5A3A729414C6949000ED25DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5A3A729514C6949000ED25DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5A3A729714C6949100ED25DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "uSnap/uSnap-Prefix.pch";
+				INFOPLIST_FILE = "uSnap/uSnap-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		5A3A729814C6949100ED25DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "uSnap/uSnap-Prefix.pch";
+				INFOPLIST_FILE = "uSnap/uSnap-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5A3A726A14C6949000ED25DE /* Build configuration list for PBXProject "uSnap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A3A729414C6949000ED25DE /* Debug */,
+				5A3A729514C6949000ED25DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5A3A729614C6949100ED25DE /* Build configuration list for PBXNativeTarget "uSnap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A3A729714C6949100ED25DE /* Debug */,
+				5A3A729814C6949100ED25DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5A3A728B14C6949000ED25DE /* uSnap.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5A3A728C14C6949000ED25DE /* uSnap.xcdatamodel */,
+			);
+			currentVersion = 5A3A728C14C6949000ED25DE /* uSnap.xcdatamodel */;
+			path = uSnap.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 5A3A726714C6949000ED25DE /* Project object */;
+}
