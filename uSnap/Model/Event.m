@@ -3,7 +3,7 @@
 //  uSnap.us
 //
 //  Created by Owen Evans on 18/01/12.
-//  Copyright (c) 2012 uSnap.us. All rights reserved.
+//  Copyright (c) 2012 uSnap.us Limited. All rights reserved.
 //
 
 #import "Event.h"

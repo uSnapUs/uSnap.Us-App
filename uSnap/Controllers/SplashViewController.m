@@ -3,12 +3,13 @@
 //  uSnap
 //
 //  Created by Owen Evans on 18/01/12.
-//  Copyright (c) 2012 Xero. All rights reserved.
+//  Copyright (c) 2012 uSnap.us Limited. All rights reserved.
 //
 
 #import "SplashViewController.h"
 
 @implementation SplashViewController
+@synthesize TitleLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,16 +37,19 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIFont *titleFont = [UIFont fontWithName:@"Bello" size:70];
+    [[self TitleLabel] setFont:titleFont]; 
 }
-*/
+
 
 - (void)viewDidUnload
 {
+    [self setTitleLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -57,4 +61,11 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (void)dealloc {
+    [TitleLabel release];
+    [super dealloc];
+}
+- (IBAction)dismiss:(id)sender {
+    [self dismissModalViewControllerAnimated:YES];
+}
 @end

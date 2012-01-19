@@ -20,18 +20,27 @@
 		5A3A72A114C6961300ED25DE /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A72A014C6961300ED25DE /* SplashViewController.m */; };
 		5A3A72A614C696EF00ED25DE /* iphone_retina_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A3A72A414C696EF00ED25DE /* iphone_retina_icon.png */; };
 		5A3A72AC14C6974F00ED25DE /* iphone_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A3A72AB14C6974F00ED25DE /* iphone_icon.png */; };
+		5A3A72B314C699F500ED25DE /* Bello-Script.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A3A72AF14C699F500ED25DE /* Bello-Script.ttf */; };
+		5A3A72B414C699F500ED25DE /* Bello-ScriptLigatures.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A3A72B014C699F500ED25DE /* Bello-ScriptLigatures.ttf */; };
+		5A3A72B514C699F500ED25DE /* Bello-SmCp.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A3A72B114C699F500ED25DE /* Bello-SmCp.ttf */; };
+		5A3A72B614C699F500ED25DE /* Bello-WordsBody.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A3A72B214C699F500ED25DE /* Bello-WordsBody.ttf */; };
+		5A3A72B814C69C0100ED25DE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A3A72B714C69C0100ED25DE /* CoreLocation.framework */; };
+		5A3A72BC14C69C3C00ED25DE /* LocationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A72BB14C69C3C00ED25DE /* LocationHandler.m */; };
+		5A3A72BF14C69EA300ED25DE /* Picture.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A72BE14C69EA300ED25DE /* Picture.m */; };
+		5A3A72C214C69EA300ED25DE /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A72C114C69EA300ED25DE /* Event.m */; };
+		5A7EC6A114C7A71A00B39893 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7EC6A014C7A71A00B39893 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5A3A727014C6949000ED25DE /* uSnap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uSnap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A3A727014C6949000ED25DE /* uSnap.us.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uSnap.us.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A3A727414C6949000ED25DE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5A3A727614C6949000ED25DE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5A3A727814C6949000ED25DE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		5A3A727A14C6949000ED25DE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		5A3A727E14C6949000ED25DE /* uSnap-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "uSnap-Info.plist"; sourceTree = "<group>"; };
+		5A3A727E14C6949000ED25DE /* uSnap.us-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "uSnap.us-Info.plist"; sourceTree = "<group>"; };
 		5A3A728014C6949000ED25DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5A3A728214C6949000ED25DE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		5A3A728414C6949000ED25DE /* uSnap-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "uSnap-Prefix.pch"; sourceTree = "<group>"; };
+		5A3A728414C6949000ED25DE /* uSnap.us-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "uSnap.us-Prefix.pch"; sourceTree = "<group>"; };
 		5A3A728514C6949000ED25DE /* USTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = USTAppDelegate.h; sourceTree = "<group>"; };
 		5A3A728614C6949000ED25DE /* USTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = USTAppDelegate.m; sourceTree = "<group>"; };
 		5A3A728914C6949000ED25DE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
@@ -42,6 +51,18 @@
 		5A3A72A014C6961300ED25DE /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SplashViewController.m; path = Controllers/SplashViewController.m; sourceTree = "<group>"; };
 		5A3A72A414C696EF00ED25DE /* iphone_retina_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iphone_retina_icon.png; path = uSnap/iphone_retina_icon.png; sourceTree = "<group>"; };
 		5A3A72AB14C6974F00ED25DE /* iphone_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iphone_icon.png; path = "../../uSnapUs-Native/iphone_icon.png"; sourceTree = "<group>"; };
+		5A3A72AF14C699F500ED25DE /* Bello-Script.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bello-Script.ttf"; sourceTree = "<group>"; };
+		5A3A72B014C699F500ED25DE /* Bello-ScriptLigatures.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bello-ScriptLigatures.ttf"; sourceTree = "<group>"; };
+		5A3A72B114C699F500ED25DE /* Bello-SmCp.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bello-SmCp.ttf"; sourceTree = "<group>"; };
+		5A3A72B214C699F500ED25DE /* Bello-WordsBody.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bello-WordsBody.ttf"; sourceTree = "<group>"; };
+		5A3A72B714C69C0100ED25DE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		5A3A72BA14C69C3C00ED25DE /* LocationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationHandler.h; path = Classes/LocationHandler.h; sourceTree = "<group>"; };
+		5A3A72BB14C69C3C00ED25DE /* LocationHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationHandler.m; path = Classes/LocationHandler.m; sourceTree = "<group>"; };
+		5A3A72BD14C69EA300ED25DE /* Picture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Picture.h; path = Model/Picture.h; sourceTree = "<group>"; };
+		5A3A72BE14C69EA300ED25DE /* Picture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Picture.m; path = Model/Picture.m; sourceTree = "<group>"; };
+		5A3A72C014C69EA300ED25DE /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = Model/Event.h; sourceTree = "<group>"; };
+		5A3A72C114C69EA300ED25DE /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = Model/Event.m; sourceTree = "<group>"; };
+		5A7EC6A014C7A71A00B39893 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A7EC6A114C7A71A00B39893 /* AVFoundation.framework in Frameworks */,
+				5A3A72B814C69C0100ED25DE /* CoreLocation.framework in Frameworks */,
 				5A3A727514C6949000ED25DE /* UIKit.framework in Frameworks */,
 				5A3A727714C6949000ED25DE /* Foundation.framework in Frameworks */,
 				5A3A727914C6949000ED25DE /* CoreGraphics.framework in Frameworks */,
@@ -73,7 +96,7 @@
 		5A3A727114C6949000ED25DE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5A3A727014C6949000ED25DE /* uSnap.app */,
+				5A3A727014C6949000ED25DE /* uSnap.us.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,6 +104,8 @@
 		5A3A727314C6949000ED25DE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5A7EC6A014C7A71A00B39893 /* AVFoundation.framework */,
+				5A3A72B714C69C0100ED25DE /* CoreLocation.framework */,
 				5A3A727414C6949000ED25DE /* UIKit.framework */,
 				5A3A727614C6949000ED25DE /* Foundation.framework */,
 				5A3A727814C6949000ED25DE /* CoreGraphics.framework */,
@@ -92,7 +117,8 @@
 		5A3A727C14C6949000ED25DE /* uSnap */ = {
 			isa = PBXGroup;
 			children = (
-				5A3A72A214C696CF00ED25DE /* Images */,
+				5A3A72B914C69C2000ED25DE /* Classes */,
+				5A3A72AD14C6998F00ED25DE /* Resources */,
 				5A3A729B14C694B600ED25DE /* Models */,
 				5A3A729A14C694AE00ED25DE /* Views */,
 				5A3A728514C6949000ED25DE /* USTAppDelegate.h */,
@@ -106,10 +132,10 @@
 		5A3A727D14C6949000ED25DE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5A3A727E14C6949000ED25DE /* uSnap-Info.plist */,
+				5A3A727E14C6949000ED25DE /* uSnap.us-Info.plist */,
 				5A3A727F14C6949000ED25DE /* InfoPlist.strings */,
 				5A3A728214C6949000ED25DE /* main.m */,
-				5A3A728414C6949000ED25DE /* uSnap-Prefix.pch */,
+				5A3A728414C6949000ED25DE /* uSnap.us-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -137,23 +163,48 @@
 			isa = PBXGroup;
 			children = (
 				5A3A728B14C6949000ED25DE /* uSnap.xcdatamodeld */,
+				5A3A72C014C69EA300ED25DE /* Event.h */,
+				5A3A72C114C69EA300ED25DE /* Event.m */,
+				5A3A72BD14C69EA300ED25DE /* Picture.h */,
+				5A3A72BE14C69EA300ED25DE /* Picture.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
 		};
-		5A3A72A214C696CF00ED25DE /* Images */ = {
+		5A3A72AD14C6998F00ED25DE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5A3A72AE14C6999B00ED25DE /* Fonts */,
 			);
-			name = Images;
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		5A3A72AE14C6999B00ED25DE /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5A3A72AF14C699F500ED25DE /* Bello-Script.ttf */,
+				5A3A72B014C699F500ED25DE /* Bello-ScriptLigatures.ttf */,
+				5A3A72B114C699F500ED25DE /* Bello-SmCp.ttf */,
+				5A3A72B214C699F500ED25DE /* Bello-WordsBody.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		5A3A72B914C69C2000ED25DE /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				5A3A72BA14C69C3C00ED25DE /* LocationHandler.h */,
+				5A3A72BB14C69C3C00ED25DE /* LocationHandler.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5A3A726F14C6949000ED25DE /* uSnap */ = {
+		5A3A726F14C6949000ED25DE /* uSnap.us */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5A3A729614C6949100ED25DE /* Build configuration list for PBXNativeTarget "uSnap" */;
+			buildConfigurationList = 5A3A729614C6949100ED25DE /* Build configuration list for PBXNativeTarget "uSnap.us" */;
 			buildPhases = (
 				5A3A726C14C6949000ED25DE /* Sources */,
 				5A3A726D14C6949000ED25DE /* Frameworks */,
@@ -163,9 +214,9 @@
 			);
 			dependencies = (
 			);
-			name = uSnap;
+			name = uSnap.us;
 			productName = uSnap;
-			productReference = 5A3A727014C6949000ED25DE /* uSnap.app */;
+			productReference = 5A3A727014C6949000ED25DE /* uSnap.us.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -175,9 +226,9 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0420;
-				ORGANIZATIONNAME = Xero;
+				ORGANIZATIONNAME = "uSnap.us Limited";
 			};
-			buildConfigurationList = 5A3A726A14C6949000ED25DE /* Build configuration list for PBXProject "uSnap" */;
+			buildConfigurationList = 5A3A726A14C6949000ED25DE /* Build configuration list for PBXProject "uSnap.us" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -189,7 +240,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5A3A726F14C6949000ED25DE /* uSnap */,
+				5A3A726F14C6949000ED25DE /* uSnap.us */,
 			);
 		};
 /* End PBXProject section */
@@ -203,6 +254,10 @@
 				5A3A728A14C6949000ED25DE /* MainStoryboard.storyboard in Resources */,
 				5A3A72A614C696EF00ED25DE /* iphone_retina_icon.png in Resources */,
 				5A3A72AC14C6974F00ED25DE /* iphone_icon.png in Resources */,
+				5A3A72B314C699F500ED25DE /* Bello-Script.ttf in Resources */,
+				5A3A72B414C699F500ED25DE /* Bello-ScriptLigatures.ttf in Resources */,
+				5A3A72B514C699F500ED25DE /* Bello-SmCp.ttf in Resources */,
+				5A3A72B614C699F500ED25DE /* Bello-WordsBody.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +273,9 @@
 				5A3A728D14C6949000ED25DE /* uSnap.xcdatamodeld in Sources */,
 				5A3A729E14C6954300ED25DE /* CameraViewController.m in Sources */,
 				5A3A72A114C6961300ED25DE /* SplashViewController.m in Sources */,
+				5A3A72BC14C69C3C00ED25DE /* LocationHandler.m in Sources */,
+				5A3A72BF14C69EA300ED25DE /* Picture.m in Sources */,
+				5A3A72C214C69EA300ED25DE /* Event.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,9 +348,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "uSnap/uSnap-Prefix.pch";
-				INFOPLIST_FILE = "uSnap/uSnap-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "uSnap/uSnap.us-Prefix.pch";
+				INFOPLIST_FILE = "uSnap/uSnap.us-Info.plist";
+				PRODUCT_NAME = uSnap.us;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -301,9 +359,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "uSnap/uSnap-Prefix.pch";
-				INFOPLIST_FILE = "uSnap/uSnap-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "uSnap/uSnap.us-Prefix.pch";
+				INFOPLIST_FILE = "uSnap/uSnap.us-Info.plist";
+				PRODUCT_NAME = uSnap.us;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -311,7 +369,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5A3A726A14C6949000ED25DE /* Build configuration list for PBXProject "uSnap" */ = {
+		5A3A726A14C6949000ED25DE /* Build configuration list for PBXProject "uSnap.us" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5A3A729414C6949000ED25DE /* Debug */,
@@ -320,13 +378,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5A3A729614C6949100ED25DE /* Build configuration list for PBXNativeTarget "uSnap" */ = {
+		5A3A729614C6949100ED25DE /* Build configuration list for PBXNativeTarget "uSnap.us" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5A3A729714C6949100ED25DE /* Debug */,
 				5A3A729814C6949100ED25DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
