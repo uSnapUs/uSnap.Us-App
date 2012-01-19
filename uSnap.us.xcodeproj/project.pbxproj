@@ -16,8 +16,10 @@
 		5A3A728714C6949000ED25DE /* USTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A728614C6949000ED25DE /* USTAppDelegate.m */; };
 		5A3A728A14C6949000ED25DE /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A3A728814C6949000ED25DE /* MainStoryboard.storyboard */; };
 		5A3A728D14C6949000ED25DE /* uSnap.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A728B14C6949000ED25DE /* uSnap.xcdatamodeld */; };
-		5A3A729014C6949000ED25DE /* USTMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A728F14C6949000ED25DE /* USTMasterViewController.m */; };
-		5A3A729314C6949000ED25DE /* USTDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A729214C6949000ED25DE /* USTDetailViewController.m */; };
+		5A3A729E14C6954300ED25DE /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A729D14C6954300ED25DE /* CameraViewController.m */; };
+		5A3A72A114C6961300ED25DE /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A72A014C6961300ED25DE /* SplashViewController.m */; };
+		5A3A72A614C696EF00ED25DE /* iphone_retina_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A3A72A414C696EF00ED25DE /* iphone_retina_icon.png */; };
+		5A3A72AC14C6974F00ED25DE /* iphone_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A3A72AB14C6974F00ED25DE /* iphone_icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,18 +28,20 @@
 		5A3A727614C6949000ED25DE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5A3A727814C6949000ED25DE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		5A3A727A14C6949000ED25DE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		5A3A727E14C6949000ED25DE /* uSnap-Info.plist */ = {isa = PBXFileReference; path = "uSnap-Info.plist"; sourceTree = "<group>"; };
+		5A3A727E14C6949000ED25DE /* uSnap-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "uSnap-Info.plist"; sourceTree = "<group>"; };
 		5A3A728014C6949000ED25DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5A3A728214C6949000ED25DE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		5A3A728414C6949000ED25DE /* uSnap-Prefix.pch */ = {isa = PBXFileReference; path = "uSnap-Prefix.pch"; sourceTree = "<group>"; };
-		5A3A728514C6949000ED25DE /* USTAppDelegate.h */ = {isa = PBXFileReference; path = USTAppDelegate.h; sourceTree = "<group>"; };
+		5A3A728414C6949000ED25DE /* uSnap-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "uSnap-Prefix.pch"; sourceTree = "<group>"; };
+		5A3A728514C6949000ED25DE /* USTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = USTAppDelegate.h; sourceTree = "<group>"; };
 		5A3A728614C6949000ED25DE /* USTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = USTAppDelegate.m; sourceTree = "<group>"; };
 		5A3A728914C6949000ED25DE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		5A3A728C14C6949000ED25DE /* uSnap.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = uSnap.xcdatamodel; sourceTree = "<group>"; };
-		5A3A728E14C6949000ED25DE /* USTMasterViewController.h */ = {isa = PBXFileReference; path = USTMasterViewController.h; sourceTree = "<group>"; };
-		5A3A728F14C6949000ED25DE /* USTMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = USTMasterViewController.m; sourceTree = "<group>"; };
-		5A3A729114C6949000ED25DE /* USTDetailViewController.h */ = {isa = PBXFileReference; path = USTDetailViewController.h; sourceTree = "<group>"; };
-		5A3A729214C6949000ED25DE /* USTDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = USTDetailViewController.m; sourceTree = "<group>"; };
+		5A3A729C14C6954300ED25DE /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraViewController.h; path = Controllers/CameraViewController.h; sourceTree = "<group>"; };
+		5A3A729D14C6954300ED25DE /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CameraViewController.m; path = Controllers/CameraViewController.m; sourceTree = "<group>"; };
+		5A3A729F14C6961300ED25DE /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SplashViewController.h; path = Controllers/SplashViewController.h; sourceTree = "<group>"; };
+		5A3A72A014C6961300ED25DE /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SplashViewController.m; path = Controllers/SplashViewController.m; sourceTree = "<group>"; };
+		5A3A72A414C696EF00ED25DE /* iphone_retina_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iphone_retina_icon.png; path = uSnap/iphone_retina_icon.png; sourceTree = "<group>"; };
+		5A3A72AB14C6974F00ED25DE /* iphone_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iphone_icon.png; path = "../../uSnapUs-Native/iphone_icon.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 		5A3A726514C6949000ED25DE = {
 			isa = PBXGroup;
 			children = (
+				5A3A72AB14C6974F00ED25DE /* iphone_icon.png */,
+				5A3A72A414C696EF00ED25DE /* iphone_retina_icon.png */,
 				5A3A727C14C6949000ED25DE /* uSnap */,
 				5A3A727314C6949000ED25DE /* Frameworks */,
 				5A3A727114C6949000ED25DE /* Products */,
@@ -86,14 +92,12 @@
 		5A3A727C14C6949000ED25DE /* uSnap */ = {
 			isa = PBXGroup;
 			children = (
+				5A3A72A214C696CF00ED25DE /* Images */,
+				5A3A729B14C694B600ED25DE /* Models */,
+				5A3A729A14C694AE00ED25DE /* Views */,
 				5A3A728514C6949000ED25DE /* USTAppDelegate.h */,
 				5A3A728614C6949000ED25DE /* USTAppDelegate.m */,
-				5A3A728814C6949000ED25DE /* MainStoryboard.storyboard */,
-				5A3A728E14C6949000ED25DE /* USTMasterViewController.h */,
-				5A3A728F14C6949000ED25DE /* USTMasterViewController.m */,
-				5A3A729114C6949000ED25DE /* USTDetailViewController.h */,
-				5A3A729214C6949000ED25DE /* USTDetailViewController.m */,
-				5A3A728B14C6949000ED25DE /* uSnap.xcdatamodeld */,
+				5A3A729914C6949800ED25DE /* Controllers */,
 				5A3A727D14C6949000ED25DE /* Supporting Files */,
 			);
 			path = uSnap;
@@ -108,6 +112,40 @@
 				5A3A728414C6949000ED25DE /* uSnap-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5A3A729914C6949800ED25DE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5A3A729C14C6954300ED25DE /* CameraViewController.h */,
+				5A3A729D14C6954300ED25DE /* CameraViewController.m */,
+				5A3A729F14C6961300ED25DE /* SplashViewController.h */,
+				5A3A72A014C6961300ED25DE /* SplashViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		5A3A729A14C694AE00ED25DE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5A3A728814C6949000ED25DE /* MainStoryboard.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		5A3A729B14C694B600ED25DE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5A3A728B14C6949000ED25DE /* uSnap.xcdatamodeld */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		5A3A72A214C696CF00ED25DE /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +201,8 @@
 			files = (
 				5A3A728114C6949000ED25DE /* InfoPlist.strings in Resources */,
 				5A3A728A14C6949000ED25DE /* MainStoryboard.storyboard in Resources */,
+				5A3A72A614C696EF00ED25DE /* iphone_retina_icon.png in Resources */,
+				5A3A72AC14C6974F00ED25DE /* iphone_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,8 +216,8 @@
 				5A3A728314C6949000ED25DE /* main.m in Sources */,
 				5A3A728714C6949000ED25DE /* USTAppDelegate.m in Sources */,
 				5A3A728D14C6949000ED25DE /* uSnap.xcdatamodeld in Sources */,
-				5A3A729014C6949000ED25DE /* USTMasterViewController.m in Sources */,
-				5A3A729314C6949000ED25DE /* USTDetailViewController.m in Sources */,
+				5A3A729E14C6954300ED25DE /* CameraViewController.m in Sources */,
+				5A3A72A114C6961300ED25DE /* SplashViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,6 @@
 
 #import "USTAppDelegate.h"
 
-#import "USTMasterViewController.h"
 
 @implementation USTAppDelegate
 
@@ -16,22 +15,20 @@
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
-
+@synthesize locationHandler = _locationHandler;
 - (void)dealloc
 {
     [_window release];
     [__managedObjectContext release];
     [__managedObjectModel release];
     [__persistentStoreCoordinator release];
+    [_locationHandler release];
     [super dealloc];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-    USTMasterViewController *controller = (USTMasterViewController *)navigationController.topViewController;
-    controller.managedObjectContext = self.managedObjectContext;
+    [self setLocationHandler:[[LocationHandler alloc]init]];
     return YES;
 }
 							
