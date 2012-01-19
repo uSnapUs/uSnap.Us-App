@@ -222,7 +222,7 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
         Picture *picture = (Picture*) [NSEntityDescription insertNewObjectForEntityForName:@"Picture" inManagedObjectContext:[self managedObjectContext]]; 
 //        [picture setEvent:currentEvent];
         [picture setDateTaken:[NSDate date]];
-        //[picture setImage:jpgData];
+        [picture setImage:jpgData];
         NSError *saveError = nil;
         [managedObjectContext save:&saveError];
         [saveError release];

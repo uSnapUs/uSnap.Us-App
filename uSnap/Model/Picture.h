@@ -20,5 +20,5 @@
 @property (nonatomic, retain) NSNumber * error;
 @property (nonatomic, retain) NSNumber * uploadedBytes;
 @property (nonatomic, retain) NSManagedObject *event;
-
+-(void) setImage:(NSData*)jpgRepresentation;
 @end

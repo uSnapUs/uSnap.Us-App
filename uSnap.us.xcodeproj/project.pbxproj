@@ -24,6 +24,9 @@
 		5A3A72BF14C69EA300ED25DE /* Picture.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A72BE14C69EA300ED25DE /* Picture.m */; };
 		5A3A72C214C69EA300ED25DE /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A72C114C69EA300ED25DE /* Event.m */; };
 		5A6EB3C114C8AFE3001A80E2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6EB3C014C8AFE3001A80E2 /* QuartzCore.framework */; };
+		5A6EB3C814C8B1C7001A80E2 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6EB3C314C8B1C7001A80E2 /* UIImage+Alpha.m */; };
+		5A6EB3C914C8B1C7001A80E2 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6EB3C514C8B1C7001A80E2 /* UIImage+Resize.m */; };
+		5A6EB3CA14C8B1C7001A80E2 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6EB3C714C8B1C7001A80E2 /* UIImage+RoundedCorner.m */; };
 		5A7EC6A114C7A71A00B39893 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7EC6A014C7A71A00B39893 /* AVFoundation.framework */; };
 		5AE87DE914C80A9C00E16CCD /* Bello-Script.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5AE87DE514C80A9C00E16CCD /* Bello-Script.ttf */; };
 		5AE87DEA14C80A9C00E16CCD /* Bello-ScriptLigatures.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5AE87DE614C80A9C00E16CCD /* Bello-ScriptLigatures.ttf */; };
@@ -137,6 +140,12 @@
 		5A3A72C014C69EA300ED25DE /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = Model/Event.h; sourceTree = "<group>"; };
 		5A3A72C114C69EA300ED25DE /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = Model/Event.m; sourceTree = "<group>"; };
 		5A6EB3C014C8AFE3001A80E2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5A6EB3C214C8B1C7001A80E2 /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Alpha.h"; path = "Classes/UIImage+Alpha.h"; sourceTree = "<group>"; };
+		5A6EB3C314C8B1C7001A80E2 /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Alpha.m"; path = "Classes/UIImage+Alpha.m"; sourceTree = "<group>"; };
+		5A6EB3C414C8B1C7001A80E2 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Resize.h"; path = "Classes/UIImage+Resize.h"; sourceTree = "<group>"; };
+		5A6EB3C514C8B1C7001A80E2 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Resize.m"; path = "Classes/UIImage+Resize.m"; sourceTree = "<group>"; };
+		5A6EB3C614C8B1C7001A80E2 /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+RoundedCorner.h"; path = "Classes/UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
+		5A6EB3C714C8B1C7001A80E2 /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+RoundedCorner.m"; path = "Classes/UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
 		5A7EC6A014C7A71A00B39893 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5AE87DE514C80A9C00E16CCD /* Bello-Script.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Bello-Script.ttf"; path = "Resources/Fonts/Bello-Script.ttf"; sourceTree = "<group>"; };
 		5AE87DE614C80A9C00E16CCD /* Bello-ScriptLigatures.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Bello-ScriptLigatures.ttf"; path = "Resources/Fonts/Bello-ScriptLigatures.ttf"; sourceTree = "<group>"; };
@@ -289,6 +298,12 @@
 		5A3A72B914C69C2000ED25DE /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5A6EB3C214C8B1C7001A80E2 /* UIImage+Alpha.h */,
+				5A6EB3C314C8B1C7001A80E2 /* UIImage+Alpha.m */,
+				5A6EB3C414C8B1C7001A80E2 /* UIImage+Resize.h */,
+				5A6EB3C514C8B1C7001A80E2 /* UIImage+Resize.m */,
+				5A6EB3C614C8B1C7001A80E2 /* UIImage+RoundedCorner.h */,
+				5A6EB3C714C8B1C7001A80E2 /* UIImage+RoundedCorner.m */,
 				5A3A72BA14C69C3C00ED25DE /* LocationHandler.h */,
 				5A3A72BB14C69C3C00ED25DE /* LocationHandler.m */,
 				5AE87DF514C80BDF00E16CCD /* CameraManager.h */,
@@ -468,6 +483,9 @@
 				5A3A72BF14C69EA300ED25DE /* Picture.m in Sources */,
 				5A3A72C214C69EA300ED25DE /* Event.m in Sources */,
 				5AE87DF714C80BDF00E16CCD /* CameraManager.m in Sources */,
+				5A6EB3C814C8B1C7001A80E2 /* UIImage+Alpha.m in Sources */,
+				5A6EB3C914C8B1C7001A80E2 /* UIImage+Resize.m in Sources */,
+				5A6EB3CA14C8B1C7001A80E2 /* UIImage+RoundedCorner.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
