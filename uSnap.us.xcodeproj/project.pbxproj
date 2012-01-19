@@ -23,13 +23,92 @@
 		5A3A72BC14C69C3C00ED25DE /* LocationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A72BB14C69C3C00ED25DE /* LocationHandler.m */; };
 		5A3A72BF14C69EA300ED25DE /* Picture.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A72BE14C69EA300ED25DE /* Picture.m */; };
 		5A3A72C214C69EA300ED25DE /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A72C114C69EA300ED25DE /* Event.m */; };
+		5A6EB3C114C8AFE3001A80E2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6EB3C014C8AFE3001A80E2 /* QuartzCore.framework */; };
 		5A7EC6A114C7A71A00B39893 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7EC6A014C7A71A00B39893 /* AVFoundation.framework */; };
 		5AE87DE914C80A9C00E16CCD /* Bello-Script.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5AE87DE514C80A9C00E16CCD /* Bello-Script.ttf */; };
 		5AE87DEA14C80A9C00E16CCD /* Bello-ScriptLigatures.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5AE87DE614C80A9C00E16CCD /* Bello-ScriptLigatures.ttf */; };
 		5AE87DEB14C80A9C00E16CCD /* Bello-SmCp.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5AE87DE714C80A9C00E16CCD /* Bello-SmCp.ttf */; };
 		5AE87DEC14C80A9C00E16CCD /* Bello-WordsBody.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5AE87DE814C80A9C00E16CCD /* Bello-WordsBody.ttf */; };
 		5AE87DEE14C80AA400E16CCD /* iphone_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AE87DED14C80AA400E16CCD /* iphone_icon.png */; };
+		5AE87DF714C80BDF00E16CCD /* CameraManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE87DF614C80BDF00E16CCD /* CameraManager.m */; };
+		5AE87E2A14C8133600E16CCD /* libsbjson-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AE87E0B14C8129600E16CCD /* libsbjson-ios.a */; };
+		5AE87E7814C813DD00E16CCD /* libaisHttpLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AE87E7514C813D100E16CCD /* libaisHttpLibrary.a */; };
+		5AE87E9314C8174200E16CCD /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AE87E9214C8174200E16CCD /* AssetsLibrary.framework */; };
+		5AE87E9514C818E300E16CCD /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AE87E9414C818E300E16CCD /* CoreMedia.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5AE87E0614C8129600E16CCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AE87DFC14C8129600E16CCD /* SBJson.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BC12323D1391D5CC00131607;
+			remoteInfo = SBJson;
+		};
+		5AE87E0814C8129600E16CCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AE87DFC14C8129600E16CCD /* SBJson.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BC1232521391D5CC00131607;
+			remoteInfo = SBJsonTests;
+		};
+		5AE87E0A14C8129600E16CCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AE87DFC14C8129600E16CCD /* SBJson.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCC2626913920FC7003D9994;
+			remoteInfo = "sbjson-ios";
+		};
+		5AE87E0C14C8129600E16CCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AE87DFC14C8129600E16CCD /* SBJson.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCC2627313920FC7003D9994;
+			remoteInfo = "sbjson-iosTests";
+		};
+		5AE87E2014C8130700E16CCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AE87E1414C8130700E16CCD /* iPhone.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1D6058910D05DD3D006BFB54;
+			remoteInfo = iPhone;
+		};
+		5AE87E2214C8130700E16CCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AE87E1414C8130700E16CCD /* iPhone.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B55B60C70F765BB00064029C;
+			remoteInfo = Tests;
+		};
+		5AE87E2414C8130700E16CCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AE87E1414C8130700E16CCD /* iPhone.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B576D72311C7F34D0059B815;
+			remoteInfo = iPad;
+		};
+		5AE87E2814C8132C00E16CCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AE87DFC14C8129600E16CCD /* SBJson.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BCC2626813920FC7003D9994;
+			remoteInfo = "sbjson-ios";
+		};
+		5AE87E7414C813D100E16CCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AE87E1414C8130700E16CCD /* iPhone.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5AE87E2F14C8136000E16CCD;
+			remoteInfo = aisHttpLibrary;
+		};
+		5AE87E7614C813D400E16CCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AE87E1414C8130700E16CCD /* iPhone.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5AE87E2E14C8136000E16CCD;
+			remoteInfo = aisHttpLibrary;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		5A3A727014C6949000ED25DE /* uSnap.us.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uSnap.us.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,12 +136,19 @@
 		5A3A72BE14C69EA300ED25DE /* Picture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Picture.m; path = Model/Picture.m; sourceTree = "<group>"; };
 		5A3A72C014C69EA300ED25DE /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = Model/Event.h; sourceTree = "<group>"; };
 		5A3A72C114C69EA300ED25DE /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = Model/Event.m; sourceTree = "<group>"; };
+		5A6EB3C014C8AFE3001A80E2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5A7EC6A014C7A71A00B39893 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5AE87DE514C80A9C00E16CCD /* Bello-Script.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Bello-Script.ttf"; path = "Resources/Fonts/Bello-Script.ttf"; sourceTree = "<group>"; };
 		5AE87DE614C80A9C00E16CCD /* Bello-ScriptLigatures.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Bello-ScriptLigatures.ttf"; path = "Resources/Fonts/Bello-ScriptLigatures.ttf"; sourceTree = "<group>"; };
 		5AE87DE714C80A9C00E16CCD /* Bello-SmCp.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Bello-SmCp.ttf"; path = "Resources/Fonts/Bello-SmCp.ttf"; sourceTree = "<group>"; };
 		5AE87DE814C80A9C00E16CCD /* Bello-WordsBody.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Bello-WordsBody.ttf"; path = "Resources/Fonts/Bello-WordsBody.ttf"; sourceTree = "<group>"; };
 		5AE87DED14C80AA400E16CCD /* iphone_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iphone_icon.png; path = uSnap/iphone_icon.png; sourceTree = "<group>"; };
+		5AE87DF514C80BDF00E16CCD /* CameraManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraManager.h; path = Classes/CameraManager.h; sourceTree = "<group>"; };
+		5AE87DF614C80BDF00E16CCD /* CameraManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CameraManager.m; path = Classes/CameraManager.m; sourceTree = "<group>"; };
+		5AE87DFC14C8129600E16CCD /* SBJson.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SBJson.xcodeproj; path = "json-framework/SBJson.xcodeproj"; sourceTree = "<group>"; };
+		5AE87E1414C8130700E16CCD /* iPhone.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = iPhone.xcodeproj; path = "pokeb-asi-http-request-4f95498/iPhone.xcodeproj"; sourceTree = "<group>"; };
+		5AE87E9214C8174200E16CCD /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		5AE87E9414C818E300E16CCD /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +156,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A6EB3C114C8AFE3001A80E2 /* QuartzCore.framework in Frameworks */,
+				5AE87E9514C818E300E16CCD /* CoreMedia.framework in Frameworks */,
+				5AE87E9314C8174200E16CCD /* AssetsLibrary.framework in Frameworks */,
+				5AE87E7814C813DD00E16CCD /* libaisHttpLibrary.a in Frameworks */,
+				5AE87E2A14C8133600E16CCD /* libsbjson-ios.a in Frameworks */,
 				5A7EC6A114C7A71A00B39893 /* AVFoundation.framework in Frameworks */,
 				5A3A72B814C69C0100ED25DE /* CoreLocation.framework in Frameworks */,
 				5A3A727514C6949000ED25DE /* UIKit.framework in Frameworks */,
@@ -85,6 +176,8 @@
 		5A3A726514C6949000ED25DE = {
 			isa = PBXGroup;
 			children = (
+				5AE87E1414C8130700E16CCD /* iPhone.xcodeproj */,
+				5AE87DFC14C8129600E16CCD /* SBJson.xcodeproj */,
 				5AE87DED14C80AA400E16CCD /* iphone_icon.png */,
 				5A3A72A414C696EF00ED25DE /* iphone_retina_icon.png */,
 				5A3A727C14C6949000ED25DE /* uSnap */,
@@ -104,6 +197,9 @@
 		5A3A727314C6949000ED25DE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5A6EB3C014C8AFE3001A80E2 /* QuartzCore.framework */,
+				5AE87E9414C818E300E16CCD /* CoreMedia.framework */,
+				5AE87E9214C8174200E16CCD /* AssetsLibrary.framework */,
 				5A7EC6A014C7A71A00B39893 /* AVFoundation.framework */,
 				5A3A72B714C69C0100ED25DE /* CoreLocation.framework */,
 				5A3A727414C6949000ED25DE /* UIKit.framework */,
@@ -195,8 +291,32 @@
 			children = (
 				5A3A72BA14C69C3C00ED25DE /* LocationHandler.h */,
 				5A3A72BB14C69C3C00ED25DE /* LocationHandler.m */,
+				5AE87DF514C80BDF00E16CCD /* CameraManager.h */,
+				5AE87DF614C80BDF00E16CCD /* CameraManager.m */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		5AE87DFD14C8129600E16CCD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5AE87E0714C8129600E16CCD /* SBJson.framework */,
+				5AE87E0914C8129600E16CCD /* SBJsonTests.octest */,
+				5AE87E0B14C8129600E16CCD /* libsbjson-ios.a */,
+				5AE87E0D14C8129600E16CCD /* sbjson-iosTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5AE87E1514C8130700E16CCD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5AE87E2114C8130700E16CCD /* ASIHTTPRequest iPhone.app */,
+				5AE87E2314C8130700E16CCD /* Tests.app */,
+				5AE87E2514C8130700E16CCD /* ASIHTTPRequest iPad.app */,
+				5AE87E7514C813D100E16CCD /* libaisHttpLibrary.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +333,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				5AE87E7714C813D400E16CCD /* PBXTargetDependency */,
+				5AE87E2914C8132C00E16CCD /* PBXTargetDependency */,
 			);
 			name = uSnap.us;
 			productName = uSnap;
@@ -238,12 +360,81 @@
 			mainGroup = 5A3A726514C6949000ED25DE;
 			productRefGroup = 5A3A727114C6949000ED25DE /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 5AE87E1514C8130700E16CCD /* Products */;
+					ProjectRef = 5AE87E1414C8130700E16CCD /* iPhone.xcodeproj */;
+				},
+				{
+					ProductGroup = 5AE87DFD14C8129600E16CCD /* Products */;
+					ProjectRef = 5AE87DFC14C8129600E16CCD /* SBJson.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				5A3A726F14C6949000ED25DE /* uSnap.us */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		5AE87E0714C8129600E16CCD /* SBJson.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SBJson.framework;
+			remoteRef = 5AE87E0614C8129600E16CCD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5AE87E0914C8129600E16CCD /* SBJsonTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SBJsonTests.octest;
+			remoteRef = 5AE87E0814C8129600E16CCD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5AE87E0B14C8129600E16CCD /* libsbjson-ios.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libsbjson-ios.a";
+			remoteRef = 5AE87E0A14C8129600E16CCD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5AE87E0D14C8129600E16CCD /* sbjson-iosTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "sbjson-iosTests.octest";
+			remoteRef = 5AE87E0C14C8129600E16CCD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5AE87E2114C8130700E16CCD /* ASIHTTPRequest iPhone.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "ASIHTTPRequest iPhone.app";
+			remoteRef = 5AE87E2014C8130700E16CCD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5AE87E2314C8130700E16CCD /* Tests.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = Tests.app;
+			remoteRef = 5AE87E2214C8130700E16CCD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5AE87E2514C8130700E16CCD /* ASIHTTPRequest iPad.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "ASIHTTPRequest iPad.app";
+			remoteRef = 5AE87E2414C8130700E16CCD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5AE87E7514C813D100E16CCD /* libaisHttpLibrary.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libaisHttpLibrary.a;
+			remoteRef = 5AE87E7414C813D100E16CCD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		5A3A726E14C6949000ED25DE /* Resources */ = {
@@ -276,10 +467,24 @@
 				5A3A72BC14C69C3C00ED25DE /* LocationHandler.m in Sources */,
 				5A3A72BF14C69EA300ED25DE /* Picture.m in Sources */,
 				5A3A72C214C69EA300ED25DE /* Event.m in Sources */,
+				5AE87DF714C80BDF00E16CCD /* CameraManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5AE87E2914C8132C00E16CCD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "sbjson-ios";
+			targetProxy = 5AE87E2814C8132C00E16CCD /* PBXContainerItemProxy */;
+		};
+		5AE87E7714C813D400E16CCD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = aisHttpLibrary;
+			targetProxy = 5AE87E7614C813D400E16CCD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5A3A727F14C6949000ED25DE /* InfoPlist.strings */ = {

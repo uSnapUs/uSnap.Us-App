@@ -16,8 +16,10 @@
 }
 -(void) initalizeLocation{
     if([CLLocationManager locationServicesEnabled]){
-        if (nil == [self locationManager])
-            [self setLocationManager:[[CLLocationManager alloc] init]];
+        if (nil == [self locationManager]){
+            CLLocationManager *manager = [[CLLocationManager alloc] init];
+            [self setLocationManager:manager];
+        [manager release];
         
         locationManager.delegate = self;
         locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
@@ -26,8 +28,8 @@
         locationManager.distanceFilter = 500;
         
         [locationManager startUpdatingLocation];
+        }
     }
-
 }
 -(void) dealloc{
     [locationManager release];

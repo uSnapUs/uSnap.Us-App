@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'aisHttpLibrary' target in the 'aisHttpLibrary' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif

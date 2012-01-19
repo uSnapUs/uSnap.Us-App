@@ -28,7 +28,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [self setLocationHandler:[[LocationHandler alloc]init]];
+    LocationHandler *locationHandler_ = [[LocationHandler alloc]init];
+    [self setLocationHandler:locationHandler_];
+    [locationHandler_ release];
     return YES;
 }
 							
