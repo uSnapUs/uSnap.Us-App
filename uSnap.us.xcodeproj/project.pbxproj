@@ -19,16 +19,16 @@
 		5A3A729E14C6954300ED25DE /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A729D14C6954300ED25DE /* CameraViewController.m */; };
 		5A3A72A114C6961300ED25DE /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A72A014C6961300ED25DE /* SplashViewController.m */; };
 		5A3A72A614C696EF00ED25DE /* iphone_retina_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A3A72A414C696EF00ED25DE /* iphone_retina_icon.png */; };
-		5A3A72AC14C6974F00ED25DE /* iphone_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A3A72AB14C6974F00ED25DE /* iphone_icon.png */; };
-		5A3A72B314C699F500ED25DE /* Bello-Script.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A3A72AF14C699F500ED25DE /* Bello-Script.ttf */; };
-		5A3A72B414C699F500ED25DE /* Bello-ScriptLigatures.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A3A72B014C699F500ED25DE /* Bello-ScriptLigatures.ttf */; };
-		5A3A72B514C699F500ED25DE /* Bello-SmCp.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A3A72B114C699F500ED25DE /* Bello-SmCp.ttf */; };
-		5A3A72B614C699F500ED25DE /* Bello-WordsBody.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A3A72B214C699F500ED25DE /* Bello-WordsBody.ttf */; };
 		5A3A72B814C69C0100ED25DE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A3A72B714C69C0100ED25DE /* CoreLocation.framework */; };
 		5A3A72BC14C69C3C00ED25DE /* LocationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A72BB14C69C3C00ED25DE /* LocationHandler.m */; };
 		5A3A72BF14C69EA300ED25DE /* Picture.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A72BE14C69EA300ED25DE /* Picture.m */; };
 		5A3A72C214C69EA300ED25DE /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A72C114C69EA300ED25DE /* Event.m */; };
 		5A7EC6A114C7A71A00B39893 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7EC6A014C7A71A00B39893 /* AVFoundation.framework */; };
+		5AE87DE914C80A9C00E16CCD /* Bello-Script.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5AE87DE514C80A9C00E16CCD /* Bello-Script.ttf */; };
+		5AE87DEA14C80A9C00E16CCD /* Bello-ScriptLigatures.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5AE87DE614C80A9C00E16CCD /* Bello-ScriptLigatures.ttf */; };
+		5AE87DEB14C80A9C00E16CCD /* Bello-SmCp.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5AE87DE714C80A9C00E16CCD /* Bello-SmCp.ttf */; };
+		5AE87DEC14C80A9C00E16CCD /* Bello-WordsBody.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5AE87DE814C80A9C00E16CCD /* Bello-WordsBody.ttf */; };
+		5AE87DEE14C80AA400E16CCD /* iphone_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AE87DED14C80AA400E16CCD /* iphone_icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,11 +50,6 @@
 		5A3A729F14C6961300ED25DE /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SplashViewController.h; path = Controllers/SplashViewController.h; sourceTree = "<group>"; };
 		5A3A72A014C6961300ED25DE /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SplashViewController.m; path = Controllers/SplashViewController.m; sourceTree = "<group>"; };
 		5A3A72A414C696EF00ED25DE /* iphone_retina_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iphone_retina_icon.png; path = uSnap/iphone_retina_icon.png; sourceTree = "<group>"; };
-		5A3A72AB14C6974F00ED25DE /* iphone_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iphone_icon.png; path = "../../uSnapUs-Native/iphone_icon.png"; sourceTree = "<group>"; };
-		5A3A72AF14C699F500ED25DE /* Bello-Script.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bello-Script.ttf"; sourceTree = "<group>"; };
-		5A3A72B014C699F500ED25DE /* Bello-ScriptLigatures.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bello-ScriptLigatures.ttf"; sourceTree = "<group>"; };
-		5A3A72B114C699F500ED25DE /* Bello-SmCp.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bello-SmCp.ttf"; sourceTree = "<group>"; };
-		5A3A72B214C699F500ED25DE /* Bello-WordsBody.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bello-WordsBody.ttf"; sourceTree = "<group>"; };
 		5A3A72B714C69C0100ED25DE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5A3A72BA14C69C3C00ED25DE /* LocationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationHandler.h; path = Classes/LocationHandler.h; sourceTree = "<group>"; };
 		5A3A72BB14C69C3C00ED25DE /* LocationHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationHandler.m; path = Classes/LocationHandler.m; sourceTree = "<group>"; };
@@ -63,6 +58,11 @@
 		5A3A72C014C69EA300ED25DE /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = Model/Event.h; sourceTree = "<group>"; };
 		5A3A72C114C69EA300ED25DE /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = Model/Event.m; sourceTree = "<group>"; };
 		5A7EC6A014C7A71A00B39893 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		5AE87DE514C80A9C00E16CCD /* Bello-Script.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Bello-Script.ttf"; path = "Resources/Fonts/Bello-Script.ttf"; sourceTree = "<group>"; };
+		5AE87DE614C80A9C00E16CCD /* Bello-ScriptLigatures.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Bello-ScriptLigatures.ttf"; path = "Resources/Fonts/Bello-ScriptLigatures.ttf"; sourceTree = "<group>"; };
+		5AE87DE714C80A9C00E16CCD /* Bello-SmCp.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Bello-SmCp.ttf"; path = "Resources/Fonts/Bello-SmCp.ttf"; sourceTree = "<group>"; };
+		5AE87DE814C80A9C00E16CCD /* Bello-WordsBody.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Bello-WordsBody.ttf"; path = "Resources/Fonts/Bello-WordsBody.ttf"; sourceTree = "<group>"; };
+		5AE87DED14C80AA400E16CCD /* iphone_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iphone_icon.png; path = uSnap/iphone_icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +85,7 @@
 		5A3A726514C6949000ED25DE = {
 			isa = PBXGroup;
 			children = (
-				5A3A72AB14C6974F00ED25DE /* iphone_icon.png */,
+				5AE87DED14C80AA400E16CCD /* iphone_icon.png */,
 				5A3A72A414C696EF00ED25DE /* iphone_retina_icon.png */,
 				5A3A727C14C6949000ED25DE /* uSnap */,
 				5A3A727314C6949000ED25DE /* Frameworks */,
@@ -182,10 +182,10 @@
 		5A3A72AE14C6999B00ED25DE /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				5A3A72AF14C699F500ED25DE /* Bello-Script.ttf */,
-				5A3A72B014C699F500ED25DE /* Bello-ScriptLigatures.ttf */,
-				5A3A72B114C699F500ED25DE /* Bello-SmCp.ttf */,
-				5A3A72B214C699F500ED25DE /* Bello-WordsBody.ttf */,
+				5AE87DE514C80A9C00E16CCD /* Bello-Script.ttf */,
+				5AE87DE614C80A9C00E16CCD /* Bello-ScriptLigatures.ttf */,
+				5AE87DE714C80A9C00E16CCD /* Bello-SmCp.ttf */,
+				5AE87DE814C80A9C00E16CCD /* Bello-WordsBody.ttf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -253,11 +253,11 @@
 				5A3A728114C6949000ED25DE /* InfoPlist.strings in Resources */,
 				5A3A728A14C6949000ED25DE /* MainStoryboard.storyboard in Resources */,
 				5A3A72A614C696EF00ED25DE /* iphone_retina_icon.png in Resources */,
-				5A3A72AC14C6974F00ED25DE /* iphone_icon.png in Resources */,
-				5A3A72B314C699F500ED25DE /* Bello-Script.ttf in Resources */,
-				5A3A72B414C699F500ED25DE /* Bello-ScriptLigatures.ttf in Resources */,
-				5A3A72B514C699F500ED25DE /* Bello-SmCp.ttf in Resources */,
-				5A3A72B614C699F500ED25DE /* Bello-WordsBody.ttf in Resources */,
+				5AE87DE914C80A9C00E16CCD /* Bello-Script.ttf in Resources */,
+				5AE87DEA14C80A9C00E16CCD /* Bello-ScriptLigatures.ttf in Resources */,
+				5AE87DEB14C80A9C00E16CCD /* Bello-SmCp.ttf in Resources */,
+				5AE87DEC14C80A9C00E16CCD /* Bello-WordsBody.ttf in Resources */,
+				5AE87DEE14C80AA400E16CCD /* iphone_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
