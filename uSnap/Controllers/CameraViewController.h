@@ -17,6 +17,7 @@
 @property(retain,atomic) AVCaptureDeviceInput *currentDeviceInput;
 @property(retain,atomic) AVCaptureStillImageOutput *stillImageOutput;
 @property(retain,atomic) AVCaptureVideoPreviewLayer *videoPreviewLayer;
+@property (retain, nonatomic) IBOutlet UIView *CameraTopbarView;
 @property(retain,atomic) NSString *currentCameraPosition;
 @property (assign,atomic) NSManagedObjectContext *managedObjectContext;
 @property (assign,atomic) NSManagedObjectModel *managedObjectModel;

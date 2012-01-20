@@ -29,6 +29,7 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
 @synthesize stillImageOutput;
 @synthesize CameraPreviewView;
 @synthesize videoPreviewLayer;
+@synthesize CameraTopbarView;
 @synthesize SwapCameraButton;
 @synthesize currentCameraPosition;
 @synthesize currentDeviceInput;
@@ -71,6 +72,7 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
 {
     [self setCameraPreviewView:nil];
     [self setSwapCameraButton:nil];
+    [self setCameraTopbarView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -110,6 +112,7 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
     [stillImageOutput release];
     [videoPreviewLayer release];
     [SwapCameraButton release];
+    [CameraTopbarView release];
     [super dealloc];
 
 }
@@ -163,7 +166,7 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
     [rootLayer setMasksToBounds:YES];
     [[self videoPreviewLayer]setFrame:[rootLayer bounds]];
     [rootLayer addSublayer:videoPreviewLayer];
-    [[self CameraPreviewView]bringSubviewToFront:[self SwapCameraButton]];
+    [[self CameraPreviewView]bringSubviewToFront:[self CameraTopbarView]];
     [avCaptureSession startRunning];
     [error release];
 }
