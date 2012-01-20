@@ -248,6 +248,7 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
         NSError *saveError = nil;
         [managedObjectContext save:&saveError];
         [saveError release];
+        [picture beginUpload];
     }];
 }
 
