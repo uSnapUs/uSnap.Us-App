@@ -21,4 +21,5 @@
 @property (nonatomic, retain) NSNumber * uploadedBytes;
 @property (nonatomic, retain) NSManagedObject *event;
 -(void) setImage:(NSData*)jpgRepresentation;
+-(void) beginUpload;
 @end

@@ -8,6 +8,7 @@
 
 #import "Picture.h"
 #import "UIImage+Resize.h"
+#import "ASIFormDataRequest.h"
 
 @interface Picture(PrivateMethods)  {
 
@@ -27,13 +28,31 @@
 @dynamic uploadedBytes;
 @dynamic event;
 
-
+-(void)beginUpload{
+    [self setUploaded:[NSNumber numberWithBool:NO]];
+    [self setUploadedBytes:[NSNumber numberWithInt:0]];
+    // NSError *err;
+    //[[self managedObjectContext]save:&err];
+    NSURL *postUrl = [NSURL URLWithString:@"http://192.168.88.105:3000/photos"];
+    ASIFormDataRequest *formRequest = [ASIFormDataRequest requestWithURL:postUrl];
+    [formRequest setFile:[self getFullPath] withFileName:@"photo.jpg" andContentType:@"image/jpeg" forKey:@"photo[photo]"];
+    [formRequest setShouldStreamPostDataFromDisk:YES];
+    [formRequest setAllowCompressedResponse:YES];
+    //[formRequest shouldCompressRequestBody:YES];
+    [formRequest setUploadProgressDelegate:self];
+    //[formRequest showAccurateProgress:YES];
+    [formRequest setDelegate:self];
+    [formRequest startAsynchronous];
+    
+    
+    
+}
 -(void)setImage:(NSData *)jpgRepresentation{
     [jpgRepresentation retain];
     NSString *fullPath =[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
     NSNumber *size = [NSNumber numberWithInt:[jpgRepresentation length]];
     [self setImageSize:size];
-    CFUUIDRef newUniqueId = CFUUIDCreate(kCFAllocatorNull);
+    CFUUIDRef newUniqueId = CFUUIDCreate(kCFAllocatorDefault);
     CFStringRef newUniqueIdString = CFUUIDCreateString(kCFAllocatorDefault, newUniqueId);
     NSString *rootPath = [fullPath stringByAppendingPathComponent:(NSString*) newUniqueIdString];
     [self setResourceLocation:rootPath];

@@ -97,7 +97,7 @@
                     </view>
                     <connections>
                         <outlet property="CameraPreviewView" destination="SWN-2J-C8M" id="Ynq-TW-GIL"/>
-                        <outlet property="SwapCameraButton" destination="BAf-yl-Frb" id="8bq-Up-plQ"/>
+                        <outlet property="SwapCameraButton" destination="BAf-yl-Frb" id="HPG-oV-hUE"/>
                         <segue destination="Wpe-bq-Fd0" kind="modal" identifier="ShowSplash" id="SQs-Iw-bgW"/>
                     </connections>
                 </viewController>

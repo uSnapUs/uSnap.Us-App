@@ -18,7 +18,7 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
 }
 -(void)loadCurrentEvent;
 -(void)initCameraView;
-
+-(void)startSession;
 @end
 @implementation CameraViewController
 
@@ -163,6 +163,7 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
     [rootLayer setMasksToBounds:YES];
     [[self videoPreviewLayer]setFrame:[rootLayer bounds]];
     [rootLayer addSublayer:videoPreviewLayer];
+    [[self CameraPreviewView]bringSubviewToFront:[self SwapCameraButton]];
     [avCaptureSession startRunning];
     [error release];
 }
@@ -170,18 +171,37 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
 {
     return [[AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo] count];
 }
+-(void) startSession{
+    [[self avCaptureSession]startRunning];
+}
 - (IBAction)SwapCameraView:(id)sender {
     if ([self cameraCount] > 1) {
+                  
         NSError *error;
         AVCaptureDeviceInput *newVideoInput = nil;
         AVCaptureDevicePosition position = [[[self currentDeviceInput] device] position];
-        
-        if (position == AVCaptureDevicePositionBack)
+        [[self avCaptureSession]stopRunning];
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:0.5];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+        [UIView setAnimationDelegate:self];
+        [UIView setAnimationDidStopSelector:@selector(startSession)];
+        if (position == AVCaptureDevicePositionBack){
             newVideoInput = [[AVCaptureDeviceInput alloc] initWithDevice:[self frontCamera] error:&error];
-        else if (position == AVCaptureDevicePositionFront)
+            [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight
+                                   forView:[self CameraPreviewView]
+                                     cache:YES];
+
+        }
+        else if (position == AVCaptureDevicePositionFront){
             newVideoInput = [[AVCaptureDeviceInput alloc] initWithDevice:[self rearCamera] error:&error];
+            [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft
+                                   forView:[self CameraPreviewView]
+                                     cache:YES];
+
+        }
         
-        
+        [UIView commitAnimations];
         if (newVideoInput != nil) {
             [[self avCaptureSession] beginConfiguration];
             [[self avCaptureSession] removeInput:[self currentDeviceInput]];
@@ -194,8 +214,10 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
             [[self avCaptureSession] commitConfiguration];
             [newVideoInput release];
         } 
-    }
+       
 
+
+    }
 }
 
 - (IBAction)TakePicture:(id)sender {
