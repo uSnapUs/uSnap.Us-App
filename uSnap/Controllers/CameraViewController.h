@@ -25,4 +25,5 @@
 @property (retain, nonatomic) IBOutlet UIView *CameraPreviewView;
 - (IBAction)SwapCameraView:(id)sender;
 - (IBAction)TakePicture:(id)sender;
+- (IBAction)GoToTimeline:(id)sender;
 @end

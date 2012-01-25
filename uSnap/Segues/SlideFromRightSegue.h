@@ -1,5 +1,5 @@
 //
-//  CameraManager.h
+//  SlideFromRightSegue.h
 //  uSnap.us
 //
 //  Created by Owen Evans on 25/01/12.
@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CameraManager : NSObject
+@interface SlideFromRightSegue : UIStoryboardSegue
 
 @end

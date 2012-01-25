@@ -28,6 +28,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:NO forKey:@"HideSplash"];
     LocationHandler *locationHandler_ = [[LocationHandler alloc]init];
     [self setLocationHandler:locationHandler_];
     [locationHandler_ release];

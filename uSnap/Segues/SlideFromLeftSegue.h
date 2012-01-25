@@ -1,13 +1,13 @@
 //
-//  CameraManager.h
+//  SlideFromLeftSegue.h
 //  uSnap.us
 //
-//  Created by Owen Evans on 25/01/12.
+//  Created by Owen Evans on 20/01/12.
 //  Copyright (c) 2012 uSnap.us Limited. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface CameraManager : NSObject
+@interface SlideFromLeftSegue : UIStoryboardSegue
 
 @end

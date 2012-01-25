@@ -28,6 +28,9 @@
 		5A6EB3C914C8B1C7001A80E2 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6EB3C514C8B1C7001A80E2 /* UIImage+Resize.m */; };
 		5A6EB3CA14C8B1C7001A80E2 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6EB3C714C8B1C7001A80E2 /* UIImage+RoundedCorner.m */; };
 		5A7EC6A114C7A71A00B39893 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7EC6A014C7A71A00B39893 /* AVFoundation.framework */; };
+		5A8971AC14C9789C00AAB2B4 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8971AB14C9789C00AAB2B4 /* TimelineViewController.m */; };
+		5A8971AF14C978F600AAB2B4 /* EventSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8971AE14C978F600AAB2B4 /* EventSettingsViewController.m */; };
+		5A8971B214C97A4400AAB2B4 /* SlideFromLeftSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8971B114C97A4400AAB2B4 /* SlideFromLeftSegue.m */; };
 		5ABC018D14C96CA300292CA1 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC014614C96CA200292CA1 /* ASIAuthenticationDialog.m */; };
 		5ABC018E14C96CA300292CA1 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC014814C96CA200292CA1 /* ASIInputStream.m */; };
 		5ABC018F14C96CA300292CA1 /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC014A14C96CA200292CA1 /* ASIFormDataRequest.m */; };
@@ -60,10 +63,10 @@
 		5AE87DEB14C80A9C00E16CCD /* Bello-SmCp.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5AE87DE714C80A9C00E16CCD /* Bello-SmCp.ttf */; };
 		5AE87DEC14C80A9C00E16CCD /* Bello-WordsBody.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5AE87DE814C80A9C00E16CCD /* Bello-WordsBody.ttf */; };
 		5AE87DEE14C80AA400E16CCD /* iphone_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AE87DED14C80AA400E16CCD /* iphone_icon.png */; };
-		5AE87DF714C80BDF00E16CCD /* CameraManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE87DF614C80BDF00E16CCD /* CameraManager.m */; };
 		5AE87E2A14C8133600E16CCD /* libsbjson-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AE87E0B14C8129600E16CCD /* libsbjson-ios.a */; };
 		5AE87E9314C8174200E16CCD /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AE87E9214C8174200E16CCD /* AssetsLibrary.framework */; };
 		5AE87E9514C818E300E16CCD /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AE87E9414C818E300E16CCD /* CoreMedia.framework */; };
+		5AF77F0814CF4EF6000733E7 /* SlideFromRightSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF77F0714CF4EF6000733E7 /* SlideFromRightSegue.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +141,12 @@
 		5A6EB3C614C8B1C7001A80E2 /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+RoundedCorner.h"; path = "Classes/UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
 		5A6EB3C714C8B1C7001A80E2 /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+RoundedCorner.m"; path = "Classes/UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
 		5A7EC6A014C7A71A00B39893 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		5A8971AA14C9789C00AAB2B4 /* TimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimelineViewController.h; path = Controllers/TimelineViewController.h; sourceTree = "<group>"; };
+		5A8971AB14C9789C00AAB2B4 /* TimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimelineViewController.m; path = Controllers/TimelineViewController.m; sourceTree = "<group>"; };
+		5A8971AD14C978F600AAB2B4 /* EventSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventSettingsViewController.h; path = Controllers/EventSettingsViewController.h; sourceTree = "<group>"; };
+		5A8971AE14C978F600AAB2B4 /* EventSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventSettingsViewController.m; path = Controllers/EventSettingsViewController.m; sourceTree = "<group>"; };
+		5A8971B014C97A4400AAB2B4 /* SlideFromLeftSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideFromLeftSegue.h; path = Segues/SlideFromLeftSegue.h; sourceTree = "<group>"; };
+		5A8971B114C97A4400AAB2B4 /* SlideFromLeftSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlideFromLeftSegue.m; path = Segues/SlideFromLeftSegue.m; sourceTree = "<group>"; };
 		5ABC014114C96CA200292CA1 /* ASIHTTPRequestConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIHTTPRequestConfig.h; path = "../pokeb-asi-http-request-4f95498/Classes/ASIHTTPRequestConfig.h"; sourceTree = "<group>"; };
 		5ABC014214C96CA200292CA1 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASICacheDelegate.h; path = "../pokeb-asi-http-request-4f95498/Classes/ASICacheDelegate.h"; sourceTree = "<group>"; };
 		5ABC014314C96CA200292CA1 /* ASIHTTPRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIHTTPRequestDelegate.h; path = "../pokeb-asi-http-request-4f95498/Classes/ASIHTTPRequestDelegate.h"; sourceTree = "<group>"; };
@@ -196,11 +205,11 @@
 		5AE87DE714C80A9C00E16CCD /* Bello-SmCp.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Bello-SmCp.ttf"; path = "Resources/Fonts/Bello-SmCp.ttf"; sourceTree = "<group>"; };
 		5AE87DE814C80A9C00E16CCD /* Bello-WordsBody.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Bello-WordsBody.ttf"; path = "Resources/Fonts/Bello-WordsBody.ttf"; sourceTree = "<group>"; };
 		5AE87DED14C80AA400E16CCD /* iphone_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iphone_icon.png; path = uSnap/iphone_icon.png; sourceTree = "<group>"; };
-		5AE87DF514C80BDF00E16CCD /* CameraManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraManager.h; path = Classes/CameraManager.h; sourceTree = "<group>"; };
-		5AE87DF614C80BDF00E16CCD /* CameraManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CameraManager.m; path = Classes/CameraManager.m; sourceTree = "<group>"; };
 		5AE87DFC14C8129600E16CCD /* SBJson.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SBJson.xcodeproj; path = "json-framework/SBJson.xcodeproj"; sourceTree = "<group>"; };
 		5AE87E9214C8174200E16CCD /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		5AE87E9414C818E300E16CCD /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		5AF77F0614CF4EF6000733E7 /* SlideFromRightSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideFromRightSegue.h; path = Segues/SlideFromRightSegue.h; sourceTree = "<group>"; };
+		5AF77F0714CF4EF6000733E7 /* SlideFromRightSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlideFromRightSegue.m; path = Segues/SlideFromRightSegue.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +290,7 @@
 				5A3A728614C6949000ED25DE /* USTAppDelegate.m */,
 				5A3A729914C6949800ED25DE /* Controllers */,
 				5A3A727D14C6949000ED25DE /* Supporting Files */,
+				5A8971B314C97A4B00AAB2B4 /* Segues */,
 			);
 			path = uSnap;
 			sourceTree = "<group>";
@@ -303,6 +313,10 @@
 				5A3A729D14C6954300ED25DE /* CameraViewController.m */,
 				5A3A729F14C6961300ED25DE /* SplashViewController.h */,
 				5A3A72A014C6961300ED25DE /* SplashViewController.m */,
+				5A8971AA14C9789C00AAB2B4 /* TimelineViewController.h */,
+				5A8971AB14C9789C00AAB2B4 /* TimelineViewController.m */,
+				5A8971AD14C978F600AAB2B4 /* EventSettingsViewController.h */,
+				5A8971AE14C978F600AAB2B4 /* EventSettingsViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -358,10 +372,19 @@
 				5A6EB3C714C8B1C7001A80E2 /* UIImage+RoundedCorner.m */,
 				5A3A72BA14C69C3C00ED25DE /* LocationHandler.h */,
 				5A3A72BB14C69C3C00ED25DE /* LocationHandler.m */,
-				5AE87DF514C80BDF00E16CCD /* CameraManager.h */,
-				5AE87DF614C80BDF00E16CCD /* CameraManager.m */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		5A8971B314C97A4B00AAB2B4 /* Segues */ = {
+			isa = PBXGroup;
+			children = (
+				5A8971B014C97A4400AAB2B4 /* SlideFromLeftSegue.h */,
+				5A8971B114C97A4400AAB2B4 /* SlideFromLeftSegue.m */,
+				5AF77F0614CF4EF6000733E7 /* SlideFromRightSegue.h */,
+				5AF77F0714CF4EF6000733E7 /* SlideFromRightSegue.m */,
+			);
+			name = Segues;
 			sourceTree = "<group>";
 		};
 		5ABC014014C96C8E00292CA1 /* ASIHttpRequest */ = {
@@ -563,7 +586,6 @@
 				5A3A72BC14C69C3C00ED25DE /* LocationHandler.m in Sources */,
 				5A3A72BF14C69EA300ED25DE /* Picture.m in Sources */,
 				5A3A72C214C69EA300ED25DE /* Event.m in Sources */,
-				5AE87DF714C80BDF00E16CCD /* CameraManager.m in Sources */,
 				5A6EB3C814C8B1C7001A80E2 /* UIImage+Alpha.m in Sources */,
 				5A6EB3C914C8B1C7001A80E2 /* UIImage+Resize.m in Sources */,
 				5A6EB3CA14C8B1C7001A80E2 /* UIImage+RoundedCorner.m in Sources */,
@@ -589,6 +611,10 @@
 				5ABC01A114C96CA300292CA1 /* ASICloudFilesObjectRequest.m in Sources */,
 				5ABC01A214C96CA300292CA1 /* ASICloudFilesRequest.m in Sources */,
 				5ABC01B114C96CDC00292CA1 /* Reachability.m in Sources */,
+				5A8971AC14C9789C00AAB2B4 /* TimelineViewController.m in Sources */,
+				5A8971AF14C978F600AAB2B4 /* EventSettingsViewController.m in Sources */,
+				5A8971B214C97A4400AAB2B4 /* SlideFromLeftSegue.m in Sources */,
+				5AF77F0814CF4EF6000733E7 /* SlideFromRightSegue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

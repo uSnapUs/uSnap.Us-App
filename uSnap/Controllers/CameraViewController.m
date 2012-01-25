@@ -16,9 +16,11 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
 
 @interface CameraViewController (Private){
 }
+-(void) addPreviewLayer;
 -(void)loadCurrentEvent;
 -(void)initCameraView;
 -(void)startSession;
+-(void)swipedFromRight;
 @end
 @implementation CameraViewController
 
@@ -59,12 +61,15 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setBool:NO forKey:@"HideSplash"];
+
     USTAppDelegate* appDelegate = (USTAppDelegate *)[[UIApplication sharedApplication]delegate];
     [self setManagedObjectModel:[appDelegate managedObjectModel]];
      [self setManagedObjectContext:[appDelegate managedObjectContext]];
-    [self initCameraView];
+    UISwipeGestureRecognizer *gestureRecogniser = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipedFromRight)];
+    [gestureRecogniser setDirection:UISwipeGestureRecognizerDirectionRight];
+    [[self view]addGestureRecognizer:gestureRecogniser];
+    [gestureRecogniser release];
+    [self performSelectorInBackground:@selector(initCameraView) withObject:self];
      
 }
 
@@ -86,19 +91,22 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    BOOL hideSplash = [defaults boolForKey:@"HideSplash"];
+    BOOL hideSplash = [[NSUserDefaults standardUserDefaults] boolForKey:@"HideSplash"];
+   // [self initCameraView];
     if(hideSplash)
     {
         [self loadCurrentEvent];
     }
     else
     {   
-        [defaults setBool:YES forKey:@"HideSplash"];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HideSplash"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         [self performSegueWithIdentifier:@"ShowSplash" sender:self];
     }
 }
-
+-(void) swipedFromRight{
+    [self GoToTimeline:NULL];
+}
 #pragma mark - Memory Lifecycle
 -(void) dealloc{
     [CameraPreviewView release];
@@ -125,6 +133,9 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
 }
 
 -(void) initCameraView{
+    if([self avCaptureSession]!=nil){
+        return;
+    }
     NSError *error = nil;
     AVCaptureSession *session = [[AVCaptureSession alloc]init];
     [self setAvCaptureSession:session];
@@ -161,14 +172,20 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
     
     AVCaptureVideoPreviewLayer *previewLayer =  [[AVCaptureVideoPreviewLayer alloc]initWithSession:[self avCaptureSession]];
     [self setVideoPreviewLayer:previewLayer];
+    
     [previewLayer release];
+    
+    [error release];
+    [self performSelectorOnMainThread:@selector(addPreviewLayer) withObject:self waitUntilDone:NO];
+}
+-(void) addPreviewLayer
+{
     CALayer *rootLayer = [[self CameraPreviewView]layer];
     [rootLayer setMasksToBounds:YES];
     [[self videoPreviewLayer]setFrame:[rootLayer bounds]];
     [rootLayer addSublayer:videoPreviewLayer];
     [[self CameraPreviewView]bringSubviewToFront:[self CameraTopbarView]];
     [avCaptureSession startRunning];
-    [error release];
 }
 - (NSUInteger) cameraCount
 {
@@ -253,6 +270,13 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
         [saveError release];
         [picture beginUpload];
     }];
+}
+
+- (IBAction)GoToTimeline:(id)sender {
+    //[self prepareForSegue:@"GoToTimeline" sender:self];
+    [self performSegueWithIdentifier:@"GoToTimeline" sender:self];
+    
+    
 }
 
 -(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
