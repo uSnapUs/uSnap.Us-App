@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="872" systemVersion="11C73" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Event" representedClassName="Event">
+        <attribute name="eventEnd" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="eventKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="eventStart" optional="YES" attributeType="Date"/>
         <attribute name="eventTitle" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="timeStamp" optional="YES" attributeType="Date"/>
-        <relationship name="pictures" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Picture" inverseName="event" inverseEntity="Picture" syncable="YES"/>
+        <relationship name="pictures" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Picture" inverseName="event" inverseEntity="Picture" syncable="YES"/>
     </entity>
     <entity name="Picture" representedClassName="Picture" syncable="YES">
         <attribute name="dateTaken" optional="YES" attributeType="Date" syncable="YES"/>
@@ -17,7 +18,7 @@
         <relationship name="event" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="pictures" inverseEntity="Event" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Event" positionX="261" positionY="189" width="128" height="105"/>
-        <element name="Picture" positionX="160" positionY="192" width="128" height="165"/>
+        <element name="Event" positionX="261" positionY="189" width="128" height="120"/>
+        <element name="Picture" positionX="-549" positionY="249" width="128" height="165"/>
     </elements>
 </model>

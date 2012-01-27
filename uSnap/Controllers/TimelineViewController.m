@@ -7,12 +7,22 @@
 //
 
 #import "TimelineViewController.h"
+#import "USTAppDelegate.h"
+#import "Event.h"
+#import "LocationHandler.h"
+#import "PhotoStreamCell.h"
+#import "constants.h"
 @interface TimelineViewController (PrivateMethods)
 -(void) swipeLeftReceived;
+-(void)setEventData;
+-(NSString*) getTitleLabelForEvent:(Event *)event;
+-(NSString*) getDateLabelForEvent:(Event *)event;
 @end
 
 @implementation TimelineViewController
-
+@synthesize EventTitleLabel;
+@synthesize EventDateLabel;
+NSArray *_orderedPictures;
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -39,6 +49,13 @@
     [swipeRecogniser setDirection:UISwipeGestureRecognizerDirectionLeft];
     [[self view]addGestureRecognizer:swipeRecogniser];
     [swipeRecogniser release];
+    USTAppDelegate *appDelegate = (USTAppDelegate*)[[UIApplication sharedApplication]delegate];
+     Event *currentEvent = [[appDelegate locationHandler]currentEvent];
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc]initWithKey:@"dateTaken" ascending:NO];
+   
+       _orderedPictures = [[currentEvent pictures]sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
+    [_orderedPictures retain];
+    [self setEventData];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -48,6 +65,8 @@
 
 - (void)viewDidUnload
 {
+    [self setEventTitleLabel:nil];
+    [self setEventDateLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -96,20 +115,26 @@
 {
 
     // Return the number of rows in the section.
-    return 0;
+    NSLog(@"%@",_orderedPictures);
+    return _orderedPictures.count;
+    //return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    PhotoStreamCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[PhotoStreamCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        
     }
-    
+        
     // Configure the cell...
-    
+    Picture *picture = [_orderedPictures objectAtIndex:[indexPath row]];
+    UIImage *thumbnailImage = [UIImage imageWithData:[NSData dataWithContentsOfFile:[picture getThumbnailPath]]];
+    CGImageRef imageRef = CGImageCreateWithImageInRect([thumbnailImage CGImage],CGRectMake(0, 0, 300, 300));
+    [[cell imageView]setImage:[UIImage imageWithCGImage:imageRef]];
     return cell;
 }
 
@@ -165,5 +190,52 @@
      [detailViewController release];
      */
 }
+-(void) dealloc{
+    [_orderedPictures release];
+    [EventTitleLabel release];
+    [EventDateLabel release];
+    [super dealloc];
+}
+-(void) setEventData{
 
+    UIFont *titleFont = [UIFont fontWithName:@"Bello-Script" size:38];
+    
+    
+    [[self EventTitleLabel]setFont:titleFont];
+    
+    USTAppDelegate *appDelegate = (USTAppDelegate*)[[UIApplication sharedApplication]delegate];
+    Event *currentEvent = [[appDelegate locationHandler]currentEvent];
+    [[self EventDateLabel]setText:[self getTitleLabelForEvent:currentEvent]];
+    [[self EventDateLabel]setText:[self getDateLabelForEvent:currentEvent]];
+}
+-(NSString*) getDateLabelForEvent:(Event *)event{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter init]alloc];
+    [dateFormatter setDateFormat:@""];
+    
+    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *components = [gregorianCalendar components:NSDayCalendarUnit
+                                                        fromDate:[event eventStart]
+                                                          toDate:[event eventEnd]
+                                                         options:0];
+    NSDateComponents *beginComponents = [gregorianCalendar components:NSDayCalendarUnit fromDate:[event eventStart]];
+    NSDateComponents *endComponents = [gregorianCalendar components:NSDayCalendarUnit fromDate:[event eventEnd]];
+    [gregorianCalendar release];
+    NSString *dayPart;
+    if(components.day>1){
+        dayPart = [NSString stringWithFormat:@"%i - %i",[beginComponents day],[endComponents day]];
+    }
+    else{
+        dayPart = [NSString stringWithFormat:@"%i",[beginComponents day]];
+    }
+    return @"";
+}
+-(NSString*) getTitleLabelForEvent:(Event *)event{
+    if(event!=nil&&[event eventKey]!=VoidEventKey){
+        return [event eventTitle];
+    }
+    else{
+        return @"No Event Selected!";
+    }
+
+}
 @end

@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface TimelineViewController : UITableViewController
+@property (retain, nonatomic) IBOutlet UILabel *EventTitleLabel;
+@property (retain, nonatomic) IBOutlet UILabel *EventDateLabel;
 
 @end

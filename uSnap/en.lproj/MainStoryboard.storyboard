@@ -53,40 +53,71 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" id="pDy-on-Lj9">
-                                <rect key="frame" x="0.0" y="436" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <barButtonItem title="Item" id="dGB-M5-Ug5">
-                                        <connections>
-                                            <action selector="GoToTimeline:" destination="h2l-DD-H9V" id="kFq-vv-SLk"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="h0p-mZ-5fQ"/>
-                                    <barButtonItem systemItem="camera" id="0Gh-7c-vwa">
-                                        <connections>
-                                            <action selector="TakePicture:" destination="h2l-DD-H9V" id="6d6-k3-PR7"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="b0m-qa-i2W"/>
-                                    <barButtonItem title="Item" id="lr2-lf-EOb"/>
-                                </items>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </toolbar>
-                            <view contentMode="scaleToFill" id="SWN-2J-C8M">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="436"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <view contentMode="scaleToFill" id="hml-KU-ZRZ">
+                                <rect key="frame" x="0.0" y="426" width="320" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <view opaque="NO" alpha="0.0" contentMode="scaleToFill" id="k9K-sn-Fmd">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5xV-g1-qKq">
+                                        <rect key="frame" x="20" y="14" width="27" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="0.4274510145" blue="0.62745100259999997" alpha="0.0" colorSpace="deviceRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="camera-back.png">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="GoToTimeline:" destination="h2l-DD-H9V" eventType="touchUpInside" id="AX8-bv-HXs"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7hk-04-lhp">
+                                        <rect key="frame" x="280" y="14" width="27" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="0.4274510145" blue="0.62745100259999997" alpha="0.0" colorSpace="deviceRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="camera-cameraroll.png">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Igx-GD-HA3">
+                                        <rect key="frame" x="140" y="13" width="41" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                        <state key="normal" image="camera-shutter.png">
+                                            <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="TakePicture:" destination="h2l-DD-H9V" eventType="touchUpInside" id="se4-Eu-Imd"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.086274509803921567" green="0.11372549019607843" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="SWN-2J-C8M">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="426"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view opaque="NO" contentMode="scaleToFill" id="k9K-sn-Fmd">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="58"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BAf-yl-Frb">
-                                                <rect key="frame" x="242" y="11" width="58" height="38"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BAf-yl-Frb">
+                                                <rect key="frame" x="246" y="10" width="64" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                <state key="normal" title="Swap">
+                                                <inset key="imageEdgeInsets" minX="10" minY="4" maxX="10" maxY="4"/>
+                                                <state key="normal" title="Swap" image="camera-rotate.png">
                                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -94,40 +125,37 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="SwapCameraView:" destination="h2l-DD-H9V" eventType="touchUpInside" id="ruc-Nc-fRp"/>
+                                                    <action selector="SwapCameraView:" destination="h2l-DD-H9V" eventType="touchUpInside" id="Vxy-vz-j9X"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" alpha="0.80000001192092896" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="g92-PS-kMh">
-                                                <rect key="frame" x="17" y="10" width="64" height="38"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="g92-PS-kMh">
+                                                <rect key="frame" x="10" y="10" width="41" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                <state key="normal" title="Flash">
+                                                <inset key="imageEdgeInsets" minX="13" minY="5" maxX="13" maxY="5"/>
+                                                <state key="normal" image="camera-flash.png">
                                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <state key="highlighted">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
-                                                <connections>
-                                                    <action selector="SwapCameraView:" destination="h2l-DD-H9V" eventType="touchUpInside" id="SEc-mt-zOm"/>
-                                                </connections>
                                             </button>
-                                            <view alpha="0.0" contentMode="scaleToFill" id="7PV-ZC-VAR">
-                                                <rect key="frame" x="80" y="10" width="160" height="38"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </view>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.011764707043766975" green="0.0039215688593685627" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="BottomToolbar" destination="hml-KU-ZRZ" id="gkA-CZ-5pF"/>
                         <outlet property="CameraPreviewView" destination="SWN-2J-C8M" id="Ynq-TW-GIL"/>
+                        <outlet property="CameraSwapButton" destination="BAf-yl-Frb" id="IHw-Al-gyR"/>
                         <outlet property="CameraTopbarView" destination="k9K-sn-Fmd" id="Ww8-lQ-4jz"/>
+                        <outlet property="FlashButton" destination="g92-PS-kMh" id="fnu-Sl-ffI"/>
                         <outlet property="SwapCameraButton" destination="BAf-yl-Frb" id="HPG-oV-hUE"/>
                         <segue destination="Wpe-bq-Fd0" kind="modal" identifier="ShowSplash" id="SQs-Iw-bgW"/>
                         <segue destination="E10-9T-sqQ" kind="custom" identifier="GoToTimeline" customClass="SlideFromLeftSegue" id="d2v-KF-doE"/>
@@ -140,32 +168,64 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HoH-fk-RUL" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="Timeline" id="E10-9T-sqQ" customClass="TimelineViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="TnF-Ly-mMh">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="360" sectionHeaderHeight="22" sectionFooterHeight="22" id="TnF-Ly-mMh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="0aG-hB-dzd">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="NQT-NS-SwU">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="315"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Webstock" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="d8D-L8-VJ0">
+                                    <rect key="frame" x="20" y="57" width="280" height="87"/>
+                                    <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="38"/>
+                                    <color key="textColor" red="0.23137254901960785" green="0.32156862745098042" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="stream-location-middle.png" id="uGT-FQ-BqU">
+                                    <rect key="frame" x="148.5" y="134" width="24" height="24"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="13 - 17 Feburary" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="sG5-2p-vWh">
+                                    <rect key="frame" x="20" y="166" width="280" height="36"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                                    <color key="textColor" red="0.60784313725490191" green="0.70980392156862748" blue="0.81176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PhotoRow" id="sJ9-2Y-ist">
-                                <rect key="frame" x="0.0" y="101" width="320" height="44"/>
+                            <tableViewCell opaque="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="PhotoRow" rowHeight="360" id="sJ9-2Y-ist" customClass="PhotoStreamCell">
+                                <rect key="frame" x="0.0" y="337" width="320" height="360"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="359"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="top" id="zFB-c2-AkP">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </imageView>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="photoView" destination="zFB-c2-AkP" id="XWY-8Y-TJS"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="E10-9T-sqQ" id="yhr-u9-cDY"/>
-                            <outlet property="delegate" destination="E10-9T-sqQ" id="sw9-7Z-eoX"/>
+                            <outlet property="dataSource" destination="E10-9T-sqQ" id="PjJ-S8-fE8"/>
+                            <outlet property="delegate" destination="E10-9T-sqQ" id="SBE-px-Wz2"/>
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="EventDateLabel" destination="sG5-2p-vWh" id="b9K-LZ-5RA"/>
+                        <outlet property="EventTitleLabel" destination="d8D-L8-VJ0" id="0T7-m7-BpT"/>
                         <segue destination="rVc-LG-J02" kind="modal" identifier="GoToSettings" id="X9z-bG-5jj"/>
                         <segue destination="h2l-DD-H9V" kind="custom" identifier="GoToCamera" customClass="SlideFromRightSegue" id="21B-HP-3zO"/>
                     </connections>
@@ -193,6 +253,52 @@
             <point key="canvasLocation" x="221" y="-514"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="camera-back.png" width="36" height="38"/>
+        <image name="camera-cameraroll.png" width="44" height="46"/>
+        <image name="camera-flash.png" width="28" height="43"/>
+        <image name="camera-rotate.png" width="87" height="45"/>
+        <image name="camera-shutter.png" width="56" height="44"/>
+        <image name="stream-location-middle.png" width="47" height="47"/>
+    </resources>
+    <classes>
+        <class className="CameraViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CameraViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="GoToTimeline:"/>
+                <relationship kind="action" name="SwapCameraView:"/>
+                <relationship kind="action" name="TakePicture:"/>
+                <relationship kind="outlet" name="BottomToolbar" candidateClass="UIView"/>
+                <relationship kind="outlet" name="CameraPreviewView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="CameraSwapButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="CameraTopbarView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="FlashButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="SwapCameraButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="EventSettingsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventSettingsViewController.h"/>
+        </class>
+        <class className="PhotoStreamCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoStreamCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="photoView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="SplashViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SplashViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismiss:"/>
+                <relationship kind="outlet" name="TitleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="TimelineViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TimelineViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="EventTitleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <nil key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

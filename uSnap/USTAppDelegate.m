@@ -10,7 +10,7 @@
 
 
 @implementation USTAppDelegate
-
+@synthesize fileUploadHandler = _fileUploadHandler;
 @synthesize window = _window;
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize managedObjectModel = __managedObjectModel;
@@ -23,11 +23,15 @@
     [__managedObjectModel release];
     [__persistentStoreCoordinator release];
     [_locationHandler release];
+    [_fileUploadHandler release];
     [super dealloc];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    FileUploadHandler *fileUploadHandler = [[FileUploadHandler alloc]init];
+    [self setFileUploadHandler:fileUploadHandler];
+    [fileUploadHandler release];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool:NO forKey:@"HideSplash"];
     LocationHandler *locationHandler_ = [[LocationHandler alloc]init];

@@ -13,8 +13,6 @@
 @interface Picture(PrivateMethods)  {
 
 }
--(NSString*)getThumbnailPath;
--(NSString*)getFullPath;
 @end
 
 @implementation Picture
@@ -28,25 +26,8 @@
 @dynamic uploadedBytes;
 @dynamic event;
 
--(void)beginUpload{
-    [self setUploaded:[NSNumber numberWithBool:NO]];
-    [self setUploadedBytes:[NSNumber numberWithInt:0]];
-    // NSError *err;
-    //[[self managedObjectContext]save:&err];
-    NSURL *postUrl = [NSURL URLWithString:@"http://192.168.0.106:3000/photos"];
-    ASIFormDataRequest *formRequest = [ASIFormDataRequest requestWithURL:postUrl];
-    [formRequest setFile:[self getFullPath] withFileName:@"photo.jpg" andContentType:@"image/jpeg" forKey:@"photo[photo]"];
-    [formRequest setShouldStreamPostDataFromDisk:YES];
-    [formRequest setAllowCompressedResponse:YES];
-    //[formRequest shouldCompressRequestBody:YES];
-    [formRequest setUploadProgressDelegate:self];
-    //[formRequest showAccurateProgress:YES];
-    [formRequest setDelegate:self];
-    [formRequest startAsynchronous];
-    
-    
-    
-}
+
+
 -(void)setImage:(NSData *)jpgRepresentation{
     [jpgRepresentation retain];
     NSString *fullPath =[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
@@ -59,7 +40,7 @@
     CFRelease(newUniqueId);
     CFRelease(newUniqueIdString);
      UIImage *fullImage = [[UIImage alloc]initWithData:jpgRepresentation];
-    UIImage *thumbnail = [fullImage resizedImageWithContentMode:UIViewContentModeScaleAspectFill bounds:CGSizeMake(250., 250.) interpolationQuality:kCGInterpolationHigh];
+    UIImage *thumbnail = [fullImage resizedImageWithContentMode:UIViewContentModeScaleAspectFill bounds:CGSizeMake(310.,310.) interpolationQuality:kCGInterpolationHigh];
     [jpgRepresentation writeToFile:[self getFullPath] atomically:YES];
     [UIImageJPEGRepresentation(thumbnail, .5) writeToFile:[self getThumbnailPath] atomically:YES];
     [fullImage release];

@@ -9,8 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 #import "Event.h"
-@interface LocationHandler : NSObject<CLLocationManagerDelegate>
+#import "ASIHTTPRequestDelegate.h"
+@interface LocationHandler : NSObject<CLLocationManagerDelegate,ASIHTTPRequestDelegate>
 @property(strong,atomic) Event *currentEvent;
 @property(strong,atomic) CLLocationManager *locationManager;
+
+-(bool)isCurrentlyUpdatingLocation;
 -(void)initalizeLocation;
 @end

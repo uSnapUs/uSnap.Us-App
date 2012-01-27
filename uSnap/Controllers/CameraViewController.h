@@ -20,10 +20,13 @@
 @property (retain, nonatomic) IBOutlet UIView *CameraTopbarView;
 @property(retain,atomic) NSString *currentCameraPosition;
 @property (assign,atomic) NSManagedObjectContext *managedObjectContext;
+@property (retain, nonatomic) IBOutlet UIButton *FlashButton;
 @property (assign,atomic) NSManagedObjectModel *managedObjectModel;
 @property (retain, nonatomic) IBOutlet UIButton *SwapCameraButton;
 @property (retain, nonatomic) IBOutlet UIView *CameraPreviewView;
 - (IBAction)SwapCameraView:(id)sender;
 - (IBAction)TakePicture:(id)sender;
 - (IBAction)GoToTimeline:(id)sender;
+@property (retain, nonatomic) IBOutlet UIButton *CameraSwapButton;
+@property (retain, nonatomic) IBOutlet UIView *BottomToolbar;
 @end

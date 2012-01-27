@@ -11,6 +11,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <CoreMedia/CoreMedia.h>
 #import "Picture.h"
+#import "constants.h"
 // used for KVO observation of the @"capturingStillImage" property to perform shutter animation
 static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCaptureStillImageIsCapturingStillImageContext";
 
@@ -21,8 +22,12 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
 -(void)initCameraView;
 -(void)startSession;
 -(void)swipedFromRight;
+-(void)eventUpdated;
+-(void)configureButtons;
 @end
 @implementation CameraViewController
+@synthesize CameraSwapButton;
+@synthesize BottomToolbar;
 
 #pragma mark properties
 @synthesize avCaptureSession;
@@ -36,6 +41,7 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
 @synthesize currentCameraPosition;
 @synthesize currentDeviceInput;
 @synthesize managedObjectContext;
+@synthesize FlashButton;
 @synthesize managedObjectModel;
 
 
@@ -61,7 +67,7 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-
+    [self configureButtons];
     USTAppDelegate* appDelegate = (USTAppDelegate *)[[UIApplication sharedApplication]delegate];
     [self setManagedObjectModel:[appDelegate managedObjectModel]];
      [self setManagedObjectContext:[appDelegate managedObjectContext]];
@@ -70,6 +76,9 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
     [[self view]addGestureRecognizer:gestureRecogniser];
     [gestureRecogniser release];
     [self performSelectorInBackground:@selector(initCameraView) withObject:self];
+      NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    [self eventUpdated];
+    [notificationCenter addObserver:self selector:@selector(eventUpdated) name:uSnapEventUpdatedNotification object:nil];
      
 }
 
@@ -78,6 +87,9 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
     [self setCameraPreviewView:nil];
     [self setSwapCameraButton:nil];
     [self setCameraTopbarView:nil];
+    [self setFlashButton:nil];
+    [self setCameraSwapButton:nil];
+    [self setBottomToolbar:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -121,6 +133,9 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
     [videoPreviewLayer release];
     [SwapCameraButton release];
     [CameraTopbarView release];
+    [FlashButton release];
+    [CameraSwapButton release];
+    [BottomToolbar release];
     [super dealloc];
 
 }
@@ -261,14 +276,18 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
          }];
         CFRelease(attachments);
         [library release];
+         USTAppDelegate *appDelegate = (USTAppDelegate*)[[UIApplication sharedApplication]delegate];
         Picture *picture = (Picture*) [NSEntityDescription insertNewObjectForEntityForName:@"Picture" inManagedObjectContext:[self managedObjectContext]]; 
-//        [picture setEvent:currentEvent];
+        [picture setEvent:[[appDelegate locationHandler]currentEvent]];
         [picture setDateTaken:[NSDate date]];
         [picture setImage:jpgData];
         NSError *saveError = nil;
         [managedObjectContext save:&saveError];
+        if(saveError){
+            NSLog(@"Save Error %@",[saveError description]);
+        }
         [saveError release];
-        [picture beginUpload];
+        [[appDelegate fileUploadHandler]addPictureToUploadQueue:picture];
     }];
 }
 
@@ -294,5 +313,39 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
         
     }
 }
-
+-(void)eventUpdated{
+     USTAppDelegate* appDelegate = (USTAppDelegate *)[[UIApplication sharedApplication]delegate];
+    LocationHandler *locHandler = [appDelegate locationHandler];
+    
+    if([locHandler currentEvent]==nil){
+        NSLog(@"Currently updating location");
+    }
+    else if([[locHandler currentEvent]eventKey]==VoidEventKey){
+        NSLog(@"No Event");
+    }
+    else{
+        NSLog(@"Event");
+    }
+}
+-(void) configureButtons{
+    CALayer *layer = [[self FlashButton]layer];
+    [layer setCornerRadius:15.0f];
+    [layer setBorderColor:[UIColor colorWithRed:.0 green:.0 blue:.0 alpha:1.0].CGColor];
+    [layer setBackgroundColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:.3].CGColor];
+    [layer setBorderWidth:1.0f];
+    layer = [[self CameraSwapButton]layer];
+    [layer setCornerRadius:15.0f];
+    [layer setBorderColor:[UIColor colorWithRed:.0 green:.0 blue:.0 alpha:1.0].CGColor];
+    [layer setBackgroundColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:.3].CGColor];
+    [layer setBorderWidth:1.0f];
+    layer = [[self BottomToolbar]layer];
+    CAGradientLayer *toolbarGradientLayer = [[CAGradientLayer alloc]init];
+    [toolbarGradientLayer setBounds:[layer bounds]];
+    [toolbarGradientLayer setPosition:CGPointMake([layer bounds].size.width/2,
+                                                  [layer bounds].size.height/2)];
+    [toolbarGradientLayer setColors:[NSArray arrayWithObjects:
+                                     (id)[UIColor colorWithRed:56/255. green:64/255. blue:68/255. alpha:1].CGColor,
+                                     (id)[UIColor colorWithRed:25/255. green:29/255. blue:31/255. alpha:1].CGColor,nil]];
+    [layer insertSublayer:toolbarGradientLayer atIndex:0];
+}
 @end

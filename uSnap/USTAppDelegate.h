@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "LocationHandler.h"
+#import "FileUploadHandler.h"
+
 @interface USTAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
@@ -15,7 +17,7 @@
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-
+@property (retain) FileUploadHandler *fileUploadHandler;
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
