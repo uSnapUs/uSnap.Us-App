@@ -57,6 +57,8 @@
 		5ABC01B714C96D5D00292CA1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ABC01B614C96D5D00292CA1 /* SystemConfiguration.framework */; };
 		5ABC01B914C96D6700292CA1 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ABC01B814C96D6700292CA1 /* MobileCoreServices.framework */; };
 		5ABC01BB14C96D7100292CA1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ABC01BA14C96D7100292CA1 /* libz.dylib */; };
+		5AC7B8C114D54C3300ECA754 /* CoolButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC7B8C014D54C3300ECA754 /* CoolButton.m */; };
+		5AC7B8C314D5565D00ECA754 /* stream-pen.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AC7B8C214D5565D00ECA754 /* stream-pen.png */; };
 		5AD0A28614D144280052B43F /* camera-back.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AD0A27D14D144280052B43F /* camera-back.png */; };
 		5AD0A28714D144280052B43F /* camera-cameraroll.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AD0A27E14D144280052B43F /* camera-cameraroll.png */; };
 		5AD0A28814D144280052B43F /* camera-flash.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AD0A27F14D144280052B43F /* camera-flash.png */; };
@@ -211,6 +213,9 @@
 		5ABC01B614C96D5D00292CA1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5ABC01B814C96D6700292CA1 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		5ABC01BA14C96D7100292CA1 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		5AC7B8BF14D54C3300ECA754 /* CoolButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoolButton.h; path = Classes/CoolButton.h; sourceTree = "<group>"; };
+		5AC7B8C014D54C3300ECA754 /* CoolButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoolButton.m; path = Classes/CoolButton.m; sourceTree = "<group>"; };
+		5AC7B8C214D5565D00ECA754 /* stream-pen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "stream-pen.png"; path = "Resources/stream-pen.png"; sourceTree = "<group>"; };
 		5AD0A27D14D144280052B43F /* camera-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-back.png"; sourceTree = "<group>"; };
 		5AD0A27E14D144280052B43F /* camera-cameraroll.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-cameraroll.png"; sourceTree = "<group>"; };
 		5AD0A27F14D144280052B43F /* camera-flash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-flash.png"; sourceTree = "<group>"; };
@@ -410,6 +415,8 @@
 				5AF77F6714CFF38E000733E7 /* FileUploadHandler.m */,
 				5AF77F6914CFF3A6000733E7 /* PictureUpload.h */,
 				5AF77F6A14CFF3A6000733E7 /* PictureUpload.m */,
+				5AC7B8BF14D54C3300ECA754 /* CoolButton.h */,
+				5AC7B8C014D54C3300ECA754 /* CoolButton.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -512,6 +519,7 @@
 		5AF77F4914CFD98E000733E7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				5AC7B8C214D5565D00ECA754 /* stream-pen.png */,
 				5AD3AC1C14D2A8A000C2B8A9 /* stream-location-middle.png */,
 				5AD0A27D14D144280052B43F /* camera-back.png */,
 				5AD0A27E14D144280052B43F /* camera-cameraroll.png */,
@@ -633,6 +641,7 @@
 				5AD0A28D14D144280052B43F /* stream-camera.png in Resources */,
 				5AD0A28E14D144280052B43F /* stream-location.png in Resources */,
 				5AD3AC1D14D2A8A000C2B8A9 /* stream-location-middle.png in Resources */,
+				5AC7B8C314D5565D00ECA754 /* stream-pen.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -683,6 +692,7 @@
 				5AF77F6B14CFF3A6000733E7 /* PictureUpload.m in Sources */,
 				5AD0A29D14D148D10052B43F /* Event.m in Sources */,
 				5AD0A2A014D15C9D0052B43F /* PhotoStreamCell.m in Sources */,
+				5AC7B8C114D54C3300ECA754 /* CoolButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

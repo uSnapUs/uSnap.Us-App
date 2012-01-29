@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TimelineViewController : UITableViewController
+@interface TimelineViewController : UITableViewController<UIScrollViewDelegate>
 @property (retain, nonatomic) IBOutlet UILabel *EventTitleLabel;
 @property (retain, nonatomic) IBOutlet UILabel *EventDateLabel;
+@property (retain, nonatomic) IBOutlet UIView *BottomBarView;
+- (IBAction)CameraButtonPressed:(id)sender;
+- (IBAction)LocationButtonPressed:(id)sender;
 
 @end

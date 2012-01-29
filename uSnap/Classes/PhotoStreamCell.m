@@ -10,6 +10,7 @@
 
 @implementation PhotoStreamCell
 @synthesize photoView;
+@synthesize editButton;
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -17,6 +18,7 @@
         // Initialization code
         [self setSelectionStyle:UITableViewCellSelectionStyleNone];
         [self setBackgroundColor:[UIColor blackColor]];
+
     }
     return self;
 }
@@ -28,8 +30,28 @@
     // Configure the view for the selected state
 }
 -(void) dealloc{
-    [[self photoView]release];
+    [photoView release];
+    [editButton release];
     [super dealloc];
 }
+-(void)layoutSubviews{
+      [super layoutSubviews];  
+    //[self setFrame:CGRectMake(0, 0, 320, 360)];
+    [[self imageView]setFrame:CGRectMake(10, 0, 300, 300)];
+    [[self imageView]setUserInteractionEnabled:YES];
+    
+    if(editButton==nil){
+        UIView *buttonView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 50, 50)];
+        editButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [editButton setFrame:CGRectMake(267, 267,23, 23)];
+        [editButton setBackgroundImage:[UIImage imageNamed:@"stream-pen.png"]forState:UIControlStateNormal];
+        [[editButton imageView]setHidden:NO];
+       // [editButton setBackgroundColor:[UIColor whiteColor]];
+        [buttonView addSubview:editButton];
+        [[self imageView]addSubview:buttonView];
+        [buttonView release];
+        
+    }  
 
+}
 @end

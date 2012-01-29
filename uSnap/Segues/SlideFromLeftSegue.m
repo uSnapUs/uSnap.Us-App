@@ -22,14 +22,18 @@
 	[animation setDuration:0.5];
 	[animation setType:kCATransitionPush];
 	[animation setSubtype:kCATransitionFromLeft];
+    [animation setDelegate:self];
 	[animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
 	
-	[[theWindow layer] addAnimation:animation forKey:kCATransition];
-    
+	[[theWindow layer] addAnimation:animation forKey:kCATransition];   
     [[self sourceViewController]presentModalViewController:[self destinationViewController]animated:NO];
     
 //    [[self sourceViewController]presentViewController:[self destinationViewController] animated:NO completion:NULL];
     
 }
-
+-(void) animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
+    if(flag){
+           [[UIApplication sharedApplication]setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+    }
+}
 @end

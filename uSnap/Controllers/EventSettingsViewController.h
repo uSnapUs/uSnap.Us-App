@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface EventSettingsViewController : UIViewController
+- (IBAction)Done:(id)sender;
+@property (retain, nonatomic) IBOutlet UIButton *doneButton;
+@property (retain, nonatomic) IBOutlet UIView *TopBar;
 
 @end

@@ -45,6 +45,8 @@ BOOL _isUpdating;
     return _isUpdating;
 }
 -(void)requestFailed:(ASIHTTPRequest *)request{
+    NSLog(@"request failed:%@",[[request error]description]);
+          
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     [notificationCenter postNotificationName:uSnapEventUpdatedNotification object:self];
     [[self locationManager]startUpdatingLocation];
@@ -58,24 +60,28 @@ BOOL _isUpdating;
         NSMutableDictionary *serverEvent = [eventArray objectAtIndex:0];
         USTAppDelegate* appDelegate = (USTAppDelegate *)[[UIApplication sharedApplication]delegate];
         NSEntityDescription *eventEntity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:[appDelegate managedObjectContext]];
-        NSFetchRequest *request = [[NSFetchRequest alloc]init];
-        request.entity = eventEntity;
-        request.fetchLimit = 1;
-        request.predicate = [NSPredicate predicateWithFormat:@"eventKey=%@",[serverEvent valueForKey:@"id"]];
+        
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
+        fetchRequest.entity = eventEntity;
+        fetchRequest.fetchLimit = 1;
+        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"eventKey=%@",[serverEvent valueForKey:@"id"]];
         NSError *error = nil;
-        NSArray *results = [[appDelegate managedObjectContext] executeFetchRequest:request
+        NSArray *results = [[appDelegate managedObjectContext] executeFetchRequest:fetchRequest
                                                                              error:&error];
+        [fetchRequest release];
         Event *event = nil;
         if(error || [results count]<1){
             event = (Event*) [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:[appDelegate managedObjectContext]]; 
             NSNumber *serverId = [serverEvent valueForKey:@"id"];
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
             [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZ"];
-            [event setEventStart:[dateFormatter dateFromString:[serverEvent 
+            [event setEventStart:[dateFormatter dateFromString:[serverEvent valueForKey:@"starts"]]];
+            [event setEventEnd:[dateFormatter dateFromString:[serverEvent valueForKey:@"ends"]]];
             [event setEventKey:[serverId stringValue]];
             [event setEventTitle:[serverEvent valueForKey:@"name"]];
             NSError *saveError = nil;
             [[appDelegate managedObjectContext] save:&saveError];
+            [dateFormatter release];
         }
         else{
             event = (Event*)[results objectAtIndex:0];

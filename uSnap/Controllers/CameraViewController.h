@@ -10,7 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface CameraViewController : UIViewController
+@interface CameraViewController : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property(retain,atomic) AVCaptureSession *avCaptureSession;
 @property(retain,atomic) AVCaptureDevice *frontCamera;
 @property(retain,atomic) AVCaptureDevice *rearCamera;
@@ -29,4 +29,8 @@
 - (IBAction)GoToTimeline:(id)sender;
 @property (retain, nonatomic) IBOutlet UIButton *CameraSwapButton;
 @property (retain, nonatomic) IBOutlet UIView *BottomToolbar;
+@property (retain, nonatomic) IBOutlet UIButton *LocationButton;
+- (IBAction)GoToSettings:(id)sender;
+- (IBAction)GoToImagePicker:(id)sender;
+@property (retain, nonatomic) IBOutlet UIButton *CameraShutterButton;
 @end

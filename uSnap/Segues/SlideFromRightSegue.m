@@ -16,6 +16,7 @@
 	UIView *theWindow = [currentView superview];
 	
 	// set up an animation for the transition between the views
+       [[UIApplication sharedApplication]setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
 	CATransition *animation = [CATransition animation];
 	[animation setDuration:0.5];
 	[animation setType:kCATransitionPush];

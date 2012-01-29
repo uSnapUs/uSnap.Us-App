@@ -10,4 +10,5 @@
 #import "Picture.h"
 @interface PhotoStreamCell : UITableViewCell
 @property(retain, nonatomic) IBOutlet UIImageView *photoView;
+@property(retain,nonatomic) UIButton *editButton;
 @end

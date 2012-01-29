@@ -40,9 +40,10 @@
     CFRelease(newUniqueId);
     CFRelease(newUniqueIdString);
      UIImage *fullImage = [[UIImage alloc]initWithData:jpgRepresentation];
-    UIImage *thumbnail = [fullImage resizedImageWithContentMode:UIViewContentModeScaleAspectFill bounds:CGSizeMake(310.,310.) interpolationQuality:kCGInterpolationHigh];
+
+    UIImage *thumbnail = [fullImage thumbnailImage:300 transparentBorder:YES cornerRadius:0 interpolationQuality:kCGInterpolationHigh];
     [jpgRepresentation writeToFile:[self getFullPath] atomically:YES];
-    [UIImageJPEGRepresentation(thumbnail, .5) writeToFile:[self getThumbnailPath] atomically:YES];
+    [UIImageJPEGRepresentation(thumbnail,1) writeToFile:[self getThumbnailPath] atomically:YES];
     [fullImage release];
     [jpgRepresentation release];
 }

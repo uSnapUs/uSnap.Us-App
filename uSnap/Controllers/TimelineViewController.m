@@ -12,6 +12,8 @@
 #import "LocationHandler.h"
 #import "PhotoStreamCell.h"
 #import "constants.h"
+#import "UIImage+Resize.h"
+#import <QuartzCore/QuartzCore.h>
 @interface TimelineViewController (PrivateMethods)
 -(void) swipeLeftReceived;
 -(void)setEventData;
@@ -22,6 +24,7 @@
 @implementation TimelineViewController
 @synthesize EventTitleLabel;
 @synthesize EventDateLabel;
+@synthesize BottomBarView;
 NSArray *_orderedPictures;
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -45,17 +48,25 @@ NSArray *_orderedPictures;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UISwipeGestureRecognizer *swipeRecogniser = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeLeftReceived)];
-    [swipeRecogniser setDirection:UISwipeGestureRecognizerDirectionLeft];
+          UISwipeGestureRecognizer *swipeRecogniser = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeLeftReceived)];
+       [swipeRecogniser setDirection:UISwipeGestureRecognizerDirectionLeft];
     [[self view]addGestureRecognizer:swipeRecogniser];
     [swipeRecogniser release];
     USTAppDelegate *appDelegate = (USTAppDelegate*)[[UIApplication sharedApplication]delegate];
      Event *currentEvent = [[appDelegate locationHandler]currentEvent];
+     [self setEventData];
+    if(currentEvent!=nil){
     NSSortDescriptor *sort = [[NSSortDescriptor alloc]initWithKey:@"dateTaken" ascending:NO];
    
        _orderedPictures = [[currentEvent pictures]sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
     [_orderedPictures retain];
-    [self setEventData];
+        [sort release];
+   
+    }
+    else
+    {
+        _orderedPictures = [[NSArray alloc]init];
+    }
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -67,6 +78,7 @@ NSArray *_orderedPictures;
 {
     [self setEventTitleLabel:nil];
     [self setEventDateLabel:nil];
+    [self setBottomBarView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -75,11 +87,17 @@ NSArray *_orderedPictures;
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    CGRect originBounds = [[self view]frame];
+    NSLog(@"%@",NSStringFromCGRect(originBounds));
+    [[self BottomBarView]setFrame:CGRectMake(0, originBounds.size.height-53, 320, 53)];
+    [[self view]addSubview:[self BottomBarView]];
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -133,8 +151,11 @@ NSArray *_orderedPictures;
     // Configure the cell...
     Picture *picture = [_orderedPictures objectAtIndex:[indexPath row]];
     UIImage *thumbnailImage = [UIImage imageWithData:[NSData dataWithContentsOfFile:[picture getThumbnailPath]]];
-    CGImageRef imageRef = CGImageCreateWithImageInRect([thumbnailImage CGImage],CGRectMake(0, 0, 300, 300));
-    [[cell imageView]setImage:[UIImage imageWithCGImage:imageRef]];
+    [[cell imageView]setImage:thumbnailImage];
+    [[[cell imageView]layer]setBorderColor:[[UIColor blackColor]CGColor]];
+    [[[cell imageView]layer]setBorderWidth:1];
+   
+    [cell layoutSubviews];
     return cell;
 }
 
@@ -194,6 +215,7 @@ NSArray *_orderedPictures;
     [_orderedPictures release];
     [EventTitleLabel release];
     [EventDateLabel release];
+    [BottomBarView release];
     [super dealloc];
 }
 -(void) setEventData{
@@ -205,12 +227,14 @@ NSArray *_orderedPictures;
     
     USTAppDelegate *appDelegate = (USTAppDelegate*)[[UIApplication sharedApplication]delegate];
     Event *currentEvent = [[appDelegate locationHandler]currentEvent];
-    [[self EventDateLabel]setText:[self getTitleLabelForEvent:currentEvent]];
+    [[self EventTitleLabel]setText:[self getTitleLabelForEvent:currentEvent]];
     [[self EventDateLabel]setText:[self getDateLabelForEvent:currentEvent]];
 }
 -(NSString*) getDateLabelForEvent:(Event *)event{
-    NSDateFormatter *dateFormatter = [[NSDateFormatter init]alloc];
-    [dateFormatter setDateFormat:@""];
+    if(event!=nil&&([[event eventKey]compare:VoidEventKey]!=NSOrderedSame)){
+
+    NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc]init]autorelease];
+    [dateFormatter setDateFormat:@"MMMM"];
     
     NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *components = [gregorianCalendar components:NSDayCalendarUnit
@@ -227,15 +251,45 @@ NSArray *_orderedPictures;
     else{
         dayPart = [NSString stringWithFormat:@"%i",[beginComponents day]];
     }
-    return @"";
+        
+        return [NSString stringWithFormat:@"%@ %@",dayPart,[dateFormatter stringFromDate:[event eventStart]]];
+    }
+    else
+    {
+        return @"";
+    }
 }
 -(NSString*) getTitleLabelForEvent:(Event *)event{
-    if(event!=nil&&[event eventKey]!=VoidEventKey){
+    if(event!=nil&&([[event eventKey]compare:VoidEventKey]!=NSOrderedSame)){
         return [event eventTitle];
     }
     else{
+        NSLog(@"Returning no event");
         return @"No Event Selected!";
     }
 
+}
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+   // [[self BottomBarView]removeFromSuperview];
+
+
+    
+    
+}
+-(void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
+  }
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+
+       [[self BottomBarView]setFrame:CGRectMake(0, scrollView.frame.size.height-53+scrollView.contentOffset.y,320, 53)];
+
+ //   [[self view]addSubview:[self BottomBarView]];
+
+}
+- (IBAction)CameraButtonPressed:(id)sender {
+    [self swipeLeftReceived];
+}
+
+- (IBAction)LocationButtonPressed:(id)sender {
+    [self performSegueWithIdentifier:@"GoToSettings" sender:self];
 }
 @end
