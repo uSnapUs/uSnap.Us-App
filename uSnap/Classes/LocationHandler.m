@@ -18,9 +18,29 @@
 -(void)setToVoidEvent;
 @end
 @implementation LocationHandler
-@synthesize currentEvent;
+@synthesize lastLocation;
 @synthesize locationManager;
+@synthesize lastSetOfEvents;
 BOOL _isUpdating;
+Event *_currentEvent;
+-(void)setCurrentEvent:(Event *)currentEvent{
+    @synchronized(self){
+    if(_currentEvent!=nil){
+        [_currentEvent release];
+    }
+    [currentEvent retain];
+    _currentEvent = currentEvent;
+    }
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    [notificationCenter postNotificationName:uSnapEventUpdatedNotification object:self];
+}
+-(Event*)currentEvent{
+    Event *retVal = nil;
+    @synchronized(self){
+        retVal =  [[_currentEvent retain]autorelease];
+    }
+    return retVal;
+}
 -(void) locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation   {
     if(newLocation==nil||newLocation==NULL){
         return;
@@ -37,6 +57,7 @@ BOOL _isUpdating;
     [request startAsynchronous];
     [request release];
     [manager stopUpdatingLocation];
+    [self setLastLocation:coordinate];
     _isUpdating = NO;
     
 
@@ -57,42 +78,53 @@ BOOL _isUpdating;
     NSMutableArray *eventArray = (NSMutableArray*)[[request responseString]JSONValue];
     NSLog(@"%@",eventArray);
     if([eventArray count]>0){
-        NSMutableDictionary *serverEvent = [eventArray objectAtIndex:0];
-        USTAppDelegate* appDelegate = (USTAppDelegate *)[[UIApplication sharedApplication]delegate];
-        NSEntityDescription *eventEntity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:[appDelegate managedObjectContext]];
-        
-        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
-        fetchRequest.entity = eventEntity;
-        fetchRequest.fetchLimit = 1;
-        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"eventKey=%@",[serverEvent valueForKey:@"id"]];
-        NSError *error = nil;
-        NSArray *results = [[appDelegate managedObjectContext] executeFetchRequest:fetchRequest
-                                                                             error:&error];
-        [fetchRequest release];
-        Event *event = nil;
-        if(error || [results count]<1){
-            event = (Event*) [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:[appDelegate managedObjectContext]]; 
-            NSNumber *serverId = [serverEvent valueForKey:@"id"];
-            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-            [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZ"];
-            [event setEventStart:[dateFormatter dateFromString:[serverEvent valueForKey:@"starts"]]];
-            [event setEventEnd:[dateFormatter dateFromString:[serverEvent valueForKey:@"ends"]]];
-            [event setEventKey:[serverId stringValue]];
-            [event setEventTitle:[serverEvent valueForKey:@"name"]];
-            NSError *saveError = nil;
-            [[appDelegate managedObjectContext] save:&saveError];
-            [dateFormatter release];
+        NSMutableArray *setOfEvents = [[NSMutableArray alloc]initWithCapacity:[eventArray count]];
+        for (NSMutableDictionary *serverEvent in eventArray) {
+            [setOfEvents addObject:[self populateEvent:serverEvent]];
         }
-        else{
-            event = (Event*)[results objectAtIndex:0];
-        }
-        [self setCurrentEvent:event];
+        [self setLastSetOfEvents:setOfEvents];
+        [self setCurrentEvent:[setOfEvents objectAtIndex:0]];
+        [setOfEvents release];
     }
     else{
         [self setToVoidEvent];
     }
-    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
-    [notificationCenter postNotificationName:uSnapEventUpdatedNotification object:self];
+
+    
+}
+-(Event*) populateEvent:(NSMutableDictionary *)eventFromServer{
+    USTAppDelegate* appDelegate = (USTAppDelegate *)[[UIApplication sharedApplication]delegate];
+    NSEntityDescription *eventEntity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:[appDelegate managedObjectContext]];
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
+    fetchRequest.entity = eventEntity;
+    fetchRequest.fetchLimit = 1;
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"eventKey=%@",[eventFromServer valueForKey:@"id"]];
+    NSError *error = nil;
+    NSArray *results = [[appDelegate managedObjectContext] executeFetchRequest:fetchRequest
+                                                                         error:&error];
+    [fetchRequest release];
+    Event *event = nil;
+    if(error || [results count]<1){
+        event = (Event*) [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:[appDelegate managedObjectContext]]; 
+        NSNumber *serverId = [eventFromServer valueForKey:@"id"];
+        
+        [event setEventKey:[serverId stringValue]];
+          }
+    else{
+        event = (Event*)[results objectAtIndex:0];
+    }
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZ"];
+    [event setEventStart:[dateFormatter dateFromString:[eventFromServer valueForKey:@"starts"]]];
+    [event setEventEnd:[dateFormatter dateFromString:[eventFromServer valueForKey:@"ends"]]];
+    [event setEventTitle:[eventFromServer valueForKey:@"name"]];
+    [event setLatitude:[eventFromServer valueForKey:@"latitude"]];
+    [event setLongitude:[eventFromServer valueForKey:@"longitude"]];
+    NSError *saveError = nil;
+    [[appDelegate managedObjectContext] save:&saveError];
+    [dateFormatter release];
+    return event;
 }
 -(void) initalizeLocation{
     if([CLLocationManager locationServicesEnabled]){
@@ -147,5 +179,28 @@ BOOL _isUpdating;
     [self setCurrentEvent:event];
     [request release];
    
+}
+-(bool)setCurrentEventFromCode:(NSString*)code{
+    
+    NSString *eventUrl =[[NSString alloc]initWithFormat:@"http://usnapus-staging.herokuapp.com/events.json?code=%@",code];
+    
+    
+    ASIHTTPRequest *request = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:eventUrl]];
+    [eventUrl release];
+    [request startSynchronous];
+    NSLog(@"request finished with response %@",[request responseString]); 
+    if([request responseStatusCode]!=200||[[request responseString]length]<3){
+        [request release];
+        return NO;
+    }
+    NSMutableDictionary *event = (NSMutableDictionary*)[[request responseString]JSONValue];
+    if(event){
+        [self setCurrentEvent:[self populateEvent:event]];
+        [request release];
+        return YES;
+    }
+    return NO;
+    
+    
 }
 @end

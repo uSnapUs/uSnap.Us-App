@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface EventSettingsViewController : UIViewController
+#import <MapKit/MapKit.h>
+@interface EventSettingsViewController : UIViewController<MKMapViewDelegate>
 - (IBAction)Done:(id)sender;
-@property (retain, nonatomic) IBOutlet UIButton *doneButton;
-@property (retain, nonatomic) IBOutlet UIView *TopBar;
-
+@property (retain, nonatomic) IBOutlet MKMapView *Map;
+@property (retain, nonatomic) IBOutlet UIButton *EnterCodeButton;
+- (IBAction)GoToEnterCode:(id)sender;
 @end

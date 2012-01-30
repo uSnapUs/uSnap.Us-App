@@ -372,6 +372,7 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
     
 }
 - (IBAction)GoToSettings:(id)sender {
+        [[UIApplication sharedApplication]setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
     [self performSegueWithIdentifier:@"GoToSettings" sender:self];
 }
 

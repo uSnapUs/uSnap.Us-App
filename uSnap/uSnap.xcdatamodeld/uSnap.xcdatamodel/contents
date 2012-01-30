@@ -5,6 +5,8 @@
         <attribute name="eventKey" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="eventStart" optional="YES" attributeType="Date"/>
         <attribute name="eventTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <relationship name="pictures" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Picture" inverseName="event" inverseEntity="Picture" syncable="YES"/>
     </entity>
     <entity name="Picture" representedClassName="Picture" syncable="YES">
@@ -18,7 +20,7 @@
         <relationship name="event" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="pictures" inverseEntity="Event" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Event" positionX="261" positionY="189" width="128" height="120"/>
+        <element name="Event" positionX="261" positionY="189" width="128" height="150"/>
         <element name="Picture" positionX="-549" positionY="249" width="128" height="165"/>
     </elements>
 </model>

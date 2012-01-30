@@ -30,8 +30,10 @@
     // Configure the view for the selected state
 }
 -(void) dealloc{
-    [photoView release];
-    [editButton release];
+    
+    [self setPhotoView:nil];
+    [self setEditButton:nil];
+    
     [super dealloc];
 }
 -(void)layoutSubviews{
@@ -40,14 +42,15 @@
     [[self imageView]setFrame:CGRectMake(10, 0, 300, 300)];
     [[self imageView]setUserInteractionEnabled:YES];
     
-    if(editButton==nil){
+    if([self editButton]==nil){
         UIView *buttonView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 50, 50)];
-        editButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [editButton setFrame:CGRectMake(267, 267,23, 23)];
-        [editButton setBackgroundImage:[UIImage imageNamed:@"stream-pen.png"]forState:UIControlStateNormal];
-        [[editButton imageView]setHidden:NO];
+        UIButton *b =  [UIButton buttonWithType:UIButtonTypeCustom];
+        [self setEditButton:b];
+        [[self editButton] setFrame:CGRectMake(267, 267,23, 23)];
+        [[self editButton] setBackgroundImage:[UIImage imageNamed:@"stream-pen.png"]forState:UIControlStateNormal];
+        [[[self editButton] imageView]setHidden:NO];
        // [editButton setBackgroundColor:[UIColor whiteColor]];
-        [buttonView addSubview:editButton];
+        [buttonView addSubview:[self editButton]];
         [[self imageView]addSubview:buttonView];
         [buttonView release];
         

@@ -27,6 +27,8 @@
 		5A6EB3C914C8B1C7001A80E2 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6EB3C514C8B1C7001A80E2 /* UIImage+Resize.m */; };
 		5A6EB3CA14C8B1C7001A80E2 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6EB3C714C8B1C7001A80E2 /* UIImage+RoundedCorner.m */; };
 		5A7EC6A114C7A71A00B39893 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7EC6A014C7A71A00B39893 /* AVFoundation.framework */; };
+		5A88829914D620AB00373FF0 /* EventPinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A88829814D620AB00373FF0 /* EventPinView.m */; };
+		5A88829C14D62EDC00373FF0 /* AddCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A88829B14D62EDC00373FF0 /* AddCodeViewController.m */; };
 		5A8971AC14C9789C00AAB2B4 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8971AB14C9789C00AAB2B4 /* TimelineViewController.m */; };
 		5A8971AF14C978F600AAB2B4 /* EventSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8971AE14C978F600AAB2B4 /* EventSettingsViewController.m */; };
 		5A8971B214C97A4400AAB2B4 /* SlideFromLeftSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8971B114C97A4400AAB2B4 /* SlideFromLeftSegue.m */; };
@@ -59,6 +61,9 @@
 		5ABC01BB14C96D7100292CA1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ABC01BA14C96D7100292CA1 /* libz.dylib */; };
 		5AC7B8C114D54C3300ECA754 /* CoolButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC7B8C014D54C3300ECA754 /* CoolButton.m */; };
 		5AC7B8C314D5565D00ECA754 /* stream-pen.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AC7B8C214D5565D00ECA754 /* stream-pen.png */; };
+		5ACB736714D6044C0042828B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ACB736614D6044C0042828B /* MapKit.framework */; };
+		5ACB736A14D609270042828B /* MKMapView+ZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB736914D609270042828B /* MKMapView+ZoomLevel.m */; };
+		5ACB737114D60F760042828B /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB737014D60F760042828B /* Event.m */; };
 		5AD0A28614D144280052B43F /* camera-back.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AD0A27D14D144280052B43F /* camera-back.png */; };
 		5AD0A28714D144280052B43F /* camera-cameraroll.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AD0A27E14D144280052B43F /* camera-cameraroll.png */; };
 		5AD0A28814D144280052B43F /* camera-flash.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AD0A27F14D144280052B43F /* camera-flash.png */; };
@@ -68,7 +73,6 @@
 		5AD0A28C14D144280052B43F /* stream-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AD0A28314D144280052B43F /* stream-bar.png */; };
 		5AD0A28D14D144280052B43F /* stream-camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AD0A28414D144280052B43F /* stream-camera.png */; };
 		5AD0A28E14D144280052B43F /* stream-location.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AD0A28514D144280052B43F /* stream-location.png */; };
-		5AD0A29D14D148D10052B43F /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD0A29C14D148D10052B43F /* Event.m */; };
 		5AD0A2A014D15C9D0052B43F /* PhotoStreamCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD0A29F14D15C9D0052B43F /* PhotoStreamCell.m */; };
 		5AD3AC1D14D2A8A000C2B8A9 /* stream-location-middle.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AD3AC1C14D2A8A000C2B8A9 /* stream-location-middle.png */; };
 		5AE87DE914C80A9C00E16CCD /* Bello-Script.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5AE87DE514C80A9C00E16CCD /* Bello-Script.ttf */; };
@@ -154,6 +158,10 @@
 		5A6EB3C614C8B1C7001A80E2 /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+RoundedCorner.h"; path = "Classes/UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
 		5A6EB3C714C8B1C7001A80E2 /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+RoundedCorner.m"; path = "Classes/UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
 		5A7EC6A014C7A71A00B39893 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		5A88829714D620AB00373FF0 /* EventPinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventPinView.h; path = Classes/EventPinView.h; sourceTree = "<group>"; };
+		5A88829814D620AB00373FF0 /* EventPinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventPinView.m; path = Classes/EventPinView.m; sourceTree = "<group>"; };
+		5A88829A14D62EDC00373FF0 /* AddCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddCodeViewController.h; path = Controllers/AddCodeViewController.h; sourceTree = "<group>"; };
+		5A88829B14D62EDC00373FF0 /* AddCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddCodeViewController.m; path = Controllers/AddCodeViewController.m; sourceTree = "<group>"; };
 		5A8971AA14C9789C00AAB2B4 /* TimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimelineViewController.h; path = Controllers/TimelineViewController.h; sourceTree = "<group>"; };
 		5A8971AB14C9789C00AAB2B4 /* TimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimelineViewController.m; path = Controllers/TimelineViewController.m; sourceTree = "<group>"; };
 		5A8971AD14C978F600AAB2B4 /* EventSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventSettingsViewController.h; path = Controllers/EventSettingsViewController.h; sourceTree = "<group>"; };
@@ -216,6 +224,11 @@
 		5AC7B8BF14D54C3300ECA754 /* CoolButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoolButton.h; path = Classes/CoolButton.h; sourceTree = "<group>"; };
 		5AC7B8C014D54C3300ECA754 /* CoolButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoolButton.m; path = Classes/CoolButton.m; sourceTree = "<group>"; };
 		5AC7B8C214D5565D00ECA754 /* stream-pen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "stream-pen.png"; path = "Resources/stream-pen.png"; sourceTree = "<group>"; };
+		5ACB736614D6044C0042828B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		5ACB736814D609270042828B /* MKMapView+ZoomLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MKMapView+ZoomLevel.h"; path = "Classes/MKMapView+ZoomLevel.h"; sourceTree = "<group>"; };
+		5ACB736914D609270042828B /* MKMapView+ZoomLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MKMapView+ZoomLevel.m"; path = "Classes/MKMapView+ZoomLevel.m"; sourceTree = "<group>"; };
+		5ACB736F14D60F760042828B /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = Model/Event.h; sourceTree = "<group>"; };
+		5ACB737014D60F760042828B /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = Model/Event.m; sourceTree = "<group>"; };
 		5AD0A27D14D144280052B43F /* camera-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-back.png"; sourceTree = "<group>"; };
 		5AD0A27E14D144280052B43F /* camera-cameraroll.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-cameraroll.png"; sourceTree = "<group>"; };
 		5AD0A27F14D144280052B43F /* camera-flash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-flash.png"; sourceTree = "<group>"; };
@@ -225,8 +238,6 @@
 		5AD0A28314D144280052B43F /* stream-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stream-bar.png"; sourceTree = "<group>"; };
 		5AD0A28414D144280052B43F /* stream-camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stream-camera.png"; sourceTree = "<group>"; };
 		5AD0A28514D144280052B43F /* stream-location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stream-location.png"; sourceTree = "<group>"; };
-		5AD0A29B14D148D10052B43F /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = Model/Event.h; sourceTree = "<group>"; };
-		5AD0A29C14D148D10052B43F /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = Model/Event.m; sourceTree = "<group>"; };
 		5AD0A29E14D15C9D0052B43F /* PhotoStreamCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoStreamCell.h; path = Classes/PhotoStreamCell.h; sourceTree = "<group>"; };
 		5AD0A29F14D15C9D0052B43F /* PhotoStreamCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoStreamCell.m; path = Classes/PhotoStreamCell.m; sourceTree = "<group>"; };
 		5AD1B29A14D096C900AC08F2 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
@@ -252,6 +263,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ACB736714D6044C0042828B /* MapKit.framework in Frameworks */,
 				5ABC01BB14C96D7100292CA1 /* libz.dylib in Frameworks */,
 				5ABC01B914C96D6700292CA1 /* MobileCoreServices.framework in Frameworks */,
 				5ABC01B714C96D5D00292CA1 /* SystemConfiguration.framework in Frameworks */,
@@ -296,6 +308,7 @@
 		5A3A727314C6949000ED25DE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5ACB736614D6044C0042828B /* MapKit.framework */,
 				5ABC01BA14C96D7100292CA1 /* libz.dylib */,
 				5ABC01B814C96D6700292CA1 /* MobileCoreServices.framework */,
 				5ABC01B614C96D5D00292CA1 /* SystemConfiguration.framework */,
@@ -352,6 +365,8 @@
 				5A8971AB14C9789C00AAB2B4 /* TimelineViewController.m */,
 				5A8971AD14C978F600AAB2B4 /* EventSettingsViewController.h */,
 				5A8971AE14C978F600AAB2B4 /* EventSettingsViewController.m */,
+				5A88829A14D62EDC00373FF0 /* AddCodeViewController.h */,
+				5A88829B14D62EDC00373FF0 /* AddCodeViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -367,9 +382,9 @@
 		5A3A729B14C694B600ED25DE /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5AD0A29B14D148D10052B43F /* Event.h */,
-				5AD0A29C14D148D10052B43F /* Event.m */,
 				5A3A728B14C6949000ED25DE /* uSnap.xcdatamodeld */,
+				5ACB736F14D60F760042828B /* Event.h */,
+				5ACB737014D60F760042828B /* Event.m */,
 				5A3A72BD14C69EA300ED25DE /* Picture.h */,
 				5A3A72BE14C69EA300ED25DE /* Picture.m */,
 			);
@@ -417,6 +432,10 @@
 				5AF77F6A14CFF3A6000733E7 /* PictureUpload.m */,
 				5AC7B8BF14D54C3300ECA754 /* CoolButton.h */,
 				5AC7B8C014D54C3300ECA754 /* CoolButton.m */,
+				5ACB736814D609270042828B /* MKMapView+ZoomLevel.h */,
+				5ACB736914D609270042828B /* MKMapView+ZoomLevel.m */,
+				5A88829714D620AB00373FF0 /* EventPinView.h */,
+				5A88829814D620AB00373FF0 /* EventPinView.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -690,9 +709,12 @@
 				5AF77F0814CF4EF6000733E7 /* SlideFromRightSegue.m in Sources */,
 				5AF77F6814CFF38E000733E7 /* FileUploadHandler.m in Sources */,
 				5AF77F6B14CFF3A6000733E7 /* PictureUpload.m in Sources */,
-				5AD0A29D14D148D10052B43F /* Event.m in Sources */,
 				5AD0A2A014D15C9D0052B43F /* PhotoStreamCell.m in Sources */,
 				5AC7B8C114D54C3300ECA754 /* CoolButton.m in Sources */,
+				5ACB736A14D609270042828B /* MKMapView+ZoomLevel.m in Sources */,
+				5ACB737114D60F760042828B /* Event.m in Sources */,
+				5A88829914D620AB00373FF0 /* EventPinView.m in Sources */,
+				5A88829C14D62EDC00373FF0 /* AddCodeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
