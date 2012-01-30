@@ -13,4 +13,5 @@
 @property (retain, nonatomic) IBOutlet MKMapView *Map;
 @property (retain, nonatomic) IBOutlet UIButton *EnterCodeButton;
 - (IBAction)GoToEnterCode:(id)sender;
+- (IBAction)goToEnterDetails:(id)sender;
 @end

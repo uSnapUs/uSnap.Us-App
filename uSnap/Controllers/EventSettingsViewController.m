@@ -109,6 +109,10 @@
 - (IBAction)GoToEnterCode:(id)sender {
     [self performSegueWithIdentifier:@"GoToCode" sender:self];
 }
+
+- (IBAction)goToEnterDetails:(id)sender {
+    [self performSegueWithIdentifier:@"GoToDetails" sender:self];
+}
 -(void)setupView{
     CALayer *buttonLayer = [[self EnterCodeButton]layer];
     CALayer *bottomBorder = [CALayer layer];

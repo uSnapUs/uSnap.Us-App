@@ -11,5 +11,5 @@
 @interface AddCodeViewController : UIViewController<UITextFieldDelegate>
 - (IBAction)Done:(id)sender;
 @property (retain, nonatomic) IBOutlet UITextField *codeField;
-
+-(BOOL)setEventFromCurrentCode;
 @end

@@ -16,9 +16,11 @@
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 @synthesize locationHandler = _locationHandler;
+@synthesize registrationManager;
 - (void)dealloc
 {
     [_window release];
+    [registrationManager release];
     [__managedObjectContext release];
     [__managedObjectModel release];
     [__persistentStoreCoordinator release];
@@ -37,6 +39,7 @@
     LocationHandler *locationHandler_ = [[LocationHandler alloc]init];
     [self setLocationHandler:locationHandler_];
     [locationHandler_ release];
+    registrationManager = [[ServerRegistrationManager alloc]init];
     return YES;
 }
 							

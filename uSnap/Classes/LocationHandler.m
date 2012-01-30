@@ -195,10 +195,18 @@ Event *_currentEvent;
     }
     NSMutableDictionary *event = (NSMutableDictionary*)[[request responseString]JSONValue];
     if(event){
-        [self setCurrentEvent:[self populateEvent:event]];
+        Event *newEvent = [self populateEvent:event];
+        if(![self lastSetOfEvents]){
+            [self setLastSetOfEvents:[[[NSMutableArray alloc]init]autorelease]];
+        }
+        if(![[self lastSetOfEvents]containsObject:newEvent]){
+            [[self lastSetOfEvents] addObject:newEvent];
+        }
+        [self setCurrentEvent:newEvent];
         [request release];
         return YES;
     }
+    [request release];
     return NO;
     
     

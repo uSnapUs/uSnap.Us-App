@@ -29,6 +29,11 @@
 		5A7EC6A114C7A71A00B39893 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7EC6A014C7A71A00B39893 /* AVFoundation.framework */; };
 		5A88829914D620AB00373FF0 /* EventPinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A88829814D620AB00373FF0 /* EventPinView.m */; };
 		5A88829C14D62EDC00373FF0 /* AddCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A88829B14D62EDC00373FF0 /* AddCodeViewController.m */; };
+		5A88829F14D640D000373FF0 /* YourDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A88829E14D640D000373FF0 /* YourDetailsViewController.m */; };
+		5A8882AE14D6904400373FF0 /* ServerRegistrationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8882AD14D6904400373FF0 /* ServerRegistrationManager.m */; };
+		5A8882B614D693E700373FF0 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8882B514D693E700373FF0 /* KeychainItemWrapper.m */; };
+		5A8882B814D6965E00373FF0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A8882B714D6965E00373FF0 /* Security.framework */; };
+		5A8882BB14D69FED00373FF0 /* NSString+UrlEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8882BA14D69FED00373FF0 /* NSString+UrlEncoding.m */; };
 		5A8971AC14C9789C00AAB2B4 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8971AB14C9789C00AAB2B4 /* TimelineViewController.m */; };
 		5A8971AF14C978F600AAB2B4 /* EventSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8971AE14C978F600AAB2B4 /* EventSettingsViewController.m */; };
 		5A8971B214C97A4400AAB2B4 /* SlideFromLeftSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8971B114C97A4400AAB2B4 /* SlideFromLeftSegue.m */; };
@@ -162,6 +167,15 @@
 		5A88829814D620AB00373FF0 /* EventPinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventPinView.m; path = Classes/EventPinView.m; sourceTree = "<group>"; };
 		5A88829A14D62EDC00373FF0 /* AddCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddCodeViewController.h; path = Controllers/AddCodeViewController.h; sourceTree = "<group>"; };
 		5A88829B14D62EDC00373FF0 /* AddCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddCodeViewController.m; path = Controllers/AddCodeViewController.m; sourceTree = "<group>"; };
+		5A88829D14D640D000373FF0 /* YourDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YourDetailsViewController.h; path = Controllers/YourDetailsViewController.h; sourceTree = "<group>"; };
+		5A88829E14D640D000373FF0 /* YourDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YourDetailsViewController.m; path = Controllers/YourDetailsViewController.m; sourceTree = "<group>"; };
+		5A8882AC14D6904400373FF0 /* ServerRegistrationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerRegistrationManager.h; path = Classes/ServerRegistrationManager.h; sourceTree = "<group>"; };
+		5A8882AD14D6904400373FF0 /* ServerRegistrationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServerRegistrationManager.m; path = Classes/ServerRegistrationManager.m; sourceTree = "<group>"; };
+		5A8882B414D693E700373FF0 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
+		5A8882B514D693E700373FF0 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
+		5A8882B714D6965E00373FF0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		5A8882B914D69FED00373FF0 /* NSString+UrlEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+UrlEncoding.h"; path = "Classes/NSString+UrlEncoding.h"; sourceTree = "<group>"; };
+		5A8882BA14D69FED00373FF0 /* NSString+UrlEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+UrlEncoding.m"; path = "Classes/NSString+UrlEncoding.m"; sourceTree = "<group>"; };
 		5A8971AA14C9789C00AAB2B4 /* TimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimelineViewController.h; path = Controllers/TimelineViewController.h; sourceTree = "<group>"; };
 		5A8971AB14C9789C00AAB2B4 /* TimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimelineViewController.m; path = Controllers/TimelineViewController.m; sourceTree = "<group>"; };
 		5A8971AD14C978F600AAB2B4 /* EventSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventSettingsViewController.h; path = Controllers/EventSettingsViewController.h; sourceTree = "<group>"; };
@@ -242,6 +256,19 @@
 		5AD0A29F14D15C9D0052B43F /* PhotoStreamCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoStreamCell.m; path = Classes/PhotoStreamCell.m; sourceTree = "<group>"; };
 		5AD1B29A14D096C900AC08F2 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		5AD3AC1C14D2A8A000C2B8A9 /* stream-location-middle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "stream-location-middle.png"; path = "Resources/stream-location-middle.png"; sourceTree = "<group>"; };
+		5ADA014A14D745D0006107C6 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJson.h; path = "json-framework/Classes/SBJson.h"; sourceTree = "<group>"; };
+		5ADA014B14D745D0006107C6 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SBJson.h"; path = "json-framework/Classes/NSObject+SBJson.h"; sourceTree = "<group>"; };
+		5ADA014C14D745D0006107C6 /* SBJsonStreamParserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonStreamParserState.h; path = "json-framework/Classes/SBJsonStreamParserState.h"; sourceTree = "<group>"; };
+		5ADA014D14D745D0006107C6 /* SBJsonTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonTokeniser.h; path = "json-framework/Classes/SBJsonTokeniser.h"; sourceTree = "<group>"; };
+		5ADA014E14D745D0006107C6 /* SBJsonUTF8Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonUTF8Stream.h; path = "json-framework/Classes/SBJsonUTF8Stream.h"; sourceTree = "<group>"; };
+		5ADA014F14D745D0006107C6 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonParser.h; path = "json-framework/Classes/SBJsonParser.h"; sourceTree = "<group>"; };
+		5ADA015014D745D0006107C6 /* SBJsonStreamParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonStreamParser.h; path = "json-framework/Classes/SBJsonStreamParser.h"; sourceTree = "<group>"; };
+		5ADA015114D745D0006107C6 /* SBJsonStreamParserAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonStreamParserAccumulator.h; path = "json-framework/Classes/SBJsonStreamParserAccumulator.h"; sourceTree = "<group>"; };
+		5ADA015214D745D0006107C6 /* SBJsonStreamParserAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonStreamParserAdapter.h; path = "json-framework/Classes/SBJsonStreamParserAdapter.h"; sourceTree = "<group>"; };
+		5ADA015314D745D0006107C6 /* SBJsonStreamWriterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonStreamWriterState.h; path = "json-framework/Classes/SBJsonStreamWriterState.h"; sourceTree = "<group>"; };
+		5ADA015414D745D0006107C6 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonWriter.h; path = "json-framework/Classes/SBJsonWriter.h"; sourceTree = "<group>"; };
+		5ADA015514D745D0006107C6 /* SBJsonStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonStreamWriter.h; path = "json-framework/Classes/SBJsonStreamWriter.h"; sourceTree = "<group>"; };
+		5ADA015614D745D0006107C6 /* SBJsonStreamWriterAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonStreamWriterAccumulator.h; path = "json-framework/Classes/SBJsonStreamWriterAccumulator.h"; sourceTree = "<group>"; };
 		5AE87DE514C80A9C00E16CCD /* Bello-Script.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Bello-Script.ttf"; path = "Resources/Fonts/Bello-Script.ttf"; sourceTree = "<group>"; };
 		5AE87DE614C80A9C00E16CCD /* Bello-ScriptLigatures.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Bello-ScriptLigatures.ttf"; path = "Resources/Fonts/Bello-ScriptLigatures.ttf"; sourceTree = "<group>"; };
 		5AE87DE714C80A9C00E16CCD /* Bello-SmCp.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Bello-SmCp.ttf"; path = "Resources/Fonts/Bello-SmCp.ttf"; sourceTree = "<group>"; };
@@ -263,6 +290,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A8882B814D6965E00373FF0 /* Security.framework in Frameworks */,
 				5ACB736714D6044C0042828B /* MapKit.framework in Frameworks */,
 				5ABC01BB14C96D7100292CA1 /* libz.dylib in Frameworks */,
 				5ABC01B914C96D6700292CA1 /* MobileCoreServices.framework in Frameworks */,
@@ -288,6 +316,7 @@
 		5A3A726514C6949000ED25DE = {
 			isa = PBXGroup;
 			children = (
+				5ADA014914D7459C006107C6 /* Indexing Headers */,
 				5AE87DFC14C8129600E16CCD /* SBJson.xcodeproj */,
 				5AE87DED14C80AA400E16CCD /* iphone_icon.png */,
 				5A3A72A414C696EF00ED25DE /* iphone_retina_icon.png */,
@@ -308,6 +337,7 @@
 		5A3A727314C6949000ED25DE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5A8882B714D6965E00373FF0 /* Security.framework */,
 				5ACB736614D6044C0042828B /* MapKit.framework */,
 				5ABC01BA14C96D7100292CA1 /* libz.dylib */,
 				5ABC01B814C96D6700292CA1 /* MobileCoreServices.framework */,
@@ -367,6 +397,8 @@
 				5A8971AE14C978F600AAB2B4 /* EventSettingsViewController.m */,
 				5A88829A14D62EDC00373FF0 /* AddCodeViewController.h */,
 				5A88829B14D62EDC00373FF0 /* AddCodeViewController.m */,
+				5A88829D14D640D000373FF0 /* YourDetailsViewController.h */,
+				5A88829E14D640D000373FF0 /* YourDetailsViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -414,6 +446,8 @@
 		5A3A72B914C69C2000ED25DE /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5A8882B414D693E700373FF0 /* KeychainItemWrapper.h */,
+				5A8882B514D693E700373FF0 /* KeychainItemWrapper.m */,
 				5AD0A29E14D15C9D0052B43F /* PhotoStreamCell.h */,
 				5AD0A29F14D15C9D0052B43F /* PhotoStreamCell.m */,
 				5AD1B29A14D096C900AC08F2 /* constants.h */,
@@ -436,6 +470,10 @@
 				5ACB736914D609270042828B /* MKMapView+ZoomLevel.m */,
 				5A88829714D620AB00373FF0 /* EventPinView.h */,
 				5A88829814D620AB00373FF0 /* EventPinView.m */,
+				5A8882AC14D6904400373FF0 /* ServerRegistrationManager.h */,
+				5A8882AD14D6904400373FF0 /* ServerRegistrationManager.m */,
+				5A8882B914D69FED00373FF0 /* NSString+UrlEncoding.h */,
+				5A8882BA14D69FED00373FF0 /* NSString+UrlEncoding.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -522,6 +560,26 @@
 			);
 			name = CloudFiles;
 			path = "../pokeb-asi-http-request-4f95498/Classes/CloudFiles";
+			sourceTree = "<group>";
+		};
+		5ADA014914D7459C006107C6 /* Indexing Headers */ = {
+			isa = PBXGroup;
+			children = (
+				5ADA014A14D745D0006107C6 /* SBJson.h */,
+				5ADA014B14D745D0006107C6 /* NSObject+SBJson.h */,
+				5ADA014C14D745D0006107C6 /* SBJsonStreamParserState.h */,
+				5ADA014D14D745D0006107C6 /* SBJsonTokeniser.h */,
+				5ADA014E14D745D0006107C6 /* SBJsonUTF8Stream.h */,
+				5ADA014F14D745D0006107C6 /* SBJsonParser.h */,
+				5ADA015014D745D0006107C6 /* SBJsonStreamParser.h */,
+				5ADA015114D745D0006107C6 /* SBJsonStreamParserAccumulator.h */,
+				5ADA015214D745D0006107C6 /* SBJsonStreamParserAdapter.h */,
+				5ADA015314D745D0006107C6 /* SBJsonStreamWriterState.h */,
+				5ADA015414D745D0006107C6 /* SBJsonWriter.h */,
+				5ADA015514D745D0006107C6 /* SBJsonStreamWriter.h */,
+				5ADA015614D745D0006107C6 /* SBJsonStreamWriterAccumulator.h */,
+			);
+			name = "Indexing Headers";
 			sourceTree = "<group>";
 		};
 		5AE87DFD14C8129600E16CCD /* Products */ = {
@@ -715,6 +773,10 @@
 				5ACB737114D60F760042828B /* Event.m in Sources */,
 				5A88829914D620AB00373FF0 /* EventPinView.m in Sources */,
 				5A88829C14D62EDC00373FF0 /* AddCodeViewController.m in Sources */,
+				5A88829F14D640D000373FF0 /* YourDetailsViewController.m in Sources */,
+				5A8882AE14D6904400373FF0 /* ServerRegistrationManager.m in Sources */,
+				5A8882B614D693E700373FF0 /* KeychainItemWrapper.m in Sources */,
+				5A8882BB14D69FED00373FF0 /* NSString+UrlEncoding.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -751,9 +813,10 @@
 		5A3A729414C6949000ED25DE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Owen Evans (D3GD8T6U4X)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Owen Evans (D3GD8T6U4X)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -768,16 +831,20 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PROVISIONING_PROFILE = "692767B0-EC75-4904-AF3E-49EA18052B21";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "692767B0-EC75-4904-AF3E-49EA18052B21";
 				SDKROOT = iphoneos;
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(BUILT_PRODUCTS_DIR)/**";
 			};
 			name = Debug;
 		};
 		5A3A729514C6949000ED25DE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Owen Evans (D3GD8T6U4X)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Owen Evans (D3GD8T6U4X)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -786,7 +853,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "692767B0-EC75-4904-AF3E-49EA18052B21";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "692767B0-EC75-4904-AF3E-49EA18052B21";
 				SDKROOT = iphoneos;
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(BUILT_PRODUCTS_DIR)/**";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -799,6 +869,7 @@
 				INFOPLIST_FILE = "uSnap/uSnap.us-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = uSnap.us;
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -811,9 +882,46 @@
 				INFOPLIST_FILE = "uSnap/uSnap.us-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = uSnap.us;
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
+		};
+		5ADA014714D740D1006107C6 /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Owen Evans (D3GD8T6U4X)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Owen Evans (D3GD8T6U4X)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "692767B0-EC75-4904-AF3E-49EA18052B21";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "692767B0-EC75-4904-AF3E-49EA18052B21";
+				SDKROOT = iphoneos;
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(BUILT_PRODUCTS_DIR)/**";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Ad Hoc";
+		};
+		5ADA014814D740D1006107C6 /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "uSnap/uSnap.us-Prefix.pch";
+				INFOPLIST_FILE = "uSnap/uSnap.us-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = uSnap.us;
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = "Ad Hoc";
 		};
 /* End XCBuildConfiguration section */
 
@@ -823,6 +931,7 @@
 			buildConfigurations = (
 				5A3A729414C6949000ED25DE /* Debug */,
 				5A3A729514C6949000ED25DE /* Release */,
+				5ADA014714D740D1006107C6 /* Ad Hoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -832,6 +941,7 @@
 			buildConfigurations = (
 				5A3A729714C6949100ED25DE /* Debug */,
 				5A3A729814C6949100ED25DE /* Release */,
+				5ADA014814D740D1006107C6 /* Ad Hoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

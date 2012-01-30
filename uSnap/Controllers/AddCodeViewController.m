@@ -65,18 +65,40 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 -(void)textFieldDidEndEditing:(UITextField *)textField{
-    [self Done:nil];
+    if([self setEventFromCurrentCode]){
+        [[self navigationController]popViewControllerAnimated:YES];
+    }
+    else
+    {
+        [textField becomeFirstResponder];
+    }
 }
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    if(textField.text.length>0){
+        [textField resignFirstResponder];
+        return YES;
+    }
+    return NO;
+}
+
 - (IBAction)Done:(id)sender {
+    
+    if([self setEventFromCurrentCode]){
+        [[self navigationController]popViewControllerAnimated:YES];
+    }
+}
+-(BOOL)setEventFromCurrentCode{
     USTAppDelegate *delegate = [[UIApplication sharedApplication]delegate];
     NSString *code= [[self codeField]text];
     if(code.length>0){
         if([[delegate locationHandler]setCurrentEventFromCode:code]){
-            [self dismissModalViewControllerAnimated:YES];
+           
+            return YES;
         }
-    }
-    
+    }  
+    return NO;
 }
+
 - (void)dealloc {
     [codeField release];
     [super dealloc];

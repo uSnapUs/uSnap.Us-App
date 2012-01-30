@@ -12,4 +12,7 @@
 #define uSnapEventUpdatedNotification @"EVENTUPDATED"
 #define VoidEventKey @"VOIDEVENT"
 
+#define usKcDeviceId @"us.uSnap.DeviceId"
+#define usKcUserName @"us.uSnap.UserName"
+#define usKcUserEmail @"us.uSnap.Email"
 #endif
