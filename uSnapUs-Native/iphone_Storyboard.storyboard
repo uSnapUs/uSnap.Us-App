@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11C73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="ZLx-gT-Dwe">
+    <dependencies>
+        <development defaultVersion="4200" identifier="xcode"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
+    </dependencies>
+    <scenes>
+        <scene sceneID="TkC-cl-PcW">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="585-bu-5VG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController definesPresentationContext="YES" id="Tpr-8V-vEZ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="history" id="Ajv-py-hX8"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.50000000000000011" contentMode="scaleToFill" barStyle="blackOpaque" id="iU7-4W-LQg">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="8gx-7J-3dv" kind="relationship" relationship="rootViewController" id="Vwl-yU-8yq"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="298" y="361"/>
+        </scene>
+        <scene sceneID="woB-rn-ou0">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dSW-XY-NOb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController title="Photos" id="8gx-7J-3dv" customClass="GalleryViewController" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="j07-bg-6SC"/>
+                    <connections>
+                        <segue destination="v2j-gL-ucV" kind="push" identifier="ImageDetails" id="fEI-pa-yrf"/>
+                    </connections>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="721" y="293"/>
+        </scene>
+        <scene sceneID="q0c-mX-8yr">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jpl-Bs-1sR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="v2j-gL-ucV" customClass="ImageDetailsController" sceneMemberID="viewController">
+                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="LJw-qs-D3l">
+                        <rect key="frame" x="0.0" y="44" width="320" height="387"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="22C-Be-rJV">
+                                <rect key="frame" x="10" y="4" width="300" height="380"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.79999999999999982" height="0.79999999999999982"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" id="CeG-oa-p8u">
+                                <rect key="frame" x="0.0" y="385" width="320" height="304"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.25882354378700256" blue="0.011764707043766975" alpha="1" colorSpace="deviceRGB"/>
+                    </scrollView>
+                    <navigationItem key="navigationItem" id="2do-bM-kfc"/>
+                    <connections>
+                        <outlet property="ImageView" destination="22C-Be-rJV" id="WWb-iC-Zdz"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1180" y="293"/>
+        </scene>
+        <scene sceneID="4Pp-XS-Fy9">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s6q-VL-rmk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="KdA-hh-kCb" customClass="CameraViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="X4c-ii-I9N">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="Mdp-nO-AQB">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" alpha="0.20000000000000001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dP1-w1-SKC">
+                                <rect key="frame" x="117" y="371" width="86" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="0.0" colorSpace="deviceRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="camera.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="CaptureImage:" destination="KdA-hh-kCb" eventType="touchUpInside" id="Xc8-Ik-VD0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Camera" id="D49-Vf-KvM"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="PreviewView" destination="Mdp-nO-AQB" id="HwZ-eT-yaa"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="298" y="-208"/>
+        </scene>
+        <scene sceneID="XFs-ph-Ldq">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xCs-mM-dPu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tabBarController definesPresentationContext="YES" id="feD-VR-X08" sceneMemberID="viewController">
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="LkI-A9-S9t">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="KdA-hh-kCb" kind="relationship" relationship="viewControllers" id="MfH-dS-9nV"/>
+                        <segue destination="Tpr-8V-vEZ" kind="relationship" relationship="viewControllers" id="Zb4-ad-2Em"/>
+                    </connections>
+                </tabBarController>
+            </objects>
+            <point key="canvasLocation" x="-236" y="75"/>
+        </scene>
+        <scene sceneID="nHE-cZ-JRF">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c7h-N9-5O2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="LoginViewController" id="ZLx-gT-Dwe" customClass="LoginViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="50C-ma-Hsb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="alE-YG-hbv">
+                                <rect key="frame" x="124" y="213" width="72" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="GO">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="GoButtonClicked:" destination="ZLx-gT-Dwe" eventType="touchUpInside" id="w6c-HI-kW1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <segue destination="feD-VR-X08" kind="modal" identifier="InitialSegue" modalTransitionStyle="coverVertical" id="AEc-1a-qSZ"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-606" y="674"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="camera.png" width="30" height="20"/>
+    </resources>
+    <classes>
+        <class className="AQGridViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AQGridViewController.h"/>
+        </class>
+        <class className="CameraViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CameraViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="CaptureImage:"/>
+                <relationship kind="outlet" name="PreviewView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="GalleryViewController" superclassName="AQGridViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GalleryViewController.h"/>
+        </class>
+        <class className="ImageDetailsController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ImageDetailsController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="ImageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="GoButtonClicked:"/>
+            </relationships>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <nil key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>

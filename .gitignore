@@ -1,2 +1,3 @@
-*.pbxproj
+xcuserdata
+project.xcworkspace*.pbxproj
 uSnap.us.xcodeproj/project.xcworkspace/
