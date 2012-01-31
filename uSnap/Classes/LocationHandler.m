@@ -11,7 +11,7 @@
 #import "ASIHTTPRequest.h"
 #import "USTAppDelegate.h"
 #import "constants.h"
-#import <SBJson/SBJson.h>
+#import "SBJson.h"
 @interface LocationHandler(PrivateMethods){
     
 }

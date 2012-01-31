@@ -10,7 +10,7 @@
 #import "constants.h"
 #import "NSString+UrlEncoding.h"
 #import "ASIFormDataRequest.h"
-#import <SBJson/SBJson.h>
+#import "SBJson.h"
 @implementation ServerRegistrationManager
 @synthesize credentialStore;
 @synthesize tempDeviceId;
