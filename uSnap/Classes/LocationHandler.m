@@ -12,6 +12,7 @@
 #import "USTAppDelegate.h"
 #import "constants.h"
 #import "SBJson.h"
+#import "ModelMapper.h"
 @interface LocationHandler(PrivateMethods){
     
 }
@@ -114,16 +115,18 @@ Event *_currentEvent;
     else{
         event = (Event*)[results objectAtIndex:0];
     }
+    /*
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZ"];
     [event setEventStart:[dateFormatter dateFromString:[eventFromServer valueForKey:@"starts"]]];
     [event setEventEnd:[dateFormatter dateFromString:[eventFromServer valueForKey:@"ends"]]];
     [event setEventTitle:[eventFromServer valueForKey:@"name"]];
-    [event setLatitude:[eventFromServer valueForKey:@"latitude"]];
-    [event setLongitude:[eventFromServer valueForKey:@"longitude"]];
+   
+     */
+    event = [ModelMapper mapDictionary:eventFromServer ToEvent:event];
     NSError *saveError = nil;
     [[appDelegate managedObjectContext] save:&saveError];
-    [dateFormatter release];
+    //[dateFormatter release];
     return event;
 }
 -(void) initalizeLocation{
