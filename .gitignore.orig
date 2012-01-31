@@ -1,0 +1,7 @@
+<<<<<<< HEAD
+*.pbxproj
+uSnap.us.xcodeproj/project.xcworkspace/
+=======
+xcuserdata
+project.xcworkspace
+>>>>>>> 762b55984a8f028029c59259858c504d457b3cc7
