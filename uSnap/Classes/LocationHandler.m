@@ -100,7 +100,7 @@ Event *_currentEvent;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
     fetchRequest.entity = eventEntity;
     fetchRequest.fetchLimit = 1;
-    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"eventKey=%@",[eventFromServer valueForKey:@"id"]];
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"eventKey=%@",[eventFromServer valueForKey:@"code"]];
     NSError *error = nil;
     NSArray *results = [[appDelegate managedObjectContext] executeFetchRequest:fetchRequest
                                                                          error:&error];

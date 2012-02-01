@@ -15,4 +15,5 @@
 #define usKcDeviceId @"us.uSnap.DeviceId"
 #define usKcUserName @"us.uSnap.UserName"
 #define usKcUserEmail @"us.uSnap.Email"
+#define usKcServerDeviceId @"us.uSnap.ServerDeviceId"
 #endif

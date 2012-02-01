@@ -24,7 +24,7 @@
 }
 -(void)loadCredentials{
    
-    if([self deviceId]==nil){
+    if([self serverDeviceId]==nil){
         [self registerDevice];
     }
     
@@ -38,7 +38,7 @@
     NSMutableDictionary *device = [[NSMutableDictionary alloc]initWithCapacity:2];
     [device setObject:[self tempDeviceId] forKey:@"guid"];
     [device setObject:[[UIDevice currentDevice] name] forKey:@"name"];
-    NSURL *registerUrl = [NSURL URLWithString:@"http://192.168.0.107:3000/devices.json"];
+    NSURL *registerUrl = [NSURL URLWithString:@"http://usnapus-staging.herokuapp.com/devices.json"];
     ASIFormDataRequest *registerRequest = [[ASIFormDataRequest alloc]initWithURL:registerUrl];
     [registerRequest addPostValue:[device objectForKey:@"guid"] forKey:@"device[guid]"];
     [registerRequest addPostValue:[device objectForKey:@"name"] forKey:@"device[name]"];
@@ -48,7 +48,10 @@
 }
 -(void)requestFinished:(ASIHTTPRequest *)request{
     if([request responseStatusCode]==201){
+        NSMutableDictionary *response = [[request responseString]JSONValue];
+        NSNumber *serverDeviceId = [response valueForKey:@"id"];
         [[self credentialStore]setValue:[self tempDeviceId] forKey:usKcDeviceId];
+        [[self credentialStore]setValue:serverDeviceId forKey:usKcServerDeviceId];
                 [[self credentialStore]synchronize];
     }
     else
@@ -59,6 +62,9 @@
 -(void)requestFailed:(ASIHTTPRequest *)request{
     NSLog(@"%@",[[request error]description]);
 }
+-(NSNumber*) serverDeviceId{
+             return [[self credentialStore]objectForKey:usKcServerDeviceId];
+}
 -(NSString*)deviceId{
    return (NSString*)[[self credentialStore]stringForKey:usKcDeviceId];
 }
@@ -68,16 +74,29 @@
 -(NSString*)name{
     return (NSString*)[[self credentialStore]stringForKey:usKcUserName];
 }
--(void)setName:(NSString *)name{
-    @synchronized(self){
-        [[self credentialStore]setValue:name forKey:usKcUserName];
-        [[self credentialStore]synchronize];
-    }
-}
--(void)setEmail:(NSString *)email{
-    @synchronized(self){
+-(BOOL)setName:(NSString *)name Email:(NSString *)email{
+    NSMutableDictionary *device = [[NSMutableDictionary alloc]initWithCapacity:2];
+    [device setObject:[self deviceId] forKey:@"guid"];
+    [device setObject:name forKey:@"name"];
+        [device setObject:email forKey:@"email"];
+    NSString *updateUrlString = [NSString stringWithFormat:@"http://usnapus-staging.herokuapp.com/devices/%@.json",[self serverDeviceId]];
+    NSURL *registerUrl = [NSURL URLWithString:updateUrlString];
+    ASIFormDataRequest *registerRequest = [[ASIFormDataRequest alloc]initWithURL:registerUrl];
+    [registerRequest addPostValue:[device objectForKey:@"guid"] forKey:@"device[guid]"];
+    [registerRequest addPostValue:[device objectForKey:@"name"] forKey:@"device[name]"];
+        [registerRequest addPostValue:[device objectForKey:@"email"] forKey:@"device[email]"];
+    [device release];
+    [registerRequest setRequestMethod:@"PUT"];
+    [registerRequest startSynchronous];
+    if([registerRequest responseStatusCode]==201)
+    {
         [[self credentialStore]setValue:email forKey:usKcUserEmail];
-        [[self credentialStore]synchronize];
+        [[self credentialStore]setValue:name forKey:usKcUserName];
+        return YES;
+    }
+    else
+    {
+        return NO;
     }
 }
 @end

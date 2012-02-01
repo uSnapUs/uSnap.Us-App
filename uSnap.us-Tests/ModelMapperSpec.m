@@ -12,11 +12,12 @@ describe(@"ModelMapper", ^{
         __block NSString *starts = @"2001-01-01T19:00:00Z";
         __block NSString *ends = @"2001-01-03T00:00:00Z";
         __block NSString *code =@"NSDLKS12323";
+        __block NSNumber *ev_id = [NSNumber numberWithInt:12];
         __block NSNumber *latitude = [NSNumber numberWithFloat:1232.3232];
         __block NSNumber *longitude = [NSNumber numberWithFloat:23.02039];;
         __block NSManagedObjectContext *moc;
         __block Event* event;
-        NSMutableDictionary *dataFromServer = [[NSMutableDictionary alloc]initWithObjects:[NSArray arrayWithObjects: title,code,starts,ends,latitude,longitude,nil ] forKeys:[NSArray arrayWithObjects:@"name",@"code",@"starts",@"ends",@"latitude",@"longitude",nil]];
+        NSMutableDictionary *dataFromServer = [[NSMutableDictionary alloc]initWithObjects:[NSArray arrayWithObjects: title,code,starts,ends,latitude,longitude,ev_id,nil ] forKeys:[NSArray arrayWithObjects:@"name",@"code",@"starts",@"ends",@"latitude",@"longitude",@"id",nil]];
        beforeAll(^{
            NSManagedObjectModel *mom = [NSManagedObjectModel mergedModelFromBundles:nil];
            NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:mom];
@@ -58,8 +59,13 @@ describe(@"ModelMapper", ^{
         it(@"Populates longitude",^{
              [[[event longitude]should]equal:longitude];
         });
+        it(@"Populates eventServerId",^{
+            [[[event serverId]should]equal:ev_id];
+        });
            
     });
+    
+       
 });
 
 SPEC_END

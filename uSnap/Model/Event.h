@@ -20,6 +20,7 @@
 @property (nonatomic, retain) NSString * eventTitle;
 @property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSNumber * longitude;
+@property (nonatomic, retain) NSNumber * serverId;
 @property (nonatomic, retain) NSSet *pictures;
 @end
 

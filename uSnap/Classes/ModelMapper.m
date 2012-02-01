@@ -14,6 +14,8 @@
     [event setEventKey:[dictionary objectForKey:@"code"]];
     [event setLatitude:[dictionary valueForKey:@"latitude"]];
     [event setLongitude:[dictionary valueForKey:@"longitude"]];
+    
+    [event setServerId:[dictionary valueForKey:@"id"]];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"];
     [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];

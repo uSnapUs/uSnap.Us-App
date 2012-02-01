@@ -14,9 +14,11 @@
 @property(retain,atomic) NSUserDefaults *credentialStore;
 @property(retain,atomic) NSString *tempDeviceId;
 @property(readonly) NSString *deviceId;
-@property(retain,atomic) NSString *name;
-@property(retain,atomic) NSString *email;
+@property(readonly) NSString *name;
+@property(readonly) NSString *email;
+@property(readonly) NSNumber *serverDeviceId;
 -(void)loadCredentials;
 -(void)registerDevice;
+-(BOOL)setName:(NSString*)name Email:(NSString*)email;
 
 @end

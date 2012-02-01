@@ -66,15 +66,17 @@
 }
 -(void)textFieldDidEndEditing:(UITextField *)textField{
     if([self setEventFromCurrentCode]){
+        
+        [textField resignFirstResponder];
         [[self navigationController]popViewControllerAnimated:YES];
     }
     else
     {
-        [textField becomeFirstResponder];
+       // [textField becomeFirstResponder];
     }
 }
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
-    if(textField.text.length>0){
+    if(textField.text.length>0&&[self setEventFromCurrentCode]){
         [textField resignFirstResponder];
         return YES;
     }
@@ -84,6 +86,7 @@
 - (IBAction)Done:(id)sender {
     
     if([self setEventFromCurrentCode]){
+        [[self codeField] resignFirstResponder];
         [[self navigationController]popViewControllerAnimated:YES];
     }
 }

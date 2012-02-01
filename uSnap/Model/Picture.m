@@ -9,6 +9,7 @@
 #import "Picture.h"
 #import "UIImage+Resize.h"
 #import "ASIFormDataRequest.h"
+#import "UIImage+fixOrientation.h"
 
 @interface Picture(PrivateMethods)  {
 
@@ -42,7 +43,7 @@
      UIImage *fullImage = [[UIImage alloc]initWithData:jpgRepresentation];
 
     UIImage *thumbnail = [fullImage thumbnailImage:300 transparentBorder:YES cornerRadius:0 interpolationQuality:kCGInterpolationHigh];
-    [jpgRepresentation writeToFile:[self getFullPath] atomically:YES];
+    [UIImageJPEGRepresentation([fullImage fixOrientation], 0.8) writeToFile:[self getFullPath] atomically:YES];
     [UIImageJPEGRepresentation(thumbnail,1) writeToFile:[self getThumbnailPath] atomically:YES];
     [fullImage release];
     [jpgRepresentation release];

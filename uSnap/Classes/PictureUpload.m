@@ -8,6 +8,7 @@
 
 #import "PictureUpload.h"
 #import "ASIFormDataRequest.h"
+#import "USTAppDelegate.h"
 @implementation PictureUpload
 @synthesize picture;
 
@@ -24,10 +25,14 @@
     [[self picture] setUploaded:[NSNumber numberWithBool:NO]];
     [[self picture] setUploadedBytes:[NSNumber numberWithInt:0]];
     // NSError *err;
+    USTAppDelegate *appDelegate =  [[UIApplication sharedApplication]delegate];
+    Event *currentEvent = [[appDelegate locationHandler]currentEvent];
+    NSString *photoUrl = [NSString stringWithFormat:@"http://usnapus-staging.herokuapp.com/events/%@/photos.json",[currentEvent serverId]];
     //[[self managedObjectContext]save:&err];
-    NSURL *postUrl = [NSURL URLWithString:@"http://192.168.0.106:3000/photos"];
+    NSURL *postUrl = [NSURL URLWithString:photoUrl];
     ASIFormDataRequest *formRequest = [ASIFormDataRequest requestWithURL:postUrl];
     [formRequest setFile:[[self picture] getFullPath] withFileName:@"photo.jpg" andContentType:@"image/jpeg" forKey:@"photo[photo]"];
+    [formRequest addPostValue:[[appDelegate registrationManager]serverDeviceId]forKey:@"photo[device_id]"];
     [formRequest setShouldStreamPostDataFromDisk:YES];
     [formRequest setAllowCompressedResponse:YES];
     //[formRequest shouldCompressRequestBody:YES];

@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface YourDetailsViewController : UIViewController
+@interface YourDetailsViewController : UIViewController<UITextFieldDelegate>
 @property (retain, nonatomic) IBOutlet UIView *TextFieldBackgroundView;
 @property (retain, nonatomic) IBOutlet UITextField *nameField;
 @property (retain, nonatomic) IBOutlet UITextField *emailField;
 - (IBAction)submit:(id)sender;
 -(void)setupView;
+-(BOOL)saveNameAndEmail;
 @end

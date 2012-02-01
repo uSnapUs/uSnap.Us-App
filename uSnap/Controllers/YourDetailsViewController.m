@@ -8,6 +8,7 @@
 
 #import "YourDetailsViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "USTAppDelegate.h"
 @implementation YourDetailsViewController
 @synthesize TextFieldBackgroundView;
 @synthesize nameField;
@@ -47,9 +48,23 @@
     [self setupView];
 }
 -(void)viewDidAppear:(BOOL)animated {
+    USTAppDelegate *appDelegate = (USTAppDelegate*)[[UIApplication sharedApplication]delegate];
+    [[self nameField]setText:[[appDelegate registrationManager]name]];
+    [[self emailField]setText:[[appDelegate registrationManager]email]];
     [[self nameField]becomeFirstResponder];
 }
 - (IBAction)submit:(id)sender {
+    if([self saveNameAndEmail]){
+        [[self nameField]resignFirstResponder];
+        [[self emailField]resignFirstResponder];
+        [[self navigationController]popViewControllerAnimated:YES];
+    }
+    
+}
+-(BOOL)saveNameAndEmail{
+    
+    USTAppDelegate *appDelegate = (USTAppDelegate*)[[UIApplication sharedApplication]delegate];
+    return [[appDelegate registrationManager]setName:[nameField text] Email:[emailField text]];
 }
 
 -(void)setupView{
@@ -85,5 +100,13 @@
     [emailField release];
     [super dealloc];
 }
-
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    
+        if(textField.text.length>0){
+            [textField resignFirstResponder];
+            return YES;
+        }
+        return NO;
+    
+}
 @end
