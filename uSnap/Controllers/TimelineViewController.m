@@ -231,33 +231,7 @@ NSArray *_orderedPictures;
     [[self EventDateLabel]setText:[self getDateLabelForEvent:currentEvent]];
 }
 -(NSString*) getDateLabelForEvent:(Event *)event{
-    if(event!=nil&&([[event eventKey]compare:VoidEventKey]!=NSOrderedSame)){
-
-    NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc]init]autorelease];
-    [dateFormatter setDateFormat:@"MMMM"];
-    
-    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents *components = [gregorianCalendar components:NSDayCalendarUnit
-                                                        fromDate:[event eventStart]
-                                                          toDate:[event eventEnd]
-                                                         options:0];
-    NSDateComponents *beginComponents = [gregorianCalendar components:NSDayCalendarUnit fromDate:[event eventStart]];
-    NSDateComponents *endComponents = [gregorianCalendar components:NSDayCalendarUnit fromDate:[event eventEnd]];
-    [gregorianCalendar release];
-    NSString *dayPart;
-    if(components.day>1){
-        dayPart = [NSString stringWithFormat:@"%i - %i",[beginComponents day],[endComponents day]];
-    }
-    else{
-        dayPart = [NSString stringWithFormat:@"%i",[beginComponents day]];
-    }
-        
-        return [NSString stringWithFormat:@"%@ %@",dayPart,[dateFormatter stringFromDate:[event eventStart]]];
-    }
-    else
-    {
-        return @"";
-    }
+    return [event friendlyDateString];
 }
 -(NSString*) getTitleLabelForEvent:(Event *)event{
     if(event!=nil&&([[event eventKey]compare:VoidEventKey]!=NSOrderedSame)){

@@ -7,7 +7,7 @@
 SPEC_BEGIN(ModelMapperSpec)
 
 describe(@"ModelMapper", ^{
-    describe(@"Mapping Event", ^{
+    describe(@"mapDictionary:ToEvent:", ^{
         __block NSString *title = @"TestEvent Title";
         __block NSString *starts = @"2001-01-01T19:00:00Z";
         __block NSString *ends = @"2001-01-03T00:00:00Z";

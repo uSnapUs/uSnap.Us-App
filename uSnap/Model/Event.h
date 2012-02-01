@@ -29,5 +29,5 @@
 - (void)removePicturesObject:(Picture *)value;
 - (void)addPictures:(NSSet *)values;
 - (void)removePictures:(NSSet *)values;
-
+- (NSString*) friendlyDateString;
 @end
