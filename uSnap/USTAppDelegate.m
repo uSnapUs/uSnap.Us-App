@@ -7,7 +7,7 @@
 //
 
 #import "USTAppDelegate.h"
-
+#import "TestFlight.h"
 
 @implementation USTAppDelegate
 @synthesize fileUploadHandler = _fileUploadHandler;
@@ -31,6 +31,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [TestFlight takeOff:@"cb83c24bf15386068af5ff255f6e46c6_NTgwNTAyMDEyLTAyLTA4IDA1OjA4OjE0LjkxNzcyNw"];
     FileUploadHandler *fileUploadHandler = [[FileUploadHandler alloc]init];
     [self setFileUploadHandler:fileUploadHandler];
     [fileUploadHandler release];
