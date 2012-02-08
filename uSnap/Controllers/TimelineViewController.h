@@ -14,5 +14,5 @@
 @property (retain, nonatomic) IBOutlet UIView *BottomBarView;
 - (IBAction)CameraButtonPressed:(id)sender;
 - (IBAction)LocationButtonPressed:(id)sender;
-
+-(void)refreshData;
 @end

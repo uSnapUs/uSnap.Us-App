@@ -31,6 +31,7 @@ NSArray *_orderedPictures;
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        
     }
     return self;
 }
@@ -52,21 +53,13 @@ NSArray *_orderedPictures;
        [swipeRecogniser setDirection:UISwipeGestureRecognizerDirectionLeft];
     [[self view]addGestureRecognizer:swipeRecogniser];
     [swipeRecogniser release];
-    USTAppDelegate *appDelegate = (USTAppDelegate*)[[UIApplication sharedApplication]delegate];
-     Event *currentEvent = [[appDelegate locationHandler]currentEvent];
-     [self setEventData];
-    if(currentEvent!=nil){
-    NSSortDescriptor *sort = [[NSSortDescriptor alloc]initWithKey:@"dateTaken" ascending:NO];
-   
-       _orderedPictures = [[currentEvent pictures]sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
-    [_orderedPictures retain];
-        [sort release];
-   
-    }
-    else
-    {
-        _orderedPictures = [[NSArray alloc]init];
-    }
+    USTAppDelegate* appDelegate = [[UIApplication sharedApplication]delegate];
+    
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    [notificationCenter addObserver:self selector:@selector(refreshData) name:NSManagedObjectContextObjectsDidChangeNotification object:[appDelegate managedObjectContext]];
+    [notificationCenter addObserver:self selector:@selector(refreshData) name:uSnapEventUpdatedNotification object:nil];
+
+    [self refreshData];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -79,6 +72,10 @@ NSArray *_orderedPictures;
     [self setEventTitleLabel:nil];
     [self setEventDateLabel:nil];
     [self setBottomBarView:nil];
+    USTAppDelegate* appDelegate = [[UIApplication sharedApplication]delegate];
+      NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    [notificationCenter removeObserver:self name:NSManagedObjectContextObjectsDidChangeNotification object:[appDelegate managedObjectContext]];
+      [notificationCenter removeObserver:self name:uSnapEventUpdatedNotification object:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -94,7 +91,7 @@ NSArray *_orderedPictures;
 {
     [super viewDidAppear:animated];
     CGRect originBounds = [[self view]frame];
-    NSLog(@"%@",NSStringFromCGRect(originBounds));
+  //  NSLog(@"%@",NSStringFromCGRect(originBounds));
     [[self BottomBarView]setFrame:CGRectMake(0, originBounds.size.height-53, 320, 53)];
     [[self view]addSubview:[self BottomBarView]];
 
@@ -133,14 +130,14 @@ NSArray *_orderedPictures;
 {
 
     // Return the number of rows in the section.
-    NSLog(@"%@",_orderedPictures);
+   // NSLog(@"%@",_orderedPictures);
     return _orderedPictures.count;
     //return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"PhotoRow";
     
     PhotoStreamCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
@@ -150,12 +147,7 @@ NSArray *_orderedPictures;
         
     // Configure the cell...
     Picture *picture = [_orderedPictures objectAtIndex:[indexPath row]];
-    UIImage *thumbnailImage = [UIImage imageWithData:[NSData dataWithContentsOfFile:[picture getThumbnailPath]]];
-    [[cell imageView]setImage:thumbnailImage];
-    [[[cell imageView]layer]setBorderColor:[[UIColor blackColor]CGColor]];
-    [[[cell imageView]layer]setBorderWidth:1];
-   
-    [cell layoutSubviews];
+    [cell configureWithPicture:picture];
     return cell;
 }
 
@@ -238,7 +230,7 @@ NSArray *_orderedPictures;
         return [event eventTitle];
     }
     else{
-        NSLog(@"Returning no event");
+      //  NSLog(@"Returning no event");
         return @"No Event Selected!";
     }
 
@@ -259,6 +251,27 @@ NSArray *_orderedPictures;
  //   [[self view]addSubview:[self BottomBarView]];
 
 }
+-(void)refreshData{
+      USTAppDelegate *appDelegate = (USTAppDelegate*)[[UIApplication sharedApplication]delegate];
+    Event *currentEvent = [[appDelegate locationHandler]currentEvent];
+    [currentEvent retain];
+    [self setEventData];
+    if(currentEvent!=nil){
+        NSSortDescriptor *sort = [[NSSortDescriptor alloc]initWithKey:@"dateTaken" ascending:NO];
+     //   NSLog(@"%@",[[[appDelegate locationHandler]currentEvent]eventTitle]);
+       // NSLog(@"%@",[[[appDelegate locationHandler]currentEvent] pictures]);
+        _orderedPictures = [[[[appDelegate locationHandler]currentEvent] pictures]sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
+        [_orderedPictures retain];
+        [sort release];
+        
+    }
+    else
+    {
+        _orderedPictures = [[NSArray alloc]init];
+    }
+    [currentEvent release];
+    [[self tableView]reloadData];
+}
 - (IBAction)CameraButtonPressed:(id)sender {
     [self swipeLeftReceived];
 }
@@ -266,4 +279,4 @@ NSArray *_orderedPictures;
 - (IBAction)LocationButtonPressed:(id)sender {
     [self performSegueWithIdentifier:@"GoToSettings" sender:self];
 }
-@end
+@end;

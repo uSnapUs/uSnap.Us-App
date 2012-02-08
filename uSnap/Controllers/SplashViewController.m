@@ -42,7 +42,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIFont *titleFont = [UIFont fontWithName:@"Bello" size:70];
+    NSLog(@"%@",[UIFont fontNamesForFamilyName:@"Bello"]);
+    UIFont *titleFont = [UIFont fontWithName:@"Bello-Script" size:30];
     [[self TitleLabel] setFont:titleFont]; 
 }
 

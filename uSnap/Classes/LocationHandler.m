@@ -49,7 +49,7 @@ Event *_currentEvent;
     CLLocationCoordinate2D coordinate =  newLocation.coordinate;
 
     
-    NSString *eventUrl =[[NSString alloc]initWithFormat:@"http://usnapus-staging.herokuapp.com/events.json?latitude=%f&longitude=%f",coordinate.latitude,coordinate.longitude];
+    NSString *eventUrl =[[NSString alloc]initWithFormat:@"http://usnap.us/events.json?latitude=%f&longitude=%f",coordinate.latitude,coordinate.longitude];
     
     
     ASIHTTPRequest *request = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:eventUrl]];
@@ -67,7 +67,7 @@ Event *_currentEvent;
     return _isUpdating;
 }
 -(void)requestFailed:(ASIHTTPRequest *)request{
-    NSLog(@"request failed:%@",[[request error]description]);
+    NSLog(@"get event request failed:%@",[[request error]description]);
           
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     [notificationCenter postNotificationName:uSnapEventUpdatedNotification object:self];
@@ -75,9 +75,9 @@ Event *_currentEvent;
 }
 -(void)requestFinished:(ASIHTTPRequest *)request{
     
-    NSLog(@"request finished with response %@",[request responseString]);    
+  //  NSLog(@"request finished with response %@",[request responseString]);    
     NSMutableArray *eventArray = (NSMutableArray*)[[request responseString]JSONValue];
-    NSLog(@"%@",eventArray);
+   // NSLog(@"%@",eventArray);
     if([eventArray count]>0){
         NSMutableArray *setOfEvents = [[NSMutableArray alloc]initWithCapacity:[eventArray count]];
         for (NSMutableDictionary *serverEvent in eventArray) {
@@ -185,18 +185,20 @@ Event *_currentEvent;
 }
 -(bool)setCurrentEventFromCode:(NSString*)code{
     
-    NSString *eventUrl =[[NSString alloc]initWithFormat:@"http://usnapus-staging.herokuapp.com/events.json?code=%@",code];
+    NSString *eventUrl =[[NSString alloc]initWithFormat:@"http://usnap.us/events.json?code=%@",code];
     
     
     ASIHTTPRequest *request = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:eventUrl]];
     [eventUrl release];
     [request startSynchronous];
-    NSLog(@"request finished with response %@",[request responseString]); 
+ //   NSLog(@"request finished with response %@",[request responseString]); 
     if([request responseStatusCode]!=200||[[request responseString]length]<3){
         [request release];
         return NO;
     }
-    NSMutableDictionary *event = (NSMutableDictionary*)[[request responseString]JSONValue];
+    NSMutableArray *events = (NSMutableArray*)[[request responseString]JSONValue];
+    if([events count]>0){
+        NSMutableDictionary *event = [events objectAtIndex:0];
     if(event){
         Event *newEvent = [self populateEvent:event];
         if(![self lastSetOfEvents]){
@@ -210,6 +212,7 @@ Event *_currentEvent;
         return YES;
     }
     [request release];
+    }
     return NO;
     
     

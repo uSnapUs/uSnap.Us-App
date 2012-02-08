@@ -11,6 +11,8 @@
 #import "LocationHandler.h"
 @implementation AddCodeViewController
 @synthesize codeField;
+@synthesize ErrorView;
+@synthesize ErrorLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -54,6 +56,8 @@
 {
     [[self codeField]resignFirstResponder];
     [self setCodeField:nil];
+    [self setErrorView:nil];
+    [self setErrorLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -99,11 +103,36 @@
             return YES;
         }
     }  
+    [self fadeInErrorMessage];
     return NO;
 }
+-(void) fadeInErrorMessage{
 
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.5];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(fadeOutErrorMessage)];
+
+    
+    [[self ErrorView]setFrame:CGRectMake(0, 0, 320, 73)];
+
+    [UIView commitAnimations];
+}
+-(void)fadeOutErrorMessage{
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.5];
+    [UIView setAnimationDelay:2];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    
+    [[self ErrorView]setFrame:CGRectMake(0, -73, 320, 73)];
+    
+    [UIView commitAnimations];
+}
 - (void)dealloc {
     [codeField release];
+    [ErrorView release];
+    [ErrorLabel release];
     [super dealloc];
 }
 @end

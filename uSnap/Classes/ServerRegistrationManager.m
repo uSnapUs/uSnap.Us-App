@@ -38,7 +38,7 @@
     NSMutableDictionary *device = [[NSMutableDictionary alloc]initWithCapacity:2];
     [device setObject:[self tempDeviceId] forKey:@"guid"];
     [device setObject:[[UIDevice currentDevice] name] forKey:@"name"];
-    NSURL *registerUrl = [NSURL URLWithString:@"http://usnapus-staging.herokuapp.com/devices.json"];
+    NSURL *registerUrl = [NSURL URLWithString:@"http://usnap.us/devices.json"];
     ASIFormDataRequest *registerRequest = [[ASIFormDataRequest alloc]initWithURL:registerUrl];
     [registerRequest addPostValue:[device objectForKey:@"guid"] forKey:@"device[guid]"];
     [registerRequest addPostValue:[device objectForKey:@"name"] forKey:@"device[name]"];
@@ -56,11 +56,11 @@
     }
     else
     {
-        NSLog(@"%@",[request responseString]);
+     //   NSLog(@"%@",[request responseString]);
     }
 }
 -(void)requestFailed:(ASIHTTPRequest *)request{
-    NSLog(@"%@",[[request error]description]);
+   // NSLog(@"%@",[[request error]description]);
 }
 -(NSNumber*) serverDeviceId{
              return [[self credentialStore]objectForKey:usKcServerDeviceId];
@@ -79,7 +79,7 @@
     [device setObject:[self deviceId] forKey:@"guid"];
     [device setObject:name forKey:@"name"];
         [device setObject:email forKey:@"email"];
-    NSString *updateUrlString = [NSString stringWithFormat:@"http://usnapus-staging.herokuapp.com/devices/%@.json",[self serverDeviceId]];
+    NSString *updateUrlString = [NSString stringWithFormat:@"http://usnap.us/devices/%@.json",[self serverDeviceId]];
     NSURL *registerUrl = [NSURL URLWithString:updateUrlString];
     ASIFormDataRequest *registerRequest = [[ASIFormDataRequest alloc]initWithURL:registerUrl];
     [registerRequest addPostValue:[device objectForKey:@"guid"] forKey:@"device[guid]"];
@@ -92,10 +92,12 @@
     {
         [[self credentialStore]setValue:email forKey:usKcUserEmail];
         [[self credentialStore]setValue:name forKey:usKcUserName];
+        [registerRequest release];
         return YES;
     }
     else
     {
+        [registerRequest release];
         return NO;
     }
 }

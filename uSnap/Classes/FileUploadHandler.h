@@ -8,8 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "Picture.h"
+#import "PictureUpload.h"
 @interface FileUploadHandler : NSObject
 @property(retain,atomic) NSMutableArray *queue;
+
 -(void) addPictureToUploadQueue:(Picture *)picture;
 
+-(void)finishedPictureUpload:(NSNotification*)notification;
+-(PictureUpload*)getUploadForPicture:(Picture*)picture;
 @end

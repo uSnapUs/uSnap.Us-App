@@ -118,6 +118,7 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
     [[UIApplication sharedApplication]setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     
     BOOL hideSplash = [[NSUserDefaults standardUserDefaults] boolForKey:@"HideSplash"];
+    hideSplash = YES;
    // [self initCameraView];
     if(hideSplash)
     {
@@ -325,16 +326,16 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
     LocationHandler *locHandler = [appDelegate locationHandler];
     
     if([locHandler currentEvent]==nil){
-        NSLog(@"Currently updating location");
+       // NSLog(@"Currently updating location");
         [[self LocationButton]setTitle:@"searching" forState:UIControlStateNormal];
     }
     else if([[[locHandler currentEvent]eventKey]compare:VoidEventKey]==NSOrderedSame){
-        NSLog(@"No Event");
+       // NSLog(@"No Event");
            [[self LocationButton]setTitle:@"no event" forState:UIControlStateNormal];
     }
     else{
-        NSLog(@"%@",[locHandler currentEvent]);
-        NSLog(@"Event");
+       // NSLog(@"%@",[locHandler currentEvent]);
+       // NSLog(@"Event");
            [[self LocationButton]setTitle:[[locHandler currentEvent]eventTitle] forState:UIControlStateNormal];
     }
 }
@@ -392,17 +393,25 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
 }
 -(void)savePictureData:(NSData *)jpegRepresentation
 {
+    
+
     USTAppDelegate *appDelegate = (USTAppDelegate*)[[UIApplication sharedApplication]delegate];
-    Picture *picture = (Picture*) [NSEntityDescription insertNewObjectForEntityForName:@"Picture" inManagedObjectContext:[self managedObjectContext]]; 
-    [picture setEvent:[[appDelegate locationHandler]currentEvent]];
-    [picture setDateTaken:[NSDate date]];
-    [picture setImage:jpegRepresentation];
-    NSError *saveError = nil;
-    [managedObjectContext save:&saveError];
-    if(saveError){
-        NSLog(@"Save Error %@",[saveError description]);
-    }
-    [saveError release];
-    [[appDelegate fileUploadHandler]addPictureToUploadQueue:picture];
+    Event *currentEvent = [[appDelegate locationHandler] currentEvent];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        Picture *picture = (Picture*) [NSEntityDescription insertNewObjectForEntityForName:@"Picture" inManagedObjectContext:[self managedObjectContext]]; 
+        [picture setEvent:currentEvent];
+        [picture setDateTaken:[NSDate date]];
+        [picture setImage:jpegRepresentation];
+        NSError *saveError = nil;
+        [managedObjectContext save:&saveError];
+        if(saveError){
+            NSLog(@"Save Error %@",[saveError description]);
+        }
+        [saveError release];
+        if([[currentEvent eventKey]compare:VoidEventKey]!=NSOrderedSame){
+        [[appDelegate fileUploadHandler]addPictureToUploadQueue:picture];
+        }
+    });
+    [self GoToTimeline:self];
 }
 @end

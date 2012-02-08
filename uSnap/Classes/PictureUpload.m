@@ -9,17 +9,34 @@
 #import "PictureUpload.h"
 #import "ASIFormDataRequest.h"
 #import "USTAppDelegate.h"
+#import "constants.h"
 @implementation PictureUpload
 @synthesize picture;
-
+@synthesize progressDelegate;
+@synthesize percentUploaded;
 -(void) requestFinished:(ASIHTTPRequest *)request{
-     NSLog(@"Picture upload for %@ passed",[[[self picture]objectID]description]);
+//    USTAppDelegate* appDelegate = [[UIApplication sharedApplication]delegate];
+    
+    [picture setUploaded:[NSNumber numberWithBool:YES]];
+    NSError *error;
+    [[picture managedObjectContext]save:&error];
+    if(error){
+        NSLog(@"Save produced error %@",[error description]);
+    }
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    [notificationCenter postNotificationName:uSnapPictureUploadFinishedSuccess object:self];
 }
 -(void) requestFailed:(ASIHTTPRequest *)request{
-    NSLog(@"Picture upload for %@ failed",[[[self picture]objectID]description]);
-}
--(void) request:(ASIHTTPRequest *)request didSendBytes:(long long)bytes{
-  NSLog(@"%llu bytes upload for %@",bytes,[[[self picture]objectID]description]);
+    USTAppDelegate* appDelegate = [[UIApplication sharedApplication]delegate];
+    [picture setError:[NSNumber numberWithBool:YES]];
+    NSError *error;
+    [[appDelegate managedObjectContext]save:&error];
+    if(error){
+        NSLog(@"Save error produced error %@",[error description]);
+    }
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    [notificationCenter postNotificationName:uSnapPictureUploadFinishedSuccess object:self];
+    //NSLog(@"Picture upload for %@ failed",[[[self picture]objectID]description]);
 }
 -(void)start{
     [[self picture] setUploaded:[NSNumber numberWithBool:NO]];
@@ -27,7 +44,7 @@
     // NSError *err;
     USTAppDelegate *appDelegate =  [[UIApplication sharedApplication]delegate];
     Event *currentEvent = [[appDelegate locationHandler]currentEvent];
-    NSString *photoUrl = [NSString stringWithFormat:@"http://usnapus-staging.herokuapp.com/events/%@/photos.json",[currentEvent serverId]];
+    NSString *photoUrl = [NSString stringWithFormat:@"http://usnap.us/events/%@/photos.json",[currentEvent serverId]];
     //[[self managedObjectContext]save:&err];
     NSURL *postUrl = [NSURL URLWithString:photoUrl];
     ASIFormDataRequest *formRequest = [ASIFormDataRequest requestWithURL:postUrl];
@@ -35,10 +52,18 @@
     [formRequest addPostValue:[[appDelegate registrationManager]serverDeviceId]forKey:@"photo[device_id]"];
     [formRequest setShouldStreamPostDataFromDisk:YES];
     [formRequest setAllowCompressedResponse:YES];
+    [formRequest setUploadProgressDelegate:self];
     //[formRequest shouldCompressRequestBody:YES];
     [formRequest setUploadProgressDelegate:self];
     //[formRequest showAccurateProgress:YES];
     [formRequest setDelegate:self];
+    [self setPercentUploaded:0];
     [formRequest startAsynchronous];
 }
+-(void)setProgress:(float)newProgress{
+    
+    NSLog(@"New progress %f",newProgress);
+    [self setPercentUploaded:newProgress];
+}
+
 @end

@@ -38,17 +38,17 @@
         
         NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc]init]autorelease];
         [dateFormatter setDateFormat:@"MMMM"];
-        NSLog(@"%@",[self eventStart]);
-        NSLog(@"%@",[self eventEnd]);
-        NSLog(@"%@",[[self eventEnd]dateByAddingTimeInterval:-1]);
+      //  NSLog(@"%@",[self eventStart]);
+      //  NSLog(@"%@",[self eventEnd]);
+       // NSLog(@"%@",[[self eventEnd]dateByAddingTimeInterval:-1]);
         NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
         [gregorianCalendar setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
         NSDateComponents *beginComponents = [gregorianCalendar components:NSYearCalendarUnit | NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[self eventStart]];
         NSDateComponents *endComponents = [gregorianCalendar components:NSYearCalendarUnit | NSMonthCalendarUnit|NSDayCalendarUnit  fromDate:[[self eventEnd]dateByAddingTimeInterval:-1]];
         [gregorianCalendar release];
         NSString *dayPart;
-        NSLog(@"%@",beginComponents);
-        NSLog(@"%@",endComponents);
+     //   NSLog(@"%@",beginComponents);
+     //   NSLog(@"%@",endComponents);
         if([beginComponents month]!=[endComponents month]){
             [dateFormatter setDateFormat:@"d MMM"];
             return [NSString stringWithFormat:@"%@-%@",[dateFormatter stringFromDate:[self eventStart]],[dateFormatter stringFromDate:[self eventEnd]]];
@@ -70,6 +70,9 @@
         return @"";
     }
 
+}
+-(void)dealloc{
+    [super dealloc];
 }
 
 @end

@@ -11,5 +11,9 @@
 @interface AddCodeViewController : UIViewController<UITextFieldDelegate>
 - (IBAction)Done:(id)sender;
 @property (retain, nonatomic) IBOutlet UITextField *codeField;
+@property (retain, nonatomic) IBOutlet UIView *ErrorView;
+@property (retain, nonatomic) IBOutlet UILabel *ErrorLabel;
 -(BOOL)setEventFromCurrentCode;
+-(void)fadeInErrorMessage;
+-(void)fadeOutErrorMessage;
 @end

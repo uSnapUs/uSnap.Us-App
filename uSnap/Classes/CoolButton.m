@@ -95,7 +95,7 @@
     // create gradient layer
     _gradientLayer = [CAGradientLayer layer];
     [_gradientLayer setAnchorPoint:CGPointMake(0, 0)];
-    NSLog(@"%@",NSStringFromCGRect([self bounds] ));
+  //  NSLog(@"%@",NSStringFromCGRect([self bounds] ));
     [_gradientLayer setBounds:[self bounds]];
     [_gradientLayer setColors:[NSArray arrayWithObjects:
                                (id)[UIColor colorWithRed:47/255. green:54/255. blue:57/255. alpha:1].CGColor,
@@ -142,7 +142,7 @@
     //self.titleLabel.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.25];
     //self.titleLabel.shadowOffset = CGSizeMake(0, -1);
     [self bringSubviewToFront:[self imageView]];
-        NSLog(@"%@",NSStringFromCGRect([self bounds] ));
+   //     NSLog(@"%@",NSStringFromCGRect([self bounds] ));
 }
 
 

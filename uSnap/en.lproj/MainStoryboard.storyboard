@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11C73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="h2l-DD-H9V">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11D50b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="h2l-DD-H9V">
     <dependencies>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
@@ -28,10 +28,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="uSnap.us" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="UTq-Cq-oTe">
-                                <rect key="frame" x="12" y="20" width="296" height="116"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="see your wedding through their eyes" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" minimumFontSize="10" id="R46-r1-TnD">
+                                <rect key="frame" x="10" y="120" width="300" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -50,11 +50,36 @@
                                     <action selector="dismiss:" destination="Wpe-bq-Fd0" eventType="touchUpInside" id="FeB-kw-boT"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="stream-bar.png" id="NQq-cA-K8W">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" text="uSnap.us" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="QFZ-0g-cCy">
+                                <rect key="frame" x="10" y="82" width="300" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Please Note:" lineBreakMode="tailTruncation" minimumFontSize="10" id="aUZ-ZP-pX9">
+                                <rect key="frame" x="111" y="272" width="98" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="This app uses location to determine which event you're at and will use data to automatically upload photos" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" minimumFontSize="10" id="kB8-eq-S0j">
+                                <rect key="frame" x="10" y="296" width="300" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="TitleLabel" destination="UTq-Cq-oTe" id="cN4-EE-UIY"/>
+                        <outlet property="TitleLabel" destination="QFZ-0g-cCy" id="owi-9h-H25"/>
                     </connections>
                 </viewController>
             </objects>
@@ -73,10 +98,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5xV-g1-qKq">
-                                        <rect key="frame" x="15" y="18" width="18" height="18"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="48" height="54"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.0" green="0.4274510145" blue="0.62745100259999997" alpha="0.0" colorSpace="deviceRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <inset key="contentEdgeInsets" minX="15" minY="18" maxX="15" maxY="18"/>
                                         <state key="normal" image="camera-back.png">
                                             <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -89,10 +115,11 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7hk-04-lhp">
-                                        <rect key="frame" x="279" y="16" width="22" height="22"/>
+                                        <rect key="frame" x="260" y="0.0" width="60" height="54"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.0" green="0.4274510145" blue="0.62745100259999997" alpha="0.0" colorSpace="deviceRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <inset key="contentEdgeInsets" minX="19" minY="16" maxX="19" maxY="16"/>
                                         <state key="normal" image="camera-cameraroll.png">
                                             <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -148,7 +175,7 @@
                                                     <action selector="SwapCameraView:" destination="h2l-DD-H9V" eventType="touchUpInside" id="Vxy-vz-j9X"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="g92-PS-kMh">
+                                            <button hidden="YES" opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="g92-PS-kMh">
                                                 <rect key="frame" x="10" y="11" width="38" height="32"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -251,16 +278,43 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="top" id="zFB-c2-AkP">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                                            <rect key="frame" x="10" y="0.0" width="300" height="300"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </imageView>
+                                        <view alpha="0.50000000000000011" contentMode="scaleToFill" id="uXh-ne-Hp3">
+                                            <rect key="frame" x="10" y="0.0" width="300" height="300"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <progressView opaque="NO" contentMode="scaleToFill" progressViewStyle="bar" progress="0.10000000000000003" id="aWD-Ya-YxQ">
+                                                    <rect key="frame" x="10" y="145" width="280" height="11"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </progressView>
+                                            </subviews>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </view>
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5lU-89-3cy">
+                                            <rect key="frame" x="270" y="260" width="40" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                            <state key="normal" image="stream-pen.png">
+                                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
+                                    <outlet property="editButton" destination="5lU-89-3cy" id="7Q8-bV-aZu"/>
                                     <outlet property="photoView" destination="zFB-c2-AkP" id="XWY-8Y-TJS"/>
+                                    <outlet property="progressOverlayView" destination="uXh-ne-Hp3" id="ka5-wn-bQQ"/>
+                                    <outlet property="progressView" destination="aWD-Ya-YxQ" id="xnB-IW-vIr"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -286,9 +340,10 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xpK-qE-xEQ">
-                            <rect key="frame" x="15" y="16" width="21" height="22"/>
+                            <rect key="frame" x="0.0" y="0.0" width="51" height="54"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <inset key="contentEdgeInsets" minX="15" minY="16" maxX="15" maxY="16"/>
                             <state key="normal" image="stream-location.png">
                                 <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -301,9 +356,10 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hly-q8-9oD">
-                            <rect key="frame" x="277" y="16" width="28" height="22"/>
+                            <rect key="frame" x="262" y="0.0" width="58" height="54"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <inset key="contentEdgeInsets" minX="15" minY="16" maxX="15" maxY="16"/>
                             <state key="normal" image="stream-camera.png">
                                 <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -408,11 +464,25 @@
                                 <rect key="frame" x="20" y="81" width="280" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" returnKeyType="done"/>
                                 <connections>
                                     <outlet property="delegate" destination="nTN-iW-mpU" id="5UC-5n-zky"/>
                                 </connections>
                             </textField>
+                            <view contentMode="scaleToFill" id="wmc-Fr-QgH">
+                                <rect key="frame" x="0.0" y="-73" width="320" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Unable to find an event with that code" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="wEG-UH-U6u">
+                                        <rect key="frame" x="10" y="26" width="300" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.2731590056" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -425,6 +495,8 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
                     <connections>
+                        <outlet property="ErrorLabel" destination="wEG-UH-U6u" id="axW-UZ-FdZ"/>
+                        <outlet property="ErrorView" destination="wmc-Fr-QgH" id="Sv6-rT-XIZ"/>
                         <outlet property="codeField" destination="Nt6-hf-R77" id="Cak-gf-3fM"/>
                     </connections>
                 </viewController>
@@ -496,12 +568,15 @@
         <image name="stream-camera.png" width="56" height="44"/>
         <image name="stream-location-middle.png" width="47" height="47"/>
         <image name="stream-location.png" width="42" height="44"/>
+        <image name="stream-pen.png" width="47" height="47"/>
     </resources>
     <classes>
         <class className="AddCodeViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AddCodeViewController.h"/>
             <relationships>
                 <relationship kind="action" name="Done:"/>
+                <relationship kind="outlet" name="ErrorLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ErrorView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="codeField" candidateClass="UITextField"/>
             </relationships>
         </class>
@@ -539,7 +614,11 @@
         <class className="PhotoStreamCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoStreamCell.h"/>
             <relationships>
+                <relationship kind="outlet" name="editButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="errorOverlayView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="photoView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="progressOverlayView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="progressView" candidateClass="UIProgressView"/>
             </relationships>
         </class>
         <class className="SplashViewController" superclassName="UIViewController">
@@ -575,6 +654,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="i69-pA-jtG"/>
+        <segue reference="Kyl-sR-HeL"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -28,7 +28,6 @@
 @dynamic event;
 
 
-
 -(void)setImage:(NSData *)jpgRepresentation{
     [jpgRepresentation retain];
     NSString *fullPath =[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
@@ -37,14 +36,15 @@
     CFUUIDRef newUniqueId = CFUUIDCreate(kCFAllocatorDefault);
     CFStringRef newUniqueIdString = CFUUIDCreateString(kCFAllocatorDefault, newUniqueId);
     NSString *rootPath = [fullPath stringByAppendingPathComponent:(NSString*) newUniqueIdString];
-    [self setResourceLocation:rootPath];
+  
     CFRelease(newUniqueId);
     CFRelease(newUniqueIdString);
      UIImage *fullImage = [[UIImage alloc]initWithData:jpgRepresentation];
 
     UIImage *thumbnail = [fullImage thumbnailImage:300 transparentBorder:YES cornerRadius:0 interpolationQuality:kCGInterpolationHigh];
-    [UIImageJPEGRepresentation([fullImage fixOrientation], 0.8) writeToFile:[self getFullPath] atomically:YES];
-    [UIImageJPEGRepresentation(thumbnail,1) writeToFile:[self getThumbnailPath] atomically:YES];
+    [UIImageJPEGRepresentation([fullImage fixOrientation], 0.8) writeToFile:[rootPath stringByAppendingPathExtension: @"JPG"] atomically:YES];
+    [UIImageJPEGRepresentation(thumbnail,1) writeToFile:[[rootPath stringByAppendingString:@"_thumb"]stringByAppendingPathExtension:@"JPG"] atomically:YES];
+    [self setResourceLocation:rootPath];
     [fullImage release];
     [jpgRepresentation release];
 }
