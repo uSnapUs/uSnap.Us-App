@@ -390,8 +390,9 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
                             animated:YES];
 }
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo {
+    [picker dismissModalViewControllerAnimated:NO];
     [self savePictureData:UIImageJPEGRepresentation(image, 1)];
-    [picker dismissModalViewControllerAnimated:YES];
+    
     
 }
 -(void)savePictureData:(NSData *)jpegRepresentation
