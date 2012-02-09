@@ -367,6 +367,11 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
                                      (id)[UIColor colorWithRed:25/255. green:29/255. blue:31/255. alpha:1].CGColor,nil]];
     
     [layer insertSublayer:toolbarGradientLayer atIndex:0];
+    CALayer *topBorderLayer = [[CALayer alloc]init];
+    [topBorderLayer setFrame:CGRectMake(0, 0, 320, 2)];
+    [topBorderLayer setBackgroundColor:[UIColor colorWithRed:67/255. green:74/255. blue:78/255. alpha:1].CGColor];
+    [topBorderLayer setBorderWidth:0];
+    [layer addSublayer:topBorderLayer];
     [toolbarGradientLayer release];
     
 }
