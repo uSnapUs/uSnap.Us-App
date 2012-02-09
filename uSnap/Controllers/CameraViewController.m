@@ -199,6 +199,7 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
     [imageOutput release];
     
     AVCaptureVideoPreviewLayer *previewLayer =  [[AVCaptureVideoPreviewLayer alloc]initWithSession:[self avCaptureSession]];
+    [previewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
     [self setVideoPreviewLayer:previewLayer];
     
     [previewLayer release];
@@ -369,7 +370,7 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
     
 }
 - (IBAction)GoToSettings:(id)sender {
-        [[UIApplication sharedApplication]setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+    [[UIApplication sharedApplication]setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
     [self performSegueWithIdentifier:@"GoToSettings" sender:self];
 }
 
