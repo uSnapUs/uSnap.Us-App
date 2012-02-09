@@ -200,6 +200,7 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
     
     AVCaptureVideoPreviewLayer *previewLayer =  [[AVCaptureVideoPreviewLayer alloc]initWithSession:[self avCaptureSession]];
     [previewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
+    
     [self setVideoPreviewLayer:previewLayer];
     
     [previewLayer release];
