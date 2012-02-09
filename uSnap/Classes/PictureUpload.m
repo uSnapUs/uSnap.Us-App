@@ -10,6 +10,7 @@
 #import "ASIFormDataRequest.h"
 #import "USTAppDelegate.h"
 #import "constants.h"
+#import "TestFlight.h"
 @implementation PictureUpload
 @synthesize picture;
 @synthesize progressDelegate;
@@ -17,6 +18,7 @@
 -(void) requestFinished:(ASIHTTPRequest *)request{
 //    USTAppDelegate* appDelegate = [[UIApplication sharedApplication]delegate];
     
+    [TestFlight passCheckpoint:@"uploaded a picture"];
     [picture setUploaded:[NSNumber numberWithBool:YES]];
     NSError *error;
     [[picture managedObjectContext]save:&error];

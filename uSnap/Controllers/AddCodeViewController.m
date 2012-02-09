@@ -9,6 +9,7 @@
 #import "AddCodeViewController.h"
 #import "USTAppDelegate.h"
 #import "LocationHandler.h"
+#import "TestFlight.h"
 @implementation AddCodeViewController
 @synthesize codeField;
 @synthesize ErrorView;
@@ -72,6 +73,8 @@
     if([self setEventFromCurrentCode]){
         
         [textField resignFirstResponder];
+        
+        [TestFlight passCheckpoint:@"loaded event from code"];
         [[self navigationController]popViewControllerAnimated:YES];
     }
     else
@@ -91,6 +94,7 @@
     
     if([self setEventFromCurrentCode]){
         [[self codeField] resignFirstResponder];
+                [TestFlight passCheckpoint:@"loaded event from code"];
         [[self navigationController]popViewControllerAnimated:YES];
     }
 }

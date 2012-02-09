@@ -13,6 +13,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "Picture.h"
 #import "constants.h"
+#import "TestFlight.h"
 // used for KVO observation of the @"capturingStillImage" property to perform shutter animation
 static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCaptureStillImageIsCapturingStillImageContext";
 
@@ -44,9 +45,7 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
 @synthesize SwapCameraButton;
 @synthesize currentCameraPosition;
 @synthesize currentDeviceInput;
-@synthesize managedObjectContext;
 @synthesize FlashButton;
-@synthesize managedObjectModel;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -73,9 +72,6 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
     [super viewDidLoad];
     [[UIApplication sharedApplication]setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     [self configureButtons];
-    USTAppDelegate* appDelegate = (USTAppDelegate *)[[UIApplication sharedApplication]delegate];
-    [self setManagedObjectModel:[appDelegate managedObjectModel]];
-     [self setManagedObjectContext:[appDelegate managedObjectContext]];
     UISwipeGestureRecognizer *gestureRecogniser = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipedFromRight)];
     [gestureRecogniser setDirection:UISwipeGestureRecognizerDirectionRight];
     [[self view]addGestureRecognizer:gestureRecogniser];
@@ -395,22 +391,30 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
 {
     
 
-    USTAppDelegate *appDelegate = (USTAppDelegate*)[[UIApplication sharedApplication]delegate];
-    Event *currentEvent = [[appDelegate locationHandler] currentEvent];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        Picture *picture = (Picture*) [NSEntityDescription insertNewObjectForEntityForName:@"Picture" inManagedObjectContext:[self managedObjectContext]]; 
+    
+    [TestFlight passCheckpoint:@"Took a photo"];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        USTAppDelegate *appDelegate = (USTAppDelegate*)[[UIApplication sharedApplication]delegate];
+        Event *currentEvent = [[appDelegate locationHandler] currentEvent];        
+        NSManagedObjectContext *managedObjectContext = [appDelegate managedObjectContext];
+        Picture *picture = (Picture*) [NSEntityDescription insertNewObjectForEntityForName:@"Picture" inManagedObjectContext:managedObjectContext]; 
         [picture setEvent:currentEvent];
         [picture setDateTaken:[NSDate date]];
         [picture setImage:jpegRepresentation];
-        NSError *saveError = nil;
-        [managedObjectContext save:&saveError];
+
+        
+            NSError *saveError = nil;
+            [managedObjectContext save:&saveError];
         if(saveError){
             NSLog(@"Save Error %@",[saveError description]);
         }
         [saveError release];
         if([[currentEvent eventKey]compare:VoidEventKey]!=NSOrderedSame){
-        [[appDelegate fileUploadHandler]addPictureToUploadQueue:picture];
-        }
+            [[appDelegate fileUploadHandler]addPictureToUploadQueue:picture];
+        
+            
+            
+            }
     });
     [self GoToTimeline:self];
 }

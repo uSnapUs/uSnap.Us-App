@@ -9,6 +9,7 @@
 #import "YourDetailsViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "USTAppDelegate.h"
+#import "TestFlight.h"
 @implementation YourDetailsViewController
 @synthesize TextFieldBackgroundView;
 @synthesize nameField;
@@ -57,6 +58,7 @@
     if([self saveNameAndEmail]){
         [[self nameField]resignFirstResponder];
         [[self emailField]resignFirstResponder];
+        [TestFlight passCheckpoint:@"set device details"];
         [[self navigationController]popViewControllerAnimated:YES];
     }
     

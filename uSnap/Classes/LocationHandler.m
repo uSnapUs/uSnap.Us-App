@@ -43,6 +43,7 @@ Event *_currentEvent;
     return retVal;
 }
 -(void) locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation   {
+    NSLog(@"Got Device Location");
     if(newLocation==nil||newLocation==NULL){
         return;
     }
@@ -55,6 +56,7 @@ Event *_currentEvent;
     ASIHTTPRequest *request = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:eventUrl]];
     [eventUrl release];
     [request setDelegate:self];
+    NSLog(@"Asking server for local events");
     [request startAsynchronous];
     [request release];
     [manager stopUpdatingLocation];
@@ -67,18 +69,20 @@ Event *_currentEvent;
     return _isUpdating;
 }
 -(void)requestFailed:(ASIHTTPRequest *)request{
-    NSLog(@"get event request failed:%@",[[request error]description]);
+    NSLog(@"find local events call failed:%@",[[request error]description]);
           
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     [notificationCenter postNotificationName:uSnapEventUpdatedNotification object:self];
     [[self locationManager]startUpdatingLocation];
 }
 -(void)requestFinished:(ASIHTTPRequest *)request{
-    
+    NSLog(@"Got event response from server");
   //  NSLog(@"request finished with response %@",[request responseString]);    
     NSMutableArray *eventArray = (NSMutableArray*)[[request responseString]JSONValue];
    // NSLog(@"%@",eventArray);
+    
     if([eventArray count]>0){
+                NSLog(@"found %i local events",[eventArray count]);
         NSMutableArray *setOfEvents = [[NSMutableArray alloc]initWithCapacity:[eventArray count]];
         for (NSMutableDictionary *serverEvent in eventArray) {
             [setOfEvents addObject:[self populateEvent:serverEvent]];
@@ -88,6 +92,7 @@ Event *_currentEvent;
         [setOfEvents release];
     }
     else{
+        NSLog(@"Didn't find a local event");
         [self setToVoidEvent];
     }
 
@@ -185,6 +190,7 @@ Event *_currentEvent;
 }
 -(bool)setCurrentEventFromCode:(NSString*)code{
     
+    NSLog(@"looking up event from server");
     NSString *eventUrl =[[NSString alloc]initWithFormat:@"http://usnap.us/events.json?code=%@",code];
     
     
@@ -193,11 +199,13 @@ Event *_currentEvent;
     [request startSynchronous];
  //   NSLog(@"request finished with response %@",[request responseString]); 
     if([request responseStatusCode]!=200||[[request responseString]length]<3){
+        NSLog(@"No event with code found");
         [request release];
         return NO;
     }
     NSMutableArray *events = (NSMutableArray*)[[request responseString]JSONValue];
     if([events count]>0){
+        NSLog(@"Found an event with code");
         NSMutableDictionary *event = [events objectAtIndex:0];
     if(event){
         Event *newEvent = [self populateEvent:event];
@@ -213,6 +221,7 @@ Event *_currentEvent;
     }
     [request release];
     }
+    NSLog(@"No event with code found");
     return NO;
     
     
