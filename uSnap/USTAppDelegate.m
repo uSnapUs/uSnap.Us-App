@@ -31,7 +31,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
     [TestFlight takeOff:@"cb83c24bf15386068af5ff255f6e46c6_NTgwNTAyMDEyLTAyLTA4IDA1OjA4OjE0LjkxNzcyNw"];
+    
+    [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleBlackOpaque];
     FileUploadHandler *fileUploadHandler = [[FileUploadHandler alloc]init];
     [self setFileUploadHandler:fileUploadHandler];
     [fileUploadHandler release];
