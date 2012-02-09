@@ -193,7 +193,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="JFY-P8-uOj">
-                                        <rect key="frame" x="205" y="383" width="105" height="32"/>
+                                        <rect key="frame" x="10" y="10" width="105" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                         <inset key="titleEdgeInsets" minX="-4" minY="11" maxX="11" maxY="11"/>
@@ -654,6 +654,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="i69-pA-jtG"/>
+        <segue reference="Kyl-sR-HeL"/>
     </inferredMetricsTieBreakers>
 </document>
