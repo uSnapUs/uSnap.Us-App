@@ -90,6 +90,7 @@ NSArray *_orderedPictures;
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleBlackOpaque];
     CGRect originBounds = [[self view]frame];
   //  NSLog(@"%@",NSStringFromCGRect(originBounds));
     [[self BottomBarView]setFrame:CGRectMake(0, originBounds.size.height-53, 320, 53)];
