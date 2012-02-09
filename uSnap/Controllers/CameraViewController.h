@@ -10,7 +10,8 @@
 #import <CoreLocation/CoreLocation.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface CameraViewController : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface CameraViewController : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate,
+    UIGestureRecognizerDelegate>
 @property(retain,atomic) AVCaptureSession *avCaptureSession;
 @property(retain,atomic) AVCaptureDevice *frontCamera;
 @property(retain,atomic) AVCaptureDevice *rearCamera;
@@ -31,4 +32,5 @@
 - (IBAction)GoToSettings:(id)sender;
 - (IBAction)GoToImagePicker:(id)sender;
 @property (retain, nonatomic) IBOutlet UIButton *CameraShutterButton;
+-(IBAction) autoFocusOnTap:(UIGestureRecognizer *)sender;
 @end

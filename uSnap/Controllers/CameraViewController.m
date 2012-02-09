@@ -27,6 +27,8 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
 -(void)eventUpdated;
 -(void)configureButtons;
 -(void)savePictureData:(NSData *)jpegRepresentation;
+-(void)autoFocusDevice: (AVCaptureDevice*) device AtPoint:(CGPoint)focusPoint;
+-(CGPoint) convertToPointOfInterestFromViewCoordinates:(CGPoint)pointInView;
 @end
 @implementation CameraViewController
 @synthesize CameraShutterButton;
@@ -80,7 +82,11 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
       NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     [self eventUpdated];
     [notificationCenter addObserver:self selector:@selector(eventUpdated) name:uSnapEventUpdatedNotification object:nil];
-    
+    UITapGestureRecognizer *tapRecogniser = [[UITapGestureRecognizer alloc]initWithTarget:self
+                                                                                   action:@selector(autoFocusOnTap:)];
+    [tapRecogniser setDelegate:self];
+    [tapRecogniser setNumberOfTapsRequired:1];
+    [[self CameraPreviewView]addGestureRecognizer:tapRecogniser];
      
 }
 
@@ -239,6 +245,16 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
         [UIView setAnimationDelegate:self];
         [UIView setAnimationDidStopSelector:@selector(startSession)];
         if (position == AVCaptureDevicePositionBack){
+             if ([[self frontCamera] isFocusModeSupported:AVCaptureFocusModeAutoFocus])
+             {
+            NSError *lockError;
+            
+            if([[self frontCamera] lockForConfiguration:&lockError ])
+            {
+                [[self frontCamera] setFocusMode:AVCaptureFocusModeAutoFocus];
+                [[self frontCamera] unlockForConfiguration];
+            }            
+             }
             newVideoInput = [[AVCaptureDeviceInput alloc] initWithDevice:[self frontCamera] error:&error];
             [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight
                                    forView:[self CameraPreviewView]
@@ -246,6 +262,16 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
 
         }
         else if (position == AVCaptureDevicePositionFront){
+            NSError *lockError;
+            if ([[self rearCamera] isFocusModeSupported:AVCaptureFocusModeAutoFocus])
+            {
+            if([[self rearCamera] lockForConfiguration:&lockError ])
+            {
+                [[self rearCamera] setFocusMode:AVCaptureFocusModeAutoFocus];
+                [[self rearCamera] unlockForConfiguration];
+            }
+            }
+
             newVideoInput = [[AVCaptureDeviceInput alloc] initWithDevice:[self rearCamera] error:&error];
             [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft
                                    forView:[self CameraPreviewView]
@@ -264,7 +290,7 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
                 [[self avCaptureSession] addInput:[self currentDeviceInput]];
             }
             [[self avCaptureSession] commitConfiguration];
-            [newVideoInput release];
+                       [newVideoInput release];
         } 
        
 
@@ -425,5 +451,65 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
             }
     });
     [self GoToTimeline:self];
+}
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    // test if our control subview is on-screen
+    if ([self CameraSwapButton].superview != nil) {
+        if ([touch.view isDescendantOfView:[self CameraSwapButton]]) {
+            // we touched our control surface
+            return NO; // ignore the touch
+        }
+    }
+    if ([self LocationButton].superview != nil) {
+        if ([touch.view isDescendantOfView:[self LocationButton]]) {
+            // we touched our control surface
+            return NO; // ignore the touch
+        }
+    }
+
+    return YES; // handle the touch
+}
+-(void) autoFocusOnTap:(UIGestureRecognizer *)sender{
+   
+
+
+    AVCaptureDevice *currentDevice;
+    if ([self cameraCount] > 1) {
+        
+        AVCaptureDevicePosition position = [[[self currentDeviceInput] device] position];
+ 
+        if (position == AVCaptureDevicePositionBack){
+            currentDevice = [self rearCamera];
+        }
+        else if (position == AVCaptureDevicePositionFront){
+            currentDevice = [self frontCamera];            
+        }
+   
+    }
+    else{
+        currentDevice = [self rearCamera];
+    }
+
+    if ([currentDevice isFocusPointOfInterestSupported]) {
+        CGPoint tapPoint = [sender locationInView:[self CameraPreviewView]];
+        CGPoint convertedFocusPoint = [self convertToPointOfInterestFromViewCoordinates:tapPoint];
+        [self autoFocusDevice:currentDevice AtPoint:convertedFocusPoint];
+    }
+}
+-(CGPoint) convertToPointOfInterestFromViewCoordinates:(CGPoint) pointInView{
+    CGSize size= [[self CameraPreviewView] frame].size;
+    CGPoint convertedPoint = CGPointMake(1.f-(size.width/pointInView.x), 
+                                         1.f-(size.height/pointInView.y));
+    return convertedPoint;
+}
+-(void)autoFocusDevice: (AVCaptureDevice*) device AtPoint:(CGPoint)focusPoint{
+    NSError *lockError;
+    if([device lockForConfiguration:&lockError ])
+    {
+        [device setFocusMode:AVCaptureFocusModeAutoFocus];
+        [device setFocusPointOfInterest:focusPoint];
+        [device unlockForConfiguration];
+        
+    }
 }
 @end
