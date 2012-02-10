@@ -29,6 +29,7 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
 -(void)savePictureData:(NSData *)jpegRepresentation;
 -(void)autoFocusDevice: (AVCaptureDevice*) device AtPoint:(CGPoint)focusPoint;
 -(CGPoint) convertToPointOfInterestFromViewCoordinates:(CGPoint)pointInView;
+-(void) showFocusOverlayAtPoint:(CGPoint) point;
 @end
 @implementation CameraViewController
 @synthesize CameraShutterButton;
@@ -492,9 +493,26 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
 
     if ([currentDevice isFocusPointOfInterestSupported]) {
         CGPoint tapPoint = [sender locationInView:[self CameraPreviewView]];
+        [self showFocusOverlayAtPoint:tapPoint];
         CGPoint convertedFocusPoint = [self convertToPointOfInterestFromViewCoordinates:tapPoint];
         [self autoFocusDevice:currentDevice AtPoint:convertedFocusPoint];
     }
+}
+-(void) showFocusOverlayAtPoint:(CGPoint) point{
+
+    UIView *focusOverlayView = [[UIView alloc]initWithFrame:CGRectMake(point.x-30, point.y-30, 60, 60)];
+        [[focusOverlayView layer] setBorderWidth:1];
+    [[focusOverlayView layer] setBorderColor:[UIColor whiteColor].CGColor];
+    [focusOverlayView setBackgroundColor:[UIColor colorWithWhite:0 alpha:0]];
+    [[self CameraPreviewView]addSubview:focusOverlayView];
+    [UIView animateWithDuration:0.3 animations:^{
+        [focusOverlayView setFrame:CGRectMake(point.x-10, point.y-10, 40, 40)];   
+        [focusOverlayView setAlpha:0];
+        [focusOverlayView setAlpha:1];
+    } completion:^(BOOL finished) {
+        [focusOverlayView removeFromSuperview];
+        [focusOverlayView release];
+    }];
 }
 -(CGPoint) convertToPointOfInterestFromViewCoordinates:(CGPoint) pointInView{
     CGSize size= [[self CameraPreviewView] frame].size;

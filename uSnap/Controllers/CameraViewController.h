@@ -33,4 +33,5 @@
 - (IBAction)GoToImagePicker:(id)sender;
 @property (retain, nonatomic) IBOutlet UIButton *CameraShutterButton;
 -(IBAction) autoFocusOnTap:(UIGestureRecognizer *)sender;
+
 @end
