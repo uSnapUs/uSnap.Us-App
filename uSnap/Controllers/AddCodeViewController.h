@@ -13,6 +13,7 @@
 @property (retain, nonatomic) IBOutlet UITextField *codeField;
 @property (retain, nonatomic) IBOutlet UIView *ErrorView;
 @property (retain, nonatomic) IBOutlet UILabel *ErrorLabel;
+- (IBAction)Cancel:(id)sender;
 -(BOOL)setEventFromCurrentCode;
 -(void)fadeInErrorMessage;
 -(void)fadeOutErrorMessage;

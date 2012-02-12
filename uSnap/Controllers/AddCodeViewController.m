@@ -10,6 +10,7 @@
 #import "USTAppDelegate.h"
 #import "LocationHandler.h"
 #import "TestFlight.h"
+#import <QuartzCore/QuartzCore.h>
 @implementation AddCodeViewController
 @synthesize codeField;
 @synthesize ErrorView;
@@ -46,7 +47,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-  
+//    UIBarButtonItem *backButton = [[self navigationItem]backBarButtonItem];
+    UIBarButtonItem *temporaryBarButtonItem = [[UIBarButtonItem alloc] init];
+	temporaryBarButtonItem.title = @"Cancel";    
+    [temporaryBarButtonItem setStyle:UIBarButtonItemStylePlain];
+    [temporaryBarButtonItem setTintColor:[UIColor blackColor]];
+	self.navigationItem.backBarButtonItem = temporaryBarButtonItem;
+    [temporaryBarButtonItem release];
+    CGColorRef borderColor = [[UIColor colorWithRed:227/255. green:239/255. blue:250/255. alpha:1]CGColor];
+    CALayer *topBorder = [[CALayer alloc]init];
+    [topBorder setBackgroundColor:borderColor];
+    [topBorder setFrame:CGRectMake(0, 0, 320, 1)];
+    
+    [[[self codeField]layer]addSublayer:topBorder];
+    CALayer *bottomBorder = [[CALayer alloc]init];
+    [bottomBorder setBackgroundColor:borderColor];
+    [bottomBorder setFrame:CGRectMake(0, [[[self codeField]layer]bounds].size.height-1, 320, 1)];
+    
+    [[[self codeField]layer]addSublayer:bottomBorder];  
+    [topBorder release];
+    [bottomBorder release];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -75,6 +95,7 @@
         [textField resignFirstResponder];
         
         [TestFlight passCheckpoint:@"loaded event from code"];
+
         [[self navigationController]popViewControllerAnimated:YES];
     }
     else
@@ -98,6 +119,10 @@
         [[self navigationController]popViewControllerAnimated:YES];
     }
 }
+- (IBAction)Cancel:(id)sender {
+    [[self navigationController]popViewControllerAnimated:YES];
+}
+
 -(BOOL)setEventFromCurrentCode{
     USTAppDelegate *delegate = [[UIApplication sharedApplication]delegate];
     NSString *code= [[self codeField]text];

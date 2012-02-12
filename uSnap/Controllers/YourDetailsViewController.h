@@ -11,6 +11,7 @@
 @interface YourDetailsViewController : UIViewController<UITextFieldDelegate>
 @property (retain, nonatomic) IBOutlet UIView *TextFieldBackgroundView;
 @property (retain, nonatomic) IBOutlet UITextField *nameField;
+- (IBAction)Cancel:(id)sender;
 @property (retain, nonatomic) IBOutlet UITextField *emailField;
 - (IBAction)submit:(id)sender;
 -(void)setupView;

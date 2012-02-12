@@ -120,19 +120,12 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
     
     [[UIApplication sharedApplication]setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     
-    BOOL hideSplash = [[NSUserDefaults standardUserDefaults] boolForKey:@"HideSplash"];
-    hideSplash = YES;
-   // [self initCameraView];
-    if(hideSplash)
-    {
-        [self loadCurrentEvent];
-    }
-    else
-    {   
+          [self loadCurrentEvent];
+  /*   
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HideSplash"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         [self performSegueWithIdentifier:@"ShowSplash" sender:self];
-    }
+    */
 }
 -(void) swipedFromRight{
     [self GoToTimeline:NULL];
@@ -399,6 +392,7 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
     [topBorderLayer setBackgroundColor:[UIColor colorWithRed:67/255. green:74/255. blue:78/255. alpha:1].CGColor];
     [topBorderLayer setBorderWidth:0];
     [layer addSublayer:topBorderLayer];
+    [topBorderLayer release];
     [toolbarGradientLayer release];
     
 }
@@ -474,7 +468,7 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
    
 
 
-    AVCaptureDevice *currentDevice;
+    AVCaptureDevice *currentDevice = nil;
     if ([self cameraCount] > 1) {
         
         AVCaptureDevicePosition position = [[[self currentDeviceInput] device] position];

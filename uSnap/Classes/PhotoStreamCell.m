@@ -18,6 +18,7 @@
 @synthesize progressOverlayView;
 @synthesize errorOverlayView;
 @synthesize picture;
+@synthesize leftBorder;
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -56,9 +57,37 @@
     else{
         thumbnailImage = [UIImage imageNamed:@"image_placeholder.png"];
     }
-    [[self photoView]setImage:thumbnailImage];
-    [[[self photoView]layer]setBorderColor:[[UIColor blackColor]CGColor]];
-    [[[self photoView]layer]setBorderWidth:1];
+    
+    [[self photoView]setImage:thumbnailImage] ;
+    if(![self leftBorder]){
+    CGRect bounds = [[self photoView]frame];
+    
+    UIColor *borderColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2];
+        [self setLeftBorder: [[CALayer alloc]init]];
+    [[self leftBorder] setFrame:CGRectMake(1, 2, 1, bounds.size.height-3)];
+    [[self leftBorder] setBackgroundColor:borderColor.CGColor];
+    CALayer *rightBorder = [[CALayer alloc]init];
+    [rightBorder setFrame:CGRectMake(bounds.size.width-2,1, 1, bounds.size.height-3)];
+    [rightBorder setBackgroundColor:borderColor.CGColor];
+    CALayer *topBorder = [[CALayer alloc]init];
+    [topBorder setFrame:CGRectMake(1, 1, bounds.size.width-3, 1)];
+    [topBorder setBackgroundColor:borderColor.CGColor];
+    CALayer *bottomBorder = [[CALayer alloc]init];
+    [bottomBorder setFrame:CGRectMake(2, bounds.size.height-2, bounds.size.width-3,1)];
+    [bottomBorder setBackgroundColor:borderColor.CGColor];
+    CALayer *photoLayer = [[self photoView]layer];
+    [photoLayer addSublayer:[self leftBorder]];
+    [photoLayer addSublayer:rightBorder];
+    [photoLayer addSublayer:topBorder];
+    [photoLayer addSublayer:bottomBorder];
+    [topBorder release];
+    [bottomBorder release];
+    [[self leftBorder] release];
+    [rightBorder release];
+    }
+
+
+  
     Event *pictureEvent = (Event*)[[self picture]event];
     if([[pictureEvent eventKey]compare:VoidEventKey]!=NSOrderedSame){
     if([[[self picture] error]boolValue]){
@@ -73,7 +102,6 @@
     
     [self layoutSubviews];
 }
-
 -(void) dealloc{
     
     [self setPhotoView:nil];

@@ -17,6 +17,7 @@
 @property(retain,nonatomic) PictureUpload *pictureUpload;
 @property(retain,nonatomic) IBOutlet UIView *errorOverlayView;
 @property(retain,nonatomic) IBOutlet UIView *progressOverlayView;
+@property(retain,nonatomic) CALayer *leftBorder;
 -(void)updateView;
 -(void)showErrorOverlay;
 -(void)showProgressView;

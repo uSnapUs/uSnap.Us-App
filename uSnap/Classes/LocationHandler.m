@@ -219,8 +219,9 @@ Event *_currentEvent;
         [request release];
         return YES;
     }
-    [request release];
+   
     }
+    [request release]; 
     NSLog(@"No event with code found");
     return NO;
     

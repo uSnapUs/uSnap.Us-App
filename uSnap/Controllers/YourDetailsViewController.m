@@ -64,18 +64,20 @@
     
 }
 -(BOOL)saveNameAndEmail{
-    
+    if([[[self nameField] text]length]>0&&[[[self emailField] text]length]>0){
     USTAppDelegate *appDelegate = (USTAppDelegate*)[[UIApplication sharedApplication]delegate];
-    return [[appDelegate registrationManager]setName:[nameField text] Email:[emailField text]];
+    return [[appDelegate registrationManager]setName:[[self nameField] text] Email:[[self emailField] text]];
+    }
+    return NO;
 }
 
 -(void)setupView{
     CALayer *textFieldBackgroundViewLayer = [[self TextFieldBackgroundView]layer];
-    [textFieldBackgroundViewLayer setBorderColor:[[UIColor grayColor]CGColor]];
+    [textFieldBackgroundViewLayer setBorderColor:[[UIColor colorWithRed:227/255. green:239/255. blue:250/255. alpha:1]CGColor]];
     [textFieldBackgroundViewLayer setBorderWidth:0.6];
     [textFieldBackgroundViewLayer setCornerRadius:5];
-    UIView *middleLineView = [[UIView alloc]initWithFrame:CGRectMake(0, 30, [self TextFieldBackgroundView].frame.size.width, 0.6)];
-    [middleLineView setBackgroundColor:[UIColor grayColor]];
+    UIView *middleLineView = [[UIView alloc]initWithFrame:CGRectMake(0, 44, [self TextFieldBackgroundView].frame.size.width, 0.6)];
+    [middleLineView setBackgroundColor:[UIColor colorWithRed:227/255. green:239/255. blue:250/255. alpha:1]];
     [[self TextFieldBackgroundView] addSubview:middleLineView];
     [middleLineView release];
 }
@@ -110,5 +112,8 @@
         }
         return NO;
     
+}
+- (IBAction)Cancel:(id)sender {
+        [[self navigationController]popViewControllerAnimated:YES];
 }
 @end

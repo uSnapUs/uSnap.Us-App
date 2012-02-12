@@ -19,6 +19,7 @@
 -(void) setupView;
 @end
 @implementation EventSettingsViewController
+@synthesize YourDetailsButton;
 @synthesize Map;
 @synthesize EnterCodeButton;
 
@@ -60,14 +61,14 @@
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
      [notificationCenter addObserver:self selector:@selector(updateMapToEvent) name:uSnapEventUpdatedNotification object:nil];
         [self setupView];
-    
+   
 }
 -(void)updateMapToEvent{
     USTAppDelegate *appDelegate = (USTAppDelegate*)[[UIApplication sharedApplication]delegate];
     
     Event *currentEvent = [[appDelegate locationHandler]currentEvent];
     if(currentEvent==nil||([[currentEvent eventKey]compare:VoidEventKey]==NSOrderedSame)){
-        [self setTitle:@"Choose an Event"];
+        [self setTitle:@"Join your event"];
         if(CLLocationCoordinate2DIsValid([[appDelegate locationHandler]lastLocation])){
             [[self Map]setCenterCoordinate:[[appDelegate locationHandler]lastLocation] zoomLevel:12 animated:YES];
         }
@@ -87,6 +88,7 @@
 {
     [self setEnterCodeButton:nil];
     [self setMap:nil];
+    [self setYourDetailsButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -104,6 +106,7 @@
 - (void)dealloc {
     [EnterCodeButton release];
     [Map release];
+    [YourDetailsButton release];
     [super dealloc];
 }
 - (IBAction)GoToEnterCode:(id)sender {
@@ -114,16 +117,32 @@
     [self performSegueWithIdentifier:@"GoToDetails" sender:self];
 }
 -(void)setupView{
-    CALayer *buttonLayer = [[self EnterCodeButton]layer];
-    CALayer *bottomBorder = [CALayer layer];
-    bottomBorder.frame = CGRectMake(0.0f, 43.0f, buttonLayer.frame.size.width, 1.0f);
-    bottomBorder.backgroundColor = [UIColor colorWithWhite:0.8f alpha:1.0f].CGColor;
-    [buttonLayer addSublayer:bottomBorder];
-    UILabel *elipsisLabel = [[UILabel alloc]initWithFrame:[buttonLayer bounds]];
-    [elipsisLabel setTextAlignment:UITextAlignmentRight];
-    [elipsisLabel setText:@">"];
-    [[self EnterCodeButton] insertSubview:elipsisLabel atIndex:0];
-    [elipsisLabel release];   
+    CALayer *topWhiteLayer = [[CALayer alloc]init];
+    [topWhiteLayer setFrame:CGRectMake(0, 0, 320, 1)];
+     UIColor *offWhite = [UIColor colorWithRed:246/255. green:250/255. blue:253/255. alpha:1];
+    [topWhiteLayer setBackgroundColor:offWhite.CGColor];
+    [[[self EnterCodeButton]layer]addSublayer:topWhiteLayer];
+    [topWhiteLayer release];
+    UIColor *borderBlue = [UIColor colorWithRed:227/255. green:239/255. blue:250/255. alpha:1];
+    CALayer *topBlueLayer = [[CALayer alloc]init];
+    
+    [topBlueLayer setFrame:CGRectMake(0, 0, 320, 1)];
+    [topBlueLayer setBackgroundColor:borderBlue.CGColor];
+    CALayer *bottomBlueLayer = [[CALayer alloc]init];
+    
+    [bottomBlueLayer setFrame:CGRectMake(0, [[self YourDetailsButton]bounds].size.height, 320, 1)];
+    [bottomBlueLayer setBackgroundColor:borderBlue.CGColor];
+    [[[self YourDetailsButton]layer]addSublayer:topBlueLayer];
+    [[[self YourDetailsButton]layer]addSublayer:bottomBlueLayer];
+    [topBlueLayer release];
+    [bottomBlueLayer release];
+    CALayer *mapLayer = [[self Map]layer];
+    CALayer *bottomBlackBar = [[CALayer alloc]init];
+    [bottomBlackBar setFrame:CGRectMake(0, 247, 320, 1)];
+    [bottomBlackBar setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.2].CGColor];
+    [mapLayer addSublayer:bottomBlackBar];
+    [bottomBlackBar release];
+
     
 }
 
@@ -135,12 +154,28 @@
         pinView = [[[EventPinView alloc]initWithAnnotation:annotation reuseIdentifier:@"EventPin"]autorelease];
         [pinView setCanShowCallout:YES];
         [pinView setPinColor:MKPinAnnotationColorGreen];
-        UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
-        [rightButton addTarget:pinView action:@selector(selectEvent) forControlEvents:UIControlEventTouchUpInside];
-        [pinView setRightCalloutAccessoryView:rightButton];
+       
        
     }
+    Event *event = (Event*)annotation;
+    USTAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    
+    UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    //  [rightButton setFrame:CGRectMake(0, 0, 58, 59)];
+    Event *currentEvent = [[appDelegate locationHandler]currentEvent];
+    if([[[event objectID]URIRepresentation]isEqual:[[currentEvent objectID]URIRepresentation]]){
+        [rightButton setImage:[UIImage imageNamed:@"check_selected.png"] forState:UIControlStateDisabled];
+        
+        [rightButton setEnabled:NO];
 
+    }
+    else{
+    [rightButton setImage:[UIImage imageNamed:@"check_unselected.png"] forState:UIControlStateNormal];
+          [rightButton setImage:[UIImage imageNamed:@"check_unselected.png"] forState:UIControlStateSelected];
+    
+    [rightButton addTarget:pinView action:@selector(selectEvent) forControlEvents:UIControlEventTouchUpInside];
+    }
+    [pinView setRightCalloutAccessoryView:rightButton];
     [pinView setAnnotation:annotation];
     return pinView;
 }
