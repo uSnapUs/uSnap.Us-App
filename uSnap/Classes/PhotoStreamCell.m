@@ -63,9 +63,10 @@
     CGRect bounds = [[self photoView]frame];
     
     UIColor *borderColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2];
-        [self setLeftBorder: [[CALayer alloc]init]];
-    [[self leftBorder] setFrame:CGRectMake(1, 2, 1, bounds.size.height-3)];
-    [[self leftBorder] setBackgroundColor:borderColor.CGColor];
+        CALayer *_leftBorder = [[CALayer alloc]init];
+
+    [_leftBorder setFrame:CGRectMake(1, 2, 1, bounds.size.height-3)];
+    [_leftBorder setBackgroundColor:borderColor.CGColor];
     CALayer *rightBorder = [[CALayer alloc]init];
     [rightBorder setFrame:CGRectMake(bounds.size.width-2,1, 1, bounds.size.height-3)];
     [rightBorder setBackgroundColor:borderColor.CGColor];
@@ -76,13 +77,15 @@
     [bottomBorder setFrame:CGRectMake(2, bounds.size.height-2, bounds.size.width-3,1)];
     [bottomBorder setBackgroundColor:borderColor.CGColor];
     CALayer *photoLayer = [[self photoView]layer];
-    [photoLayer addSublayer:[self leftBorder]];
+    [photoLayer addSublayer:_leftBorder];
     [photoLayer addSublayer:rightBorder];
     [photoLayer addSublayer:topBorder];
     [photoLayer addSublayer:bottomBorder];
     [topBorder release];
     [bottomBorder release];
-    [[self leftBorder] release];
+     
+     [self setLeftBorder: _leftBorder];
+    [_leftBorder release];
     [rightBorder release];
     }
 
