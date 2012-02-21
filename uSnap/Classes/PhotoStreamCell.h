@@ -14,7 +14,6 @@
 @property(retain,nonatomic) IBOutlet UIButton *editButton;
 @property(retain,atomic) Picture *picture;
 @property(retain,nonatomic) IBOutlet UIProgressView *progressView;
-@property(retain,nonatomic) PictureUpload *pictureUpload;
 @property(retain,nonatomic) IBOutlet UIView *errorOverlayView;
 @property(retain,nonatomic) IBOutlet UIView *progressOverlayView;
 @property(retain,nonatomic) CALayer *leftBorder;

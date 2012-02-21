@@ -286,16 +286,16 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </imageView>
-                                        <view alpha="0.50000000000000011" contentMode="scaleToFill" id="uXh-ne-Hp3">
+                                        <view contentMode="scaleToFill" id="uXh-ne-Hp3">
                                             <rect key="frame" x="5" y="0.0" width="310" height="310"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <progressView opaque="NO" contentMode="scaleToFill" progressViewStyle="bar" progress="0.10000000000000003" id="aWD-Ya-YxQ">
-                                                    <rect key="frame" x="10" y="150" width="290" height="11"/>
+                                                <progressView opaque="NO" contentMode="scaleToFill" progress="0.10000000000000003" id="aWD-Ya-YxQ" customClass="PhotoProgressView">
+                                                    <rect key="frame" x="55" y="10" width="163" height="9"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </progressView>
                                             </subviews>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.35000000000000003" colorSpace="calibratedWhite"/>
                                         </view>
                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5lU-89-3cy">
                                             <rect key="frame" x="270" y="220" width="40" height="40"/>
@@ -649,6 +649,9 @@
                 <relationship kind="outlet" name="Map" candidateClass="MKMapView"/>
                 <relationship kind="outlet" name="YourDetailsButton" candidateClass="UIButton"/>
             </relationships>
+        </class>
+        <class className="PhotoProgressView" superclassName="UIProgressView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoProgressView.h"/>
         </class>
         <class className="PhotoStreamCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoStreamCell.h"/>

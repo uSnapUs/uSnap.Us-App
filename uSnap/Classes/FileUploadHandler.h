@@ -9,11 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "Picture.h"
 #import "PictureUpload.h"
+#import "ASINetworkQueue.h"
 @interface FileUploadHandler : NSObject
-@property(retain,atomic) NSMutableArray *queue;
-
+@property(retain,atomic) ASINetworkQueue *queue;
+@property(retain,atomic) NSMutableDictionary *progressViews;
 -(void) addPictureToUploadQueue:(Picture *)picture;
-
--(void)finishedPictureUpload:(NSNotification*)notification;
--(PictureUpload*)getUploadForPicture:(Picture*)picture;
+-(void)registerUploadProgress:(UIProgressView*) progressView ForPictureId:(NSURL*)pictureId;
+-(void)deregisterUploadProgress:(UIProgressView*) progressView;
+-(ASIHTTPRequest*)getUploadForPicture:(Picture*)picture;
 @end

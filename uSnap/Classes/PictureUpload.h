@@ -10,11 +10,10 @@
 #import "ASIHTTPRequestDelegate.h"
 #import "ASIProgressDelegate.h"
 #import "Picture.h"
+#import "ASINetworkQueue.h"
 @interface PictureUpload : NSObject<ASIProgressDelegate,ASIHTTPRequestDelegate>
 {
     }
--(void) start;
-@property(retain) Picture *picture;
-@property float percentUploaded;
-@property(retain) UIProgressView *progressDelegate;
++(ASIHTTPRequest*) getUploadRequestForPicture:(Picture*)picture;
+
 @end

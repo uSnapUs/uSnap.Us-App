@@ -9,47 +9,69 @@
 #import "FileUploadHandler.h"
 #import "PictureUpload.h"
 #import "constants.h"
+#import "ASIHTTPRequest.h"
 @implementation FileUploadHandler
 @synthesize queue;
+@synthesize progressViews;
 -(id)init{
     self = [super init];
     if(self){
-        NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
-       [notificationCenter addObserver:self selector:@selector(finishedPictureUpload:) name:uSnapPictureUploadFinishedSuccess object:nil];
+        [self setProgressViews:[[NSMutableDictionary alloc]init ]];
     }
     return self;
 }
--(void) finishedPictureUpload:(NSNotification*)notification{
-    PictureUpload* pictureUpload = (PictureUpload*) [notification object];
-   [queue removeObject:pictureUpload];
-}
+
 -(void) dealloc{
     if(queue!=nil){
         [queue release];
+        
     }
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     [notificationCenter removeObserver:self];
     [super dealloc];
 }
+-(void)registerUploadProgress:(UIProgressView *)progressView ForPictureId:(NSURL *)pictureId{
+    [[self progressViews] setObject:progressView forKey:pictureId];
+}
+-(void)deregisterUploadProgress:(UIProgressView *)progressView
+{
+    NSArray *keys = [[self progressViews]allKeysForObject:progressView];
+    [[self progressViews]removeObjectsForKeys:keys];
+    
+}
 -(void)addPictureToUploadQueue:(Picture *)picture{
     [picture retain];
     if([self queue]==nil){
-        NSMutableArray *_queue = [[NSMutableArray alloc]init];
+        ASINetworkQueue *_queue = [[ASINetworkQueue alloc]init];
+        [_queue setShowAccurateProgress:YES];
+        [_queue setShouldCancelAllRequestsOnFailure:NO];
         [self setQueue:_queue];
         [_queue release];
     }
-    PictureUpload *upload = [[PictureUpload alloc]init];
-    [upload setPicture:picture];
-    [queue addObject:upload];
-    [upload start];
-    [upload release];
+    
+    ASIHTTPRequest* request = [PictureUpload getUploadRequestForPicture:picture];
+    [request setShowAccurateProgress:YES];
+    [request setDelegate:self];
+    [request setUploadProgressDelegate:self];
+    [[self queue]addOperation:(NSOperation*)request];
+    if([[self queue]isSuspended]){
+        [[self queue]go];
+    }
+    //[upload release];
     [picture release];
 }
--(PictureUpload*)getUploadForPicture:(Picture*)picture{
-    PictureUpload *retVal = nil;
-   NSArray *filteredArray = [queue filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
-        PictureUpload *currentObject = evaluatedObject;
-        if([[[[currentObject picture]objectID]URIRepresentation]isEqual:[[picture objectID]URIRepresentation]]){
+-(void)request:(ASIHTTPRequest*)uploadRequest didSendBytes:(float)bytes{
+    float progress = ((float)[uploadRequest totalBytesSent]/(float)[uploadRequest postLength]);
+    UIProgressView *progressView = [[self progressViews] objectForKey:[[uploadRequest userInfo]objectForKey:@"PictureId"]];
+    if(progressView){        
+        [progressView setProgress:progress];
+    }
+}
+-(ASIHTTPRequest*)getUploadForPicture:(Picture*)picture{
+    ASIHTTPRequest *retVal = nil;
+    NSArray *filteredArray = [[[self queue] operations] filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+        ASIHTTPRequest *currentObject = evaluatedObject;
+        if([[[currentObject userInfo]objectForKey:@"PictureId"]isEqual:[[picture objectID]URIRepresentation]]){
             return YES;
         }
         return NO;
