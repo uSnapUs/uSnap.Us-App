@@ -83,5 +83,12 @@
    // [filteredArray release];
     return retVal;                               
 }
-
+-(bool)cancelUploadForPicture:(Picture *)picture{
+    ASIHTTPRequest *request = [self getUploadForPicture:picture];
+    if(request){
+        [request clearDelegatesAndCancel];
+        return YES;
+    }
+    return NO;
+}
 @end

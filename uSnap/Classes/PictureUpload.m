@@ -40,15 +40,19 @@
     [formRequest setAllowCompressedResponse:YES];
     [formRequest setCompletionBlock:^{
         [TestFlight passCheckpoint:@"uploaded a picture"];
-        
-        [[[formRequest userInfo]objectForKey:@"picture"] setUploaded:[NSNumber numberWithBool:YES]];
+        Picture *picture = [[[formRequest userInfo]objectForKey:@"picture"] retain];
+        [picture setUploaded:[NSNumber numberWithBool:YES]];
         NSError *error;
-        [[[[formRequest userInfo]objectForKey:@"picture"] managedObjectContext]save:&error];
+        [[picture managedObjectContext]save:&error];
+        NSFileManager *fm = [NSFileManager defaultManager];
+        [fm removeItemAtPath:[picture getFullPath] error:&error];
+
         if(error){
             NSLog(@"Save produced error %@",[error description]);
         }
         NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
         [notificationCenter postNotificationName:uSnapPictureUploadFinishedSuccess object:[[formRequest userInfo]objectForKey:@"PictureId"]];
+        [picture release];
     }];
     [formRequest setFailedBlock:^{
         

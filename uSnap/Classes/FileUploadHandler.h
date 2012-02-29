@@ -17,4 +17,5 @@
 -(void)registerUploadProgress:(UIProgressView*) progressView ForPictureId:(NSURL*)pictureId;
 -(void)deregisterUploadProgress:(UIProgressView*) progressView;
 -(ASIHTTPRequest*)getUploadForPicture:(Picture*)picture;
+-(bool)cancelUploadForPicture:(Picture*)picture;
 @end

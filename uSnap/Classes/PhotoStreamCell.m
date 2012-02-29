@@ -18,6 +18,7 @@
 @synthesize errorOverlayView;
 @synthesize picture;
 @synthesize leftBorder;
+@synthesize cancelButton;
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -59,6 +60,17 @@
     
     if([[self picture]resourceLocation]){
         thumbnailImage = [UIImage imageWithData:[NSData dataWithContentsOfFile:[[self picture] getThumbnailPath]]];
+        
+        Event *pictureEvent = (Event*)[[self picture]event];
+        if([[pictureEvent eventKey]compare:VoidEventKey]!=NSOrderedSame){
+            if([[[self picture] error]boolValue]){
+                [self showErrorOverlay]; 
+            }
+            else if(![[[self picture]uploaded]boolValue]){
+                [self showProgressView];
+            }
+        }
+
     }
     else{
         thumbnailImage = [UIImage imageNamed:@"stream-processing.png"];
@@ -66,17 +78,7 @@
     
     [[self photoView]setImage:thumbnailImage] ;
    
-  
-    Event *pictureEvent = (Event*)[[self picture]event];
-    if([[pictureEvent eventKey]compare:VoidEventKey]!=NSOrderedSame){
-    if([[[self picture] error]boolValue]){
-        [self showErrorOverlay]; 
-    }
-    else if(![[[self picture]uploaded]boolValue]){
-        [self showProgressView];
-        }
-    }
-   
+     
     
     
     [self layoutSubviews];
@@ -95,6 +97,8 @@
     [self setErrorOverlayView:nil];
     [self setProgressView:nil];
     [self setProgressOverlayView:nil];
+    [self setCancelButton:nil];    
+    
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     [notificationCenter removeObserver:self];
     [super dealloc];
@@ -107,13 +111,22 @@
     NSLog(@"retry selected");
 }
 -(void)showProgressView{
+     [[self cancelButton]setEnabled:YES];
+    
     USTAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    if([[appDelegate fileUploadHandler]getUploadForPicture:[self picture]]){
     [[appDelegate fileUploadHandler]deregisterUploadProgress:[self progressView]];
     
     [[self progressView]setProgress:0];
     [[appDelegate fileUploadHandler]registerUploadProgress:[self progressView] ForPictureId:[[[self picture]objectID]URIRepresentation]];
 
     [[self progressOverlayView]setHidden:NO];
+    }
+    else
+    {
+        
+        //TODO: show some option to restart upload
+    }
 
 }
 -(void)removeErrorAndProgressViews{
@@ -131,6 +144,34 @@
     if(context==uSTPictureResourceLocationChangedContext){
         [self updateView];
     }
+}
+-(IBAction)touchCancelButton:(id)sender
+{
+   [[self cancelButton]setEnabled:NO];
+    USTAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    if([[appDelegate fileUploadHandler]cancelUploadForPicture:[self picture]]){
+        NSManagedObjectContext *context=[[[self picture]managedObjectContext]retain];
+        NSFileManager*fm = [NSFileManager defaultManager];
+        NSError *error;
+        
+        if(![fm removeItemAtPath:[[self picture] getFullPath] error:&error]){
+                        NSLog(@"%@",[error description]);
+        }
+        error = nil;
+        
+        if(![fm removeItemAtPath:[[self picture] getThumbnailPath] error:&error]){
+                        NSLog(@"%@",[error description]);
+        }
+        [context deleteObject:[self picture]];
+        error = nil;
+        [context save:&error];
+        if(error){
+            NSLog(@"%@",[error description]);
+        }
+        [context release];
+        [self setPicture:nil];
+    };
+
 }
 
 @end

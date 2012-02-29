@@ -305,6 +305,9 @@
                                                     <state key="highlighted">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="touchCancelButton:" destination="sJ9-2Y-ist" eventType="touchUpInside" id="yUu-YX-yce"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.35000000000000003" colorSpace="calibratedWhite"/>
@@ -327,6 +330,7 @@
                                 </view>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
+                                    <outlet property="cancelButton" destination="SX5-LZ-gOU" id="iLC-fm-RYE"/>
                                     <outlet property="editButton" destination="5lU-89-3cy" id="7Q8-bV-aZu"/>
                                     <outlet property="photoView" destination="zFB-c2-AkP" id="XWY-8Y-TJS"/>
                                     <outlet property="progressOverlayView" destination="uXh-ne-Hp3" id="ka5-wn-bQQ"/>
@@ -669,6 +673,8 @@
         <class className="PhotoStreamCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoStreamCell.h"/>
             <relationships>
+                <relationship kind="action" name="touchCancelButton:"/>
+                <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="editButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="errorOverlayView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="photoView" candidateClass="UIImageView"/>

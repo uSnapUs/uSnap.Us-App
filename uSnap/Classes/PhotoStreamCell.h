@@ -12,6 +12,7 @@
 @interface PhotoStreamCell : UITableViewCell
 @property(retain, nonatomic) IBOutlet UIImageView *photoView;
 @property(retain,nonatomic) IBOutlet UIButton *editButton;
+@property(retain,nonatomic) IBOutlet UIButton *cancelButton;
 @property(retain,atomic) Picture *picture;
 @property(retain,nonatomic) IBOutlet UIProgressView *progressView;
 @property(retain,nonatomic) IBOutlet UIView *errorOverlayView;
@@ -24,4 +25,5 @@
 -(void)finishedPictureUpload:(NSNotification*)notification;
 -(void)retryUpload;
 -(void)configureWithPicture:(Picture *)newPicture;
+-(IBAction)touchCancelButton:(id)sender;
 @end
