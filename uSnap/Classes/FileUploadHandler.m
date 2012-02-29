@@ -16,7 +16,7 @@
 -(id)init{
     self = [super init];
     if(self){
-        [self setProgressViews:[[NSMutableDictionary alloc]init ]];
+        [self setProgressViews:[[[NSMutableDictionary alloc]init ]autorelease]];
     }
     return self;
 }

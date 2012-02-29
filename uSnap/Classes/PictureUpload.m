@@ -35,6 +35,7 @@
                                        @"picture"
                                        ,@"PictureId"
                                        , nil]]];
+    [formRequest setTimeOutSeconds:120];
     [formRequest setShouldStreamPostDataFromDisk:YES];
     [formRequest setAllowCompressedResponse:YES];
     [formRequest setCompletionBlock:^{
@@ -50,11 +51,12 @@
         [notificationCenter postNotificationName:uSnapPictureUploadFinishedSuccess object:[[formRequest userInfo]objectForKey:@"PictureId"]];
     }];
     [formRequest setFailedBlock:^{
-        USTAppDelegate* appDelegate = [[UIApplication sharedApplication]delegate];
+        
         
         [[[formRequest userInfo]objectForKey:@"picture"] setError:[NSNumber numberWithBool:YES]];
+        NSLog(@"%@",[[formRequest error]description]);
         NSError *error;
-        [[appDelegate managedObjectContext]save:&error];
+        [[picture managedObjectContext]save:&error];
         if(error){
             NSLog(@"Save error produced error %@",[error description]);
         }
