@@ -40,32 +40,35 @@
     [formRequest setAllowCompressedResponse:YES];
     [formRequest setCompletionBlock:^{
         [TestFlight passCheckpoint:@"uploaded a picture"];
-        Picture *picture = [[[formRequest userInfo]objectForKey:@"picture"] retain];
-        [picture setUploaded:[NSNumber numberWithBool:YES]];
-        NSError *error;
-        [[picture managedObjectContext]save:&error];
-        NSFileManager *fm = [NSFileManager defaultManager];
-        [fm removeItemAtPath:[picture getFullPath] error:&error];
+        [[[formRequest userInfo]objectForKey:@"picture"] setUploaded:[NSNumber numberWithBool:YES]];
+         NSError *error;
+        [[[[formRequest userInfo]objectForKey:@"picture"] managedObjectContext]save:&error];
+   
 
-        if(error){
+        if(error!=nil){
             NSLog(@"Save produced error %@",[error description]);
+        }
+        else{
+            NSFileManager *fm = [NSFileManager defaultManager];
+            [fm removeItemAtPath:[picture getFullPath] error:&error];
         }
         NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
         [notificationCenter postNotificationName:uSnapPictureUploadFinishedSuccess object:[[formRequest userInfo]objectForKey:@"PictureId"]];
-        [picture release];
-    }];
+            }];
     [formRequest setFailedBlock:^{
         
-        
+
+
         [[[formRequest userInfo]objectForKey:@"picture"] setError:[NSNumber numberWithBool:YES]];
         NSLog(@"%@",[[formRequest error]description]);
         NSError *error;
-        [[picture managedObjectContext]save:&error];
+        [[[[formRequest userInfo]objectForKey:@"picture"] managedObjectContext]save:&error];
         if(error){
             NSLog(@"Save error produced error %@",[error description]);
         }
         NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
         [notificationCenter postNotificationName:uSnapPictureUploadFinishedSuccess object:[[formRequest userInfo]objectForKey:@"PictureId"] ];
+        [[[formRequest userInfo]objectForKey:@"picture"] release];
 
     }];
 
