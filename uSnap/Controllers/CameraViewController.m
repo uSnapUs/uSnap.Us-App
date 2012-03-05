@@ -125,6 +125,7 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
     [[UIApplication sharedApplication]setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     
           [self loadCurrentEvent];
+    [self addPreviewLayer];
   /*   
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HideSplash"];
         [[NSUserDefaults standardUserDefaults] synchronize];
@@ -217,7 +218,11 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
     CALayer *rootLayer = [[self CameraPreviewView]layer];
     [rootLayer setMasksToBounds:YES];
     [[self videoPreviewLayer]setFrame:[rootLayer frame]];
+    if(![[self videoPreviewLayer]superlayer]){
+    [[self videoPreviewLayer]removeFromSuperlayer];
+    }
     [rootLayer addSublayer:videoPreviewLayer];
+    
     [[self CameraPreviewView]bringSubviewToFront:[self CameraTopbarView]];
     
     [[self CameraPreviewView]bringSubviewToFront:[self LocationButton]];

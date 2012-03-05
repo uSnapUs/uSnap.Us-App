@@ -156,6 +156,7 @@ Event *_currentEvent;
     self = [super init];
     if(self!=nil){
         _isUpdating=YES;
+        [self setLastLocation:CLLocationCoordinate2DMake(37.3175,-122.041944)];
     }
     return self;
 }

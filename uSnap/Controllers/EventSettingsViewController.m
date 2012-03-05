@@ -72,6 +72,9 @@
         if(CLLocationCoordinate2DIsValid([[appDelegate locationHandler]lastLocation])){
             [[self Map]setCenterCoordinate:[[appDelegate locationHandler]lastLocation] zoomLevel:12 animated:YES];
         }
+        else{
+            [[self Map]setCenterCoordinate:CLLocationCoordinate2DMake(37.3175,-122.041944)];
+        }
     }
     else
     {
