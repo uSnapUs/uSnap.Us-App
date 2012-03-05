@@ -36,7 +36,7 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
 @synthesize CameraSwapButton;
 @synthesize BottomToolbar;
 @synthesize LocationButton;
-
+@synthesize orientation;
 #pragma mark properties
 @synthesize avCaptureSession;
 @synthesize frontCamera;
@@ -73,6 +73,7 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
 
 -(void)viewDidLoad{
     [super viewDidLoad];
+
     [[UIApplication sharedApplication]setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     [self configureButtons];
     UISwipeGestureRecognizer *gestureRecogniser = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipedFromRight)];
@@ -82,6 +83,9 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
     [self performSelectorInBackground:@selector(initCameraView) withObject:self];
       NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     [self eventUpdated];
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    [notificationCenter addObserver:self selector:@selector(deviceOrientationDidChange) name:UIDeviceOrientationDidChangeNotification object:nil];
+    orientation = AVCaptureVideoOrientationPortrait;
     [notificationCenter addObserver:self selector:@selector(eventUpdated) name:uSnapEventUpdatedNotification object:nil];
     UITapGestureRecognizer *tapRecogniser = [[UITapGestureRecognizer alloc]initWithTarget:self
                                                                                    action:@selector(autoFocusOnTap:)];
@@ -291,9 +295,27 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
 
     }
 }
-
+- (void)deviceOrientationDidChange
+{	
+	UIDeviceOrientation deviceOrientation = [[UIDevice currentDevice] orientation];
+    
+	if (deviceOrientation == UIDeviceOrientationPortrait)
+		orientation = AVCaptureVideoOrientationPortrait;
+	else if (deviceOrientation == UIDeviceOrientationPortraitUpsideDown)
+		orientation = AVCaptureVideoOrientationPortraitUpsideDown;
+	
+	// AVCapture and UIDevice have opposite meanings for landscape left and right (AVCapture orientation is the same as UIInterfaceOrientation)
+	else if (deviceOrientation == UIDeviceOrientationLandscapeLeft)
+		orientation = AVCaptureVideoOrientationLandscapeRight;
+	else if (deviceOrientation == UIDeviceOrientationLandscapeRight)
+		orientation = AVCaptureVideoOrientationLandscapeLeft;
+	
+	// Ignore device orientations for which there is no corresponding still image orientation (e.g. UIDeviceOrientationFaceUp)
+}
 - (IBAction)TakePicture:(id)sender {
     AVCaptureConnection *connection = [stillImageOutput connectionWithMediaType:AVMediaTypeVideo];
+    if ([connection isVideoOrientationSupported])
+        [connection setVideoOrientation:orientation];
     [[self stillImageOutput]captureStillImageAsynchronouslyFromConnection:connection completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
         if(error){
             return;

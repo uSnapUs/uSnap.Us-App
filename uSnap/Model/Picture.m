@@ -42,7 +42,7 @@
      UIImage *fullImage = [[UIImage alloc]initWithData:jpgRepresentation];
 
     UIImage *thumbnail = [fullImage thumbnailImage:300 transparentBorder:YES cornerRadius:0 interpolationQuality:kCGInterpolationHigh];
-    [UIImageJPEGRepresentation([[fullImage fixOrientation]resizedImageWithContentMode:UIViewContentModeScaleAspectFit bounds:CGSizeMake(3000, 1800) interpolationQuality:kCGInterpolationHigh], 1) writeToFile:[rootPath stringByAppendingPathExtension: @"JPG"] atomically:YES];
+    [UIImageJPEGRepresentation([fullImage resizedImageWithContentMode:UIViewContentModeScaleAspectFit bounds:CGSizeMake(3000, 1800) interpolationQuality:kCGInterpolationHigh], 1) writeToFile:[rootPath stringByAppendingPathExtension: @"JPG"] atomically:YES];
     [UIImageJPEGRepresentation(thumbnail,1) writeToFile:[[rootPath stringByAppendingString:@"_thumb"]stringByAppendingPathExtension:@"JPG"] atomically:YES];
     [self setResourceLocation:rootPath];
     [fullImage release];

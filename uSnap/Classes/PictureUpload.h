@@ -15,5 +15,6 @@
 {
     }
 +(ASIHTTPRequest*) getUploadRequestForPicture:(Picture*)picture;
-
++(void)setComplete:(id*)formRequest;
++(void)setFailed:(id*)formRequest;
 @end

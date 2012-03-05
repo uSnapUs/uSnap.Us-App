@@ -15,6 +15,7 @@
 @property(retain,atomic) AVCaptureSession *avCaptureSession;
 @property(retain,atomic) AVCaptureDevice *frontCamera;
 @property(retain,atomic) AVCaptureDevice *rearCamera;
+@property (nonatomic,assign) AVCaptureVideoOrientation orientation;
 @property(retain,atomic) AVCaptureDeviceInput *currentDeviceInput;
 @property(retain,atomic) AVCaptureStillImageOutput *stillImageOutput;
 @property(retain,atomic) AVCaptureVideoPreviewLayer *videoPreviewLayer;

@@ -39,40 +39,47 @@
     [formRequest setShouldStreamPostDataFromDisk:YES];
     [formRequest setAllowCompressedResponse:YES];
     [formRequest setCompletionBlock:^{
-        [TestFlight passCheckpoint:@"uploaded a picture"];
-        [[[formRequest userInfo]objectForKey:@"picture"] setUploaded:[NSNumber numberWithBool:YES]];
-         NSError *error;
-        [[[[formRequest userInfo]objectForKey:@"picture"] managedObjectContext]save:&error];
-   
-
-        if(error!=nil){
-            NSLog(@"Save produced error %@",[error description]);
-        }
-        else{
-            NSFileManager *fm = [NSFileManager defaultManager];
-            [fm removeItemAtPath:[picture getFullPath] error:&error];
-        }
-        NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
-        [notificationCenter postNotificationName:uSnapPictureUploadFinishedSuccess object:[[formRequest userInfo]objectForKey:@"PictureId"]];
+         [self performSelectorOnMainThread:@selector(setComplete:) withObject:formRequest waitUntilDone:NO];
+      
             }];
     [formRequest setFailedBlock:^{
         
-
-
-        [[[formRequest userInfo]objectForKey:@"picture"] setError:[NSNumber numberWithBool:YES]];
-        NSLog(@"%@",[[formRequest error]description]);
-        NSError *error;
-        [[[[formRequest userInfo]objectForKey:@"picture"] managedObjectContext]save:&error];
-        if(error){
-            NSLog(@"Save error produced error %@",[error description]);
-        }
-        NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
-        [notificationCenter postNotificationName:uSnapPictureUploadFinishedSuccess object:[[formRequest userInfo]objectForKey:@"PictureId"] ];
-        [[[formRequest userInfo]objectForKey:@"picture"] release];
+        [self performSelectorOnMainThread:@selector(setFailed:) withObject:formRequest waitUntilDone:NO];
 
     }];
 
     return formRequest;
 }
+     +(void)setFailed:(id*)r{
+         ASIHTTPRequest *formRequest = (ASIHTTPRequest*)r;
+         [[[formRequest userInfo]objectForKey:@"picture"] setError:[NSNumber numberWithBool:YES]];
+         NSLog(@"%@",[[formRequest error]description]);
+         NSError *error=nil;
+         [[[[formRequest userInfo]objectForKey:@"picture"] managedObjectContext]save:&error];
+         if(error){
+             NSLog(@"Save error produced error %@",[error description]);
+         }
+         NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+         [notificationCenter postNotificationName:uSnapPictureUploadFinishedSuccess object:[[formRequest userInfo]objectForKey:@"PictureId"] ];
+         [[[formRequest userInfo]objectForKey:@"picture"] release];
 
+     }
++(void)setComplete:(id*)r{
+        ASIHTTPRequest *formRequest = (ASIHTTPRequest*)r;
+    [TestFlight passCheckpoint:@"uploaded a picture"];
+    [[[formRequest userInfo]objectForKey:@"picture"] setUploaded:[NSNumber numberWithBool:YES]];
+    NSError *error=nil;
+    [[[[formRequest userInfo]objectForKey:@"picture"] managedObjectContext]save:&error];
+    
+    
+    if(error!=nil){
+        NSLog(@"Save produced error %@",[error description]);
+    }
+    else{
+        NSFileManager *fm = [NSFileManager defaultManager];
+        [fm removeItemAtPath:[[[formRequest userInfo]objectForKey:@"picture"] getFullPath] error:&error];
+    }
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    [notificationCenter postNotificationName:uSnapPictureUploadFinishedSuccess object:[[formRequest userInfo]objectForKey:@"PictureId"]];
+}
 @end
