@@ -63,8 +63,6 @@
          }
          NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
          [notificationCenter postNotificationName:uSnapPictureUploadFinishedSuccess object:[[formRequest userInfo]objectForKey:@"PictureId"] ];
-         [[[formRequest userInfo]objectForKey:@"picture"] release];
-
      }
 +(void)setComplete:(id*)r{
         ASIHTTPRequest *formRequest = (ASIHTTPRequest*)r;
