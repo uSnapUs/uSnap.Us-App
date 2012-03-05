@@ -11,6 +11,7 @@
 #import "USTAppDelegate.h"
 #import "constants.h"
 #import "TestFlight.h"
+#import "SBJson.h"
 @implementation PictureUpload
 +(ASIHTTPRequest*) getUploadRequestForPicture:(Picture*)picture{
     [picture setUploaded:[NSNumber numberWithBool:NO]];
@@ -67,12 +68,24 @@
      }
 +(void)setComplete:(id*)r{
         ASIHTTPRequest *formRequest = (ASIHTTPRequest*)r;
-    [TestFlight passCheckpoint:@"uploaded a picture"];
-    [[[formRequest userInfo]objectForKey:@"picture"] setUploaded:[NSNumber numberWithBool:YES]];
+    if([formRequest responseStatusCode]==201){
+        [TestFlight passCheckpoint:@"uploaded a picture"];
+        [[[formRequest userInfo]objectForKey:@"picture"] setUploaded:[NSNumber numberWithBool:YES]];
+        NSMutableDictionary *pictureServerData = [[formRequest responseString]JSONValue];
+        if([pictureServerData objectForKey:@"id"]){
+            NSNumber *sId = [pictureServerData objectForKey:@"id"];
+            [[[formRequest userInfo]objectForKey:@"picture"] setServerId:[sId stringValue]];
+
+        }
+    }
+    else{
+            [[[formRequest userInfo]objectForKey:@"picture"] setUploaded:[NSNumber numberWithBool:NO]];
+    }
     NSError *error=nil;
+
     [[[[formRequest userInfo]objectForKey:@"picture"] managedObjectContext]save:&error];
     
-    
+
     if(error!=nil){
         NSLog(@"Save produced error %@",[error description]);
     }
