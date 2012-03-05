@@ -23,6 +23,7 @@
     NSURL *postUrl = [NSURL URLWithString:photoUrl];
     __block ASIFormDataRequest *formRequest = [ASIFormDataRequest requestWithURL:postUrl];
     [formRequest setFile:[picture getFullPath] withFileName:@"photo.jpg" andContentType:@"image/jpeg" forKey:@"photo[photo]"];
+    [formRequest addRequestHeader:@"Authorization" value:[NSString stringWithFormat:@"Device token=%@",[[appDelegate registrationManager]deviceId]]];
     [formRequest addPostValue:[[appDelegate registrationManager]serverDeviceId]forKey:@"photo[device_id]"];
     [formRequest setUserInfo:[NSDictionary 
                               
