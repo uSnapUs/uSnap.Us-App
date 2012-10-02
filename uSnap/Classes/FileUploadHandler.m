@@ -10,6 +10,8 @@
 #import "PictureUpload.h"
 #import "constants.h"
 #import "ASIHTTPRequest.h"
+#import "Event.h"
+#import "USTAppDelegate.h"
 @implementation FileUploadHandler
 @synthesize queue;
 @synthesize progressViews;
@@ -90,5 +92,15 @@
         return YES;
     }
     return NO;
+}
+-(bool)deletePhotoFromServer:(Picture*)picture{
+    NSString *deleteUrlString = [NSString stringWithFormat:@"http://usnap.us/events/%@/photos/%@.json",[((Event*)[picture event]) serverId],[picture serverId]];
+    ASIHTTPRequest *deleteRequest = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:deleteUrlString]];
+    [deleteRequest setRequestMethod:@"DELETE"];
+    USTAppDelegate *appDelegate =  [[UIApplication sharedApplication]delegate];
+
+       [deleteRequest addRequestHeader:@"Authorization" value:[NSString stringWithFormat:@"Device token=%@",[[appDelegate registrationManager]deviceId]]];
+    [deleteRequest startSynchronous];
+    return [deleteRequest responseStatusCode]==200;
 }
 @end

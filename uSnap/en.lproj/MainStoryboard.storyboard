@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11D50b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="h2l-DD-H9V">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="h2l-DD-H9V">
     <dependencies>
+        <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1179"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
         <scene sceneID="dIz-0v-ZpY">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UoD-A9-CFX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -22,6 +24,7 @@
             </objects>
             <point key="canvasLocation" x="-46" y="-584"/>
         </scene>
+        <!--Splash View Controller-->
         <scene sceneID="ebA-0D-9f6">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3vW-X9-PoI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -87,6 +90,7 @@
             </objects>
             <point key="canvasLocation" x="1216" y="1015"/>
         </scene>
+        <!--Camera View Controller-->
         <scene sceneID="djv-oX-a3n">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KpN-8t-xYH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -235,6 +239,7 @@
             </objects>
             <point key="canvasLocation" x="720" y="355"/>
         </scene>
+        <!--Timeline View Controller-->
         <scene sceneID="pN9-T9-q2g">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HoH-fk-RUL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -324,6 +329,9 @@
                                             <state key="highlighted">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="touchDeleteButton:" destination="sJ9-2Y-ist" eventType="touchUpInside" id="H9p-Y7-veO"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -397,6 +405,7 @@
             </objects>
             <point key="canvasLocation" x="207" y="90"/>
         </scene>
+        <!--Event Settings View Controller-->
         <scene sceneID="VYK-C5-wIz">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T6J-Hi-cej" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -471,6 +480,7 @@
             </objects>
             <point key="canvasLocation" x="412" y="-584"/>
         </scene>
+        <!--Add Code View Controller-->
         <scene sceneID="o2x-mX-Bqo">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1gN-pp-Jzx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -541,6 +551,7 @@
             </objects>
             <point key="canvasLocation" x="1058" y="-1031"/>
         </scene>
+        <!--Your Details View Controller - Your details-->
         <scene sceneID="Fv7-mu-10A">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gIi-i2-7hI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -674,6 +685,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoStreamCell.h"/>
             <relationships>
                 <relationship kind="action" name="touchCancelButton:"/>
+                <relationship kind="action" name="touchDeleteButton:"/>
                 <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="editButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="errorOverlayView" candidateClass="UIView"/>

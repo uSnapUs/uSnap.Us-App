@@ -18,6 +18,7 @@
 @property(retain,nonatomic) IBOutlet UIView *errorOverlayView;
 @property(retain,nonatomic) IBOutlet UIView *progressOverlayView;
 @property(retain,nonatomic) CALayer *leftBorder;
+@property(retain,nonatomic) UIButton *deleteButton;
 -(void)updateView;
 -(void)showErrorOverlay;
 -(void)showProgressView;
@@ -26,4 +27,5 @@
 -(void)retryUpload;
 -(void)configureWithPicture:(Picture *)newPicture;
 -(IBAction)touchCancelButton:(id)sender;
+-(IBAction)touchDeleteButton:(id)sender;
 @end

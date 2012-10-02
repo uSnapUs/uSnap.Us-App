@@ -171,6 +171,7 @@ static NSString *LocStr(NSString *const key) {
 
 - (void) dealloc {
     [formatter release];
+    [super dealloc];
 }
 
 - (NSString *) stringForObjectValue:(NSDateComponents *)components {

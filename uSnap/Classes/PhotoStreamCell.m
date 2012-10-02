@@ -13,6 +13,7 @@
 @implementation PhotoStreamCell
 @synthesize photoView;
 @synthesize editButton;
+@synthesize deleteButton;
 @synthesize progressView;
 @synthesize progressOverlayView;
 @synthesize errorOverlayView;
@@ -68,6 +69,9 @@
             }
             else if(![[[self picture]uploaded]boolValue]){
                 [self showProgressView];
+            }
+            else{
+                [[self editButton]setHidden:NO];
             }
         }
 
@@ -173,5 +177,31 @@
     };
 
 }
+-(IBAction)touchDeleteButton:(id)sender{
+    [[self cancelButton]setEnabled:NO];
+    USTAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    if([[appDelegate fileUploadHandler]deletePhotoFromServer:[self picture]]){
+        NSManagedObjectContext *context=[[[self picture]managedObjectContext]retain];
+        NSFileManager*fm = [NSFileManager defaultManager];
+        NSError *error;
+        
+        if(![fm removeItemAtPath:[[self picture] getFullPath] error:&error]){
+            NSLog(@"%@",[error description]);
+        }
+        error = nil;
+        
+        if(![fm removeItemAtPath:[[self picture] getThumbnailPath] error:&error]){
+            NSLog(@"%@",[error description]);
+        }
+        [context deleteObject:[self picture]];
+        error = nil;
+        [context save:&error];
+        if(error){
+            NSLog(@"%@",[error description]);
+        }
+        [context release];
+        [self setPicture:nil];
+    };
 
+}
 @end

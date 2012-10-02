@@ -18,4 +18,5 @@
 -(void)deregisterUploadProgress:(UIProgressView*) progressView;
 -(ASIHTTPRequest*)getUploadForPicture:(Picture*)picture;
 -(bool)cancelUploadForPicture:(Picture*)picture;
+-(bool)deletePhotoFromServer:(Picture*)picture;
 @end
