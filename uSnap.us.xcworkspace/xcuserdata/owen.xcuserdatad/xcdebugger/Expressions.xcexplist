@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[EventSettingsViewController updateMapToEvent]:EventSettingsViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[[appDelegate locationHandler]lastLocation]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[Event friendlyDateString]:Event.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[self eventStart]">
+            </PersistentString>
+            <PersistentString
+               value = "[[self eventKey]compare:VoidEventKey]">
+            </PersistentString>
+            <PersistentString
+               value = "[[self eventKey]compare:VoidEventKey]!=NSOrderedSame">
+            </PersistentString>
+            <PersistentString
+               value = "[self eventKey]">
+            </PersistentString>
+            <PersistentString
+               value = "self==nil">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[TimelineViewController viewDidLoad]:TimelineViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[[appDelegate locationHandler]currentEvent]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[PhotoStreamCell finishedPictureUpload:]:PhotoStreamCell.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[[[self picture]objectID]URIRepresentation]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[UIImage(Resize) resizedImage:interpolationQuality:]:UIImage+Resize.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.imageOrientation">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
